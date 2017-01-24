@@ -1,0 +1,608 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
+\f3\fmodern\fcharset0 Courier-Bold;\f4\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red255\green0\blue255;}
+\margl1440\margr1440\vieww24740\viewh13060\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0  \
+https://www.rstudio.com\
+\
+Install R first.\
+https://cran.rstudio.com\
+R-3.3.2.pkg - R-3.3.2.pkg\
+XQuartz ?\
+\
+Next RStudio\
+RStudio-1.0.136.dmg\
+\
+Top Right - Environment or workspace tab \
+\
+Save an R Script - Top left - R Scripts /files\
+Review the log of commands entered - Top right - Environment / History (workspace)\
+Read help documentation - Bottom Right - Files / Plots / Packages / Help\
+Clear the workspace - Bottom left - Console control l - lower case L\
+Clear the workspace - Top right - Environment / History (broom handle) (workspace)\
+Run commands from file - Top left - R Scripts /files\
+Look at a plot - Bottom Right - Files / Plots / Packages / Help\
+See list of objects in memory - Top right - Environment / History (workspace)\
+Read the results from functions or calculations - Bottom left - Console\
+\
+Highlight code in editor, top left, then command enter \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+install.packages("swirl")
+\f2  \
+
+\f1 library(swirl)
+\f2  \
+
+\f1 swirl()\
+\
+\
+Selection: 1\
+\
+| You can exit swirl and return to the R prompt (>) at any time by pressing the Esc key.\
+| If you are already at the prompt, type bye() to exit and save your progress. When you\
+| exit properly, you'll see a short message letting you know you've done so.\
+\
+| When you are at the R prompt (>):\
+| -- Typing skip() allows you to skip the current question.\
+| -- Typing play() lets you experiment with R on your own; swirl will ignore what you\
+| do...\
+| -- UNTIL you type nxt() which will regain swirl's attention.\
+| -- Typing bye() causes swirl to exit. Your progress will be saved.\
+| -- Typing main() returns you to swirl's main menu.\
+| -- Typing info() displays these options again.\
+\
+| Let's get started!\
+\
+ help.start()\
+\
+? before command, or data set, DataFrame\
+?c - help on - concatenate\
+?mtcars - get more information on DataFrame \
+z <- c(1.1, 9, 3.14)\
+udacious <- c("Chris Saden", "Lauren Castellano",\
+              "Sarah Spikes","Dean Eckles",\
+              "Andy Brown", "Moira Burke",\
+              "Kunal Chawla")\
+\
+\
+Using colon notation to create a R Studio vector of numbers (slice ...) \
+numbers <- c(1:10)\
+numbers\
+ [1]  1  2  3  4  5  6  7  8  9 10\
+\
+\
+creates mystery vector - number of characters in each element of the udacious vector\
+mystery = nchar(udacious)\
+\
+mystery == 11 iterates, loops through the mystery vector.  Returns boolean vector, True if string in \
+mystery vector contains 11 characters.\
+\
+reruns a vector, subset of the udacious vector. where number of characters == 11 is \cf2 True\cf0 \
+udacious[mystery == 11]\
+\
+data(mtcars) - mtcars data stored in a dataframe\
+names(mtcars) - DataFrame column headings - mpg, hp, ... 32 jobs - observations - number of rows \
+\
+dim(mtcars) - 32 rows, by 11 columns \
+\
+str(mtcars) - structure, variable names, type of each variable, \
+\
+row.names(mtcars) <- c(1:32) - replace hammer destroy row names with integers, numbers \
+\
+commands used\
+ c, nchar, data, str, dim, names, row.names, head, and tail, summary\
+\
+get column of DataFrame\
+mtcars$gear\
+ [1] 4 4 4 3 3 3 3 4 4 4 4 3 3 3 3 3 3 4 4 4 3 3 3 3 3 4 5 5 5 5 5 4\
+mtcars$wt\
+\
+\
+head(mtcars, 10) get the top of, first few lines \
+tail(mtcars, 3)\
+c - column names, column headings\
+\
+$ dollar sign access column name values \
+r studio get the mean\
+> mean(mtcars$mpg)\
+[1] 20.09062\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 c (xm, mean(x, trim = 0.10)) - drop the top and bottom 10% \
+\
+setwd()\
+getwd() - working directory \
+\
+read in a file, cvs file  \
+statesInfo <- read.csv('stateData.csv')\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf3 \kerning1\expnd0\expndtw0 \
+get some of the data specify column heading, value example - state.region == 1, state.region IS THE column heading\
+\cf2 subset(statesInfo, state.region == 1) *** one way ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 subset(statesInfo, illiteracy == 0.5)\
+subset(mtcars, mpg > 30 & hp > 100) *** 2 criteria ***\
+subset(mtcars, mpg < 14 | disp > 390) *** 2 criteria ***\
+subset(mtcars, qsec < 16.9 | qsec == 16.9) *** 2 criteria ***\
+subset(mtcars, qsec <= 16.9) *** less than equal to ***\
+subset(mtcars, mpg >= 30 | hp < 60) *** multiple criteria\cf2  one way \cf0 ***\
+mtcars$year <- 1974 *** add a column ***\
+mtcars <- subset(mtcars, select = -year) *** drop a column ***\
+mtcars$year <- c(1973, 1974) *** every other row ***\
+cond <- mtcars$wt < 3 *** create a boolean TRUE  TRUE  TRUE FALSE FALSE, create cond object ***\
+mtcars$weight_class <- ifelse(cond, 'light', 'average') *** added and conditionally  populated new column ***\
+cond <- mtcars$wt > 3.5 *** new condition *** \
+mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class) *** use the new condition, add heavy to new column**\
+rm(cond) *** clean up ***\
+rm(efficient)  *** clean up ***\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+get some of the data, [ROW, COLUMN] bracket syntax \
+statesInfo[statesInfo$state.region ==1,] bracket syntax \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 work with subset of data\
+*** \cf2 bracket notation\cf0  ***\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf2 *** stateSubsetBracket <- statesInfo[statesInfo$state.region ==1,] another way same result ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 stateSubsetBracket <- statesInfo[statesInfo$illiteracy == 0.5,]\
+new.data <- mtcars[(mtcars$hp < 60 | mtcars$mpg >= 30),] *** multiple criteria \cf2 different way\cf0  *** \
+stateSubsetBracket\
+head(stateSubsetBracket)\
+dim(stateSubsetBracket)\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+getting help \
+?mean\
+statmethods.net Quick-R \cf2 ***\cf0 \
+\
+\
+\
+\
+\
+car - character\
+eda exploratory data analysis \
+R.version\
+RMD file R Markdown document - author web pages \
+vector - A vector is one of the data types in R. Vectors must contain\
+	the same type of data, that is the entries must all be of the\
+	same type: character, logical (TRUE or FALSE), or numeric.\
+\
+\
+control l - clears the console \
+\
+\
+Example - working R code\
+\
+reddit <- read.csv('reddit.csv')\
+\
+getwd()\
+setwd('/Users/Menfi/Documents/gitBaseDirectory/RProgrammingLanguage')\
+\
+\
+Example - Working code - cvs file, Factor variables\
+reddit <- read.csv('reddit.csv')\
+levels(reddit$age.range)\
+summary(reddit)\
+table(reddit$employment.status)\
+\
+Example - Working code - ggplot2, qplot\
+install.packages('ggplot2', dependencies = T)\
+library(ggplot2) \
+qplot(data=reddit, x = age.range)\
+qplot(data=reddit, x = income.range) - another working example \
+\
+Example1of4 - Working code - ggplot2, qplot *** order, reorder x axis labels ***, use ordered function\
+reddit <- read.csv('reddit.csv')\
+str(reddit)\
+library(ggplot2) 									*** \cf2 strings MUST MATCH\cf0  ***\
+reddit$age.range <- ordered(reddit$age.range, levels = c('Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65 or Above', 'NA'))\
+qplot(data=reddit, x = age.range)\
+\
+Example2of4 - Working code - ggplot2, qplot *** order, reorder x axis labels *** , use ordered function\
+reddit <- read.csv('reddit.csv')\
+str(reddit)\
+library(ggplot2) 									# *** strings MUST MATCH ***\
+reddit$income.range <- ordered(reddit$income.range, levels = c('Under $20,000', '$20,000 - $29,999', '$30,000 - $39,999', '$40,000 - $49,999', '$50,000 - $69,999', '$70,000 - $99,999', '$100,000 - $149,999', '$150,000 or more'))\
+qplot(data=reddit, x = income.range)\
+\
+Example3of4 - Working code - ggplot2, qplot *** order, reorder x axis labels ***, use factor function\
+reddit <- read.csv('reddit.csv')\
+str(reddit)\
+library(ggplot2) 									# *** \cf2 strings MUST MATCH\cf0  *** ordered = \cf2 T, F TRUE, FALSE UPPERCASE\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 reddit$age.range <- factor(reddit$age.range, levels = c('Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65 or Above', 'NA'), ordered = T)\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+qplot(data=reddit, x = age.range)\
+\
+Example4of4  - Working code - ggplot2, qplot *** order, reorder x axis labels ***, use factor function\
+reddit <- read.csv('reddit.csv')\
+str(reddit)\
+library(ggplot2) 									\
+reddit$income.range <- factor(reddit$income.range, levels = c('Under $20,000', '$20,000 - $29,999', '$30,000 - $39,999', '$40,000 - $49,999', '$50,000 - $69,999', '$70,000 - $99,999', '$100,000 - $149,999', '$150,000 or more'), ordered = T)\
+qplot(data=reddit, x = income.range)\
+\
+\
+ \
+\
+\
+\
+\
+\
+Definitions\
+Ordered Factor - 
+\f3\b Highest to Lowest, Lowest to Highest
+\f1\b0  \
+	$ age.range        : Factor w/ 7 levels "18-24","25-34",..: 2 2 1 2 2 2 2 1 3 2 ...\
+	$ income.range     : Factor w/ 8 levels "$100,000 - $149,999",..: 2 2 8 2 7 2 NA 7 2 7 ...\
+	Military Service, Children - Binary - not ordered factor column \
+\
+\
+\
+\
+\
+\
+\
+reddit <- read.csv('reddit.csv')\
+str(reddit)\
+dim(reddit)\
+head(reddit)\
+table(reddit$employment.status)\
+summary(reddit)\
+levels(reddit$age.range)\
+library(ggplot2)\
+qplot(data=reddit, x = age.range)\
+qplot()\
+install.packages('ggplot2', dependencies = T)\
+library(ggplot2) \
+qplot(data=reddit, x = income.range)\
+reddit$age.range <- factor(reddit$age.range)\
+qplot(data=reddit, x = income.range)\
+reddit$age.range <- factor(reddit$age.range)\
+qplot(data=reddit, x = age.range)\
+reddit$income.age <- factor(reddit$income.age)\
+qplot(data=reddit, x = income.range)\
+\
+\
+\
+levels(reddit$age.range)\
+reddit$age.range <- ordered(reddit$age.range, levels = c('under 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65 or Above'))\
+qplot(data=reddit, x = age.range)\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\fs28 \cf0 ***\
+*** Data Analysis with R	 \
+*** 24 January 2017\
+***\
+\
+***\
+*** help\
+***\
+Quick-R statmethods.net
+\fs24 \
+\
+\
+***\
+*** Terms\
+***\
+EDA - Exploratory Data Analysis\
+Time Series Analysis - is the TV larger, smaller, same size as the previous year \
+\
+\
+***\
+*** Random Notes\
+***\
+D3.js - JavaScript Visualization Framework, library - interactive visualization \
+MT cars data set comes with R Studio \
+                            \
+\
+***\
+*** Code snippet from lecture slides\
+***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \ul \ulc0 Copied from udacity class\ulnone \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 install.packages('ggplot2')\
+library(ggplot2)\
+\
+install.packages('RColorBrewer')\
+library(RColorBrewer)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul Instructor notes\ulnone \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 To install ggplot2 and RColorBrewer, you can run the following lines of code in RStudio.\
+install.packages('ggplot2', dependencies = TRUE)\
+library(ggplot2)\
+install.packages('RColorBrewer', dependencies = TRUE)\
+library(RColorBrewer) \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+# create scatterplot of price vs carat color coded by diamond cuts\
+qplot(data = diamonds, x = carat, y = price, color = cut) + scale_color_brewer(palette = 'Accent')\
+\
+\
+***\
+*** Working commands\
+***\
+\
+*** see demystifying.R ***\
+\
+c, data, dim, head, mean, names, nchar, row.names, str, tail, View(reddit)\
+\
+c - 
+\f4\fs26 \expnd0\expndtw0\kerning0
+This is a generic function which combines its arguments.\
+\
+class(statesInfo) - [1] "data.frame", type \
+\
+data(mtcars) - load, mtcars now in Global Environment - Top Right, also reload from disc get rid of interactive changes \
+\
+dim - number of rows, number of columns\
+\
+Equality Check - mystery == 11 - returns a vector made up of boolean, if number of characters in the mystery vector element == 11 -> TRUE *** R note all UPPERCASE *** \
+\
+getwd()\
+\
+head(mtcars, 10)\
+ \
+> str(reddit)\
+'data.frame':	32754 obs. of  14 variables:\
+	$ gender           : int  0 0 1 0 1 0 0 0 0 0 ...\
+	$ age.range        : \cf2 Factor\cf0  w/ 7 levels "18-24","25-34",..: 2 2 1 2 2 2 2 1 3 2 ... \cf2 *** seven, 7 levels of age.range column, Orderd Factor ***\cf0 \
+  	$ cheese           : Factor w/ 11 levels "American","Brie",..: NA NA NA NA NA 3 3 1 10 7 ...\
+> \cf2 levels\cf0 (reddit$age.range) \cf2 ***  seven, 7 levels Ordered Factor ***, *** strings needed ***\cf0 \
+[1] "18-24"       "25-34"       "35-44"       "45-54"       "55-64"       "65 or Above" "Under 18"   \
+\
+names(mtcars) - *** Get the column headings, names ***\
+ [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear" "carb"\
+\
+nchar(udacious) - returns the number of characters, of each string in the vector \
+\
+mean(mtcars$mpg)\
+	mean (x, trim = 0.10)\
+	trim - the fraction (0 to 0.5) of observations to be trimmed from each end of x before the mean is computed.\
+\
+nrow(x) number of rows in data.frame DataFrame\
+\
+plot(cars)\
+\
+# - (pound, hash) comments \
+\
+statesInfo <- read.csv('stateData.csv') *** read  Worked ***\
+\
+row.names(mtcars) - get the vector row names\
+row.names(statesInfo) \
+\
+setwd('')\
+\
+summary(mtcars)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul subset data.frame\ulnone \
+subset of vector - boolean based udacious[mystery == 11], return vector of elements where characters ==11, [mystery == 11] - selection criteria \
+subset(statesInfo, state.region ==1) - subset data.frame - column heading is the criteria for subset selection \
+efficient = subset(mtcars, mpg >= 23)\
+subset(mtcars, mpg > 30 & hp > 100) *** subset two, 2 criteria - boolean and *** \
+subset(mtcars, mpg < 14 | disp > 390) *** subset two, 2 criteria - boolean or ***\
+subset(mtcars, qsec <= 16.90) \
+subset(mtcars, wt > 2) \
+subset(mtcars, mpg >= 30 | hp < 60)*** subset two, 2 criteria - boolean or ***\
+\
+\
+\
+subset another method\
+statesInfo[statesInfo$state.region ==1, ]\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 mtcars[(mtcars$hp < 60 | mtcars$mpg >= 30),]\
+        ROW                               , COLUMN this case all columns \
+\
+summary(reddit)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 \expnd0\expndtw0\kerning0
+table(reddit$employment.status) *** table *** *** \cf2 counts within column heading\cf0  *** Factor variable - see str(reddit)
+\f0\fs22 \kerning1\expnd0\expndtw0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 \expnd0\expndtw0\kerning0
+View(reddit)\
+\
+\
+\
+\
+\
+tail(mtcars, 10)\
+\
+vector (
+\i dollar sign notation $) 
+\i0 \
+add then drop delete column (data.frame)\
+	mtcars$year <- 1974\
+	mtcars <- subset(mtcars, select = -year) *** note - ***\
+	mtcars$year <- c(1973, 1974), add column, every other row - 1973, 1974 ....\
+\
+add to a vector \
+	numbers <- c(1:10)\
+	numbers <- c(numbers, 11:20)\
+	numbers\
+change, edit vector row names\
+	row.names(mtcars) <- c(1:32)\
+\
+vector column \cf2 values (\cf0 access column, dollar sign\cf2 )\cf0 \
+	mtcars$mpg\
+	mtcars$wt - access get the wt\cf2  values\
+\
+\cf0 ***\
+*** if else, ifelse, cold programming\
+***\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul create the new cond, conditional, criteria object\ulnone  \
+cond <- mtcars$wt < 3 - *** condition or criteria *** - boolean logical \
+TRUE  TRUE  TRUE FALSE \
+\
+\ul use the new cond, conditional, criteria object\ulnone \
+create new data.frame column\
+mtcars$weight_class <- ifelse(cond, 'light', 'average') - light maps to TRUE, average maps to FALSE\
+\
+\ul create a new cond, conditional, criteria object\ulnone  \
+cond <- mtcars$wt > 3.5\
+\
+\ul use the new cond, conditional, criteria object\ulnone \
+mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class)\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\
+***\
+*** R Studio Integrated Development Environment - IDS\
+***\
+Customizations - Tools - Global Options\
+RStudio (top left) - Preferences \
+\
+Top Left -		R Scripts, Files\
+\
+Bottom Left -	R Console\
+	*** temporary *** command entry\
+	control - l (el), clear\
+\
+Top Right -	\
+	Environment, History, Workspace\
+	clear - broom icon\
+\
+Bottom Right\
+	Files, Plots, Packages, Help, Viewer \
+	'\cf2 zoom\cf0 ' expands graph\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\
+*** R Markdown\
+***\
+\
+# My Title outside of ''' *** Chunk ***\
+\
+Menu - Code - Insert Chunk\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+***\
+*** plotting\
+***\
+library(ggplot2)\
+qplot(data = reddit, x = age.range)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 *** works orders up the x axis labels ***, *** ordered Syntax ***, order x axis labels\cf0  \
+reddit$age.range <- \cf2 ordered\cf0 (reddit$age.range, levels = c( 'Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65 or Above')) \
+qplot(data = reddit, x = age.range)\
+\cf2 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 *** works orders up the x axis labels ***, *** ordered Syntax ***, order x axis labels\cf0  \
+reddit <- read.csv('/Users/Menfi/Documents/gitBaseDirectory/RProgrammingLanguage/reddit.csv')\
+reddit$income.range <- \cf2 ordered\cf0 (reddit$income.range, levels = c('Under $20,000', '$20,000 - $29,999', '$30,000 - $39,999', '$40,000 - $49,999', '$50,000 - $69,999', '$70,000 - $99,999', '$100,000 - $149,999', '$150,000 or more'))\
+qplot(data = reddit, x = income.range) \
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 *** first get the exact sting level labels ***, *** how to get the required strings ***\cf0 \
+levels(reddit$age.range)\
+[1] "Under 18"    "18-24"       "25-34"       "35-44"       "45-54"       "55-64"       "65 or Above"\
+\cf2 *** works orders up the x axis labels ***, *** Factor Syntax ***, order x axis labels\cf0 \
+reddit$age.range <- \cf2 factor\cf0 (reddit$age.range, levels = c( 'Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65 or Above'))\
+\pard\pardeftab720\partightenfactor0
+\cf0 qplot(data = reddit, x = age.range)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 *** works orders up the x axis labels ***, *** Factor Syntax ***, order x axis labels\
+*** first get the exact sting level labels ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 > levels(reddit$income.range)\
+[1] "Under $20,000"       "$20,000 - $29,999"   "$30,000 - $39,999"   "$40,000 - $49,999"   "$50,000 - $69,999"   "$70,000 - $99,999"   "$100,000 - $149,999"\
+[8] "$150,000 or more"   \
+\pard\pardeftab720\partightenfactor0
+\cf2 *** read in the disk file ***\cf0 \
+reddit <- read.csv('/Users/Menfi/Documents/gitBaseDirectory/RProgrammingLanguage/reddit.csv') \
+\cf2 *** re order or fix the variable within the data.frame ***\cf0 \
+reddit$income.range <- \cf2 factor\cf0 (reddit$income.range, levels = c('Under $20,000', '$20,000 - $29,999', '$30,000 - $39,999', '$40,000 - $49,999', '$50,000 - $69,999', '$70,000 - $99,999', '$100,000 - $149,999', '$150,000 or more'))\
+\cf2 *** plot ***\cf0 \
+qplot(data = reddit, x = income.range)\
+\
+\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+}
