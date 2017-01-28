@@ -728,8 +728,8 @@ summary(\cf2 log10\cf0 (pf$friend_count))\
    \cf2 -Inf\cf0    1.491   1.914    \cf2 -Inf\cf0    2.314   3.692  \
 \
 *** \cf2 add one - remove the friend count = zero\cf0  *** \
+summary(\cf2 log10\cf0 (pf$friend_count + 1))\
 \pard\pardeftab720\sl280\partightenfactor0
-\cf0 summary(\cf2 log10\cf0 (pf$friend_count + 1))\
 \cf2 Min.\cf0  1st Qu.  Median    \cf2 Mean\cf0  3rd Qu.    Max. \
 \cf2 0.000\cf0    1.505   1.919   \cf2 1.868\cf0    2.316   3.692 \
 \
@@ -748,20 +748,22 @@ p3 = qplot(data = pf, x = (friend_count + 1), binwidth = 1, xlab = 'Facebook Fri
 \
 grid.arrange(p1, p2, p3)\
 *****************\
-*** \cf2 Instructor solution *** note 
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf2 Instructor solution *** note 
 \f3\b ggplot aes 
-\f1\b0 (aesthetic) syntax\cf0 ***\
-```\{r\}\
+\f1\b0 (aesthetic) syntax \cf0 ***\
+*** \cf2 Instructor solution *** multiple plots, Data Transformation, Data Normalization \cf0 ***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 ```\{r\}\
 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
 p1 <- ggplot(data = pf, aes(x = friend_count), binwidth = 1) + geom_histogram()\
-p2 <- p1 + scale_x_log10()\
-p3 <- p1 + scale_x_sqrt()\
+p2 <- p1 + scale_x_log10()	*** \cf2 Rescale, Transform, Normalize Data\cf0  ***\
+p3 <- p1 + scale_x_sqrt()	*** \cf2 Rescale, Transform, Normalize Data\cf0  ***\
 grid.arrange(p1, p2, p3)\
 ```\
 \
 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 \
+\
 \
 \
 \
