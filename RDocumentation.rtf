@@ -1,8 +1,9 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
-\f3\fmodern\fcharset0 Courier-Bold;\f4\fswiss\fcharset0 Helvetica;}
+\f3\fmodern\fcharset0 Courier-Bold;\f4\fswiss\fcharset0 Helvetica;\f5\fnil\fcharset0 LucidaGrande;
+}
 {\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red255\green0\blue255;}
-\margl1440\margr1440\vieww24740\viewh13060\viewkind0
+\margl1440\margr1440\vieww36900\viewh13060\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
@@ -115,7 +116,7 @@ r studio get the mean\
 [1] 20.09062\
 \
 \pard\pardeftab720\partightenfactor0
-\cf0 c (xm, mean(x, trim = 0.10)) - drop the top and bottom 10% \
+\cf0 c (xm, mean(x, trim = 0.10)) - drop the top and bottom 10%, percent\
 \
 setwd()\
 getwd() - working directory \
@@ -360,7 +361,15 @@ qplot(data = diamonds, x = carat, y = price, color = cut) + scale_color_brewer(p
 *** Working commands\
 ***\
 \
-*** see demystifying.R ***\
+by - \cf2 data\cf0 ,          \cf2 INDICES\cf0 ,   \cf2 FUN\cf0  - \cf2 data.frame statistical output\cf0 \
+by(pf$friend_count, pf$gender, summary)\
+pf$gender: female\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+      0      37      96     242     244    4923 \
+------------------------------------------------------------------------------------------------------------------ \
+pf$gender: male\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+      0      27      74     165     182    4917 \
 \
 c, data, dim, head, mean, names, nchar, row.names, str, tail, View(reddit)\
 \
@@ -372,14 +381,20 @@ class(statesInfo) - [1] "data.frame", type \
 \
 data(mtcars) - load, mtcars now in Global Environment - Top Right, also reload from disc get rid of interactive changes \
 \
+data.frame, DataFrame - column access example, dollar sign syntax - pf\cf2 $\cf0 dob_month, class(myDataFrame) - "data.frame", myDataFrame$dob_day\
+\
 dim - number of rows, number of columns\
 \
 Equality Check - mystery == 11 - returns a vector made up of boolean, if number of characters in the mystery vector element == 11 -> TRUE *** R note all UPPERCASE *** \
+\
+Factor - class(pf) - "data.frame" - class(pf$gender) - "factor" - column heading, attribute of a data.frame\
 \
 getwd()\
 \
 head(mtcars, 10)\
  \
+\pard\pardeftab720\partightenfactor0
+\cf2 levels\cf0 \
 > str(reddit)\
 'data.frame':	32754 obs. of  14 variables:\
 	$ gender           : int  0 0 1 0 1 0 0 0 0 0 ...\
@@ -388,13 +403,15 @@ head(mtcars, 10)\
 > \cf2 levels\cf0 (reddit$age.range) \cf2 ***  seven, 7 levels Ordered Factor ***, *** strings needed ***\cf0 \
 [1] "18-24"       "25-34"       "35-44"       "45-54"       "55-64"       "65 or Above" "Under 18"   \
 \
+list.files(), see getwd(), setwd()\
+\
 names(mtcars) - *** Get the column headings, names ***\
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear" "carb"\
 \
 nchar(udacious) - returns the number of characters, of each string in the vector \
 \
 mean(mtcars$mpg)\
-	mean (x, trim = 0.10)\
+	mean (x, trim = 0.10) %, percent\
 	trim - the fraction (0 to 0.5) of observations to be trimmed from each end of x before the mean is computed.\
 \
 nrow(x) number of rows in data.frame DataFrame\
@@ -403,8 +420,16 @@ plot(cars)\
 \
 # - (pound, hash) comments \
 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul read.\ulnone \
 statesInfo <- read.csv('stateData.csv') *** read  Worked ***\
+pf <- read.csv('pseudo_facebook.tsv', sep = '\\t') *** tab delimited, not comma delimited, - \cf2 sep = '\\t'\
+\pard\pardeftab720\partightenfactor0
+\cf0 xx <- read.delim('pseudo_facebook.tsv') - \cf2 worked on tsp, tab delimited\cf0  \cf2 \
+\cf0 \
 \
+\
+rm(x) - remove, rm \
 row.names(mtcars) - get the vector row names\
 row.names(statesInfo) \
 \
@@ -423,8 +448,6 @@ subset(mtcars, qsec <= 16.90) \
 subset(mtcars, wt > 2) \
 subset(mtcars, mpg >= 30 | hp < 60)*** subset two, 2 criteria - boolean or ***\
 \
-\
-\
 subset another method\
 statesInfo[statesInfo$state.region ==1, ]\
 \pard\pardeftab720\partightenfactor0
@@ -433,23 +456,40 @@ statesInfo[statesInfo$state.region ==1, ]\
         ROW                               , COLUMN this case all columns \
 \
 summary(reddit)\
+summary(pf$age) - *** \cf2 useful for plots setting scale_x_continuous(breaks = seq(10, 
+\f3\b\fs24 \expnd0\expndtw0\kerning0
+65
+\f0\b0\fs22 \kerning1\expnd0\expndtw0 , 10)\cf0  ***\
+                            *** replace upper age 
+\f3\b\fs24 \cf2 \expnd0\expndtw0\kerning0
+65
+\f0\b0\fs22 \cf0 \kerning1\expnd0\expndtw0  limit with real upper age limit 
+\f3\b\fs24 \cf2 \expnd0\expndtw0\kerning0
+113.00
+\f0\b0\fs22 \kerning1\expnd0\expndtw0  \cf0 ***\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.							 \
+  13.00   20.00   28.00   37.28   50.00  \cf2 113.00\cf0  \
 \
 \pard\pardeftab720\partightenfactor0
 
 \f4\fs26 \cf0 \expnd0\expndtw0\kerning0
-table(reddit$employment.status) *** table *** *** \cf2 counts within column heading\cf0  *** Factor variable - see str(reddit)
+table(reddit$employment.status) *** table *** *** \cf2 counts within column heading\cf0  *** Factor variable - see str(reddit)\
+table(pf$\cf2 gender\cf0 ) - class(pf) - "\cf2 data.frame\cf0 " - class(pf$\cf2 gender\cf0 ) - "\cf2 factor\cf0 ", count of column heading, data.frame factor \
+	female   male \
+	40254  58574 \
+\
+tail(mtcars, 10)
 \f0\fs22 \kerning1\expnd0\expndtw0 \
 \
-\pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 \expnd0\expndtw0\kerning0
+\f4\fs26 \expnd0\expndtw0\kerning0
 View(reddit)\
 \
 \
 \
 \
 \
-tail(mtcars, 10)\
+\
 \
 vector (
 \i dollar sign notation $) 
@@ -487,20 +527,8 @@ mtcars$weight_class <- ifelse(cond, 'light', 'average') - light maps to TRUE, av
 cond <- mtcars$wt > 3.5\
 \
 \ul use the new cond, conditional, criteria object\ulnone \
-mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class)\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\pard\pardeftab720\partightenfactor0
-
-\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
-\
+mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class)
+\f0\fs22 \kerning1\expnd0\expndtw0 \
 \
 ***\
 *** R Studio Integrated Development Environment - IDS\
@@ -522,13 +550,22 @@ Bottom Right\
 	Files, Plots, Packages, Help, Viewer \
 	'\cf2 zoom\cf0 ' expands graph\
 \
+***\
+*** Studio Packages\
+***\
+installed.packages()															version	priority\
+ggplot2       "ggplot2"       "/Library/Frameworks/R.framework/Versions/3.3/Resources/library"	"2.2.1"	NA   \
+\
+library(ggplot2)\
+        \
 \
 \
 \
 \
 \
-\pard\pardeftab720\partightenfactor0
-\cf0 ***\
+\
+\
+***\
 *** R Markdown\
 ***\
 \
@@ -537,8 +574,7 @@ Bottom Right\
 Menu - Code - Insert Chunk\
 \
 \
-\pard\pardeftab720\partightenfactor0
-\cf0 \
+\
 ***\
 *** plotting\
 ***\
@@ -551,23 +587,18 @@ reddit$age.range <- \cf2 ordered\cf0 (reddit$age.range, levels = c( 'Under 18', 
 qplot(data = reddit, x = age.range)\
 \cf2 \
 \
-\pard\pardeftab720\partightenfactor0
-\cf2 *** works orders up the x axis labels ***, *** ordered Syntax ***, order x axis labels\cf0  \
+*** works orders up the x axis labels ***, *** ordered Syntax ***, order x axis labels\cf0  \
 reddit <- read.csv('/Users/Menfi/Documents/gitBaseDirectory/RProgrammingLanguage/reddit.csv')\
 reddit$income.range <- \cf2 ordered\cf0 (reddit$income.range, levels = c('Under $20,000', '$20,000 - $29,999', '$30,000 - $39,999', '$40,000 - $49,999', '$50,000 - $69,999', '$70,000 - $99,999', '$100,000 - $149,999', '$150,000 or more'))\
 qplot(data = reddit, x = income.range) \
-\pard\pardeftab720\partightenfactor0
 \cf2 \
-\pard\pardeftab720\partightenfactor0
-\cf2 *** first get the exact sting level labels ***, *** how to get the required strings ***\cf0 \
+*** first get the exact string level labels ***, *** how to get the required strings ***\cf0 \
 levels(reddit$age.range)\
 [1] "Under 18"    "18-24"       "25-34"       "35-44"       "45-54"       "55-64"       "65 or Above"\
 \cf2 *** works orders up the x axis labels ***, *** Factor Syntax ***, order x axis labels\cf0 \
 reddit$age.range <- \cf2 factor\cf0 (reddit$age.range, levels = c( 'Under 18', '18-24', '25-34', '35-44', '45-54', '55-64', '65 or Above'))\
-\pard\pardeftab720\partightenfactor0
-\cf0 qplot(data = reddit, x = age.range)\
+qplot(data = reddit, x = age.range)\
 \
-\pard\pardeftab720\partightenfactor0
 \cf2 *** works orders up the x axis labels ***, *** Factor Syntax ***, order x axis labels\
 *** first get the exact sting level labels ***\
 \pard\pardeftab720\partightenfactor0
@@ -581,6 +612,177 @@ reddit <- read.csv('/Users/Menfi/Documents/gitBaseDirectory/RProgrammingLanguage
 reddit$income.range <- \cf2 factor\cf0 (reddit$income.range, levels = c('Under $20,000', '$20,000 - $29,999', '$30,000 - $39,999', '$40,000 - $49,999', '$50,000 - $69,999', '$70,000 - $99,999', '$100,000 - $149,999', '$150,000 or more'))\
 \cf2 *** plot ***\cf0 \
 qplot(data = reddit, x = income.range)\
+\
+***\
+*** plotting 25 Jan 2017 *** \cf2 binwidth bin width how many x axis units wide\cf0  *** *** \cf2 summary() useful for upper end, (max), of seq setting\cf0  ***\
+***\
+install.packages('ggplot2')\
+library(ggplot2)\
+qplot(x = dob_day, data = pf) # makes a histogram\
+\
+worked *** \cf2 note plus, + sign \cf0 ***\
+qplot(x = dob_day, data = pf) \cf2 +\cf0  scale_x_continuous(breaks = 1 : 31) *** \cf2 worked x axis right labels, 1 - 31, days of month\cf0  ***\
+\
+*** 
+\f1\fs24 \cf2 \expnd0\expndtw0\kerning0
+yes aesthetic 
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 ***\
+worked *** \cf2 cleaned things up binwidth important\cf0  ***\
+ggplot(aes(x = dob_day), data = pf) + geom_histogram(binwidth = 0.5) + scale_x_continuous(breaks = 1:31) *** \cf2 one histogram for each day, day 1 too high to be accurate\cf0  ***\
+																			*** \cf2 1 histogram per month\cf0  ***\
+ggplot(aes(x = dob_day), data = pf) + geom_histogram(binwidth = 0.5) + scale_x_continuous(breaks = 1:31) + facet_wrap(~dob_month) *** \cf2 now 12 histograms one for each month\cf0  ***\
+\
+*** \cf2 3 columns, 4 histograms each, = 12 histograms, 1 for each month\cf0  ***\
+ggplot(aes(x = dob_day), data = pf) + geom_histogram(binwidth = 0.5) + scale_x_continuous(breaks = 1:31) + facet_wrap(~dob_month, ncol = 3)\
+\
+******\
+*** \cf2 works but x axis bunched up on right\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+ggplot(aes(x = friend_count), data = pf) +  geom_histogram(binwidth = 0.3)\
+\
+*** \cf2 my way to stretch out the x axis, remove outliers\cf0  ***\
+ggplot(aes(x = friend_count), data = pf) +  geom_histogram(binwidth = 0.3) + coord_cartesian(xlim=c(0, 100))\
+\
+*** \cf2 my way to stretch out the x axis, remove outliers\cf0  ***\
+qplot(x = friend_count, data = pf) +  xlim(c(0, 10))\
+qplot(x = friend_count, data = pf) +  scale_x_continuous(limits = c(0, 1000)) *** \cf2 instructors way\cf0  ***\
+\
+*** \cf2 more changes from instructor\cf0  ***										*** \cf2 zero to one thousand, step by 50 units, x axis increments by 50\cf0  ***\
+qplot(x = friend_count, data = pf, binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(\cf2 0, 1000, 50\cf0 ))\
+\
+\
+*** \cf2 split out by gender, get unexpected third NA histogram\cf0  ***\
+qplot(x = friend_count, data = pf, binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + \cf2 facet_wrap(~gender)\cf0 \
+\
+*** \cf2 split out by gender, remove the unexpected third NA histogram\cf0  ***\
+qplot(x = friend_count, data = subset(pf, \cf2 !is.na(gender\cf0 )), binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + facet_wrap(~gender)\
+\
+*** \cf2 na.omit (not applicable) may be too broad, may loose wanted data, the above, specific, 
+\f3\b !is.na(gender)
+\f1\b0  is the better choice\cf0 ***\
+qplot(x = friend_count, data = \cf2 na.omit\cf0 (pf), binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + facet_wrap(~gender)\
+\
+***\
+*** plotting change color\
+***\
+qplot(data = pf, x = tenure, binwidth = 0.3) + scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 2))\
+qplot(data = pf, x = tenure, binwidth = .3, color = I('green')) + scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 2)) ***\cf2  histogram bars green color\cf0  ***\
+\
+*** \cf2 my version - WORKS, border (outline) of histogram bars - BLACK, histogram bars - BLUE - great spacing\cf0  ***\
+qplot(data = pf, x = tenure, binwidth = .3, fill = I('blue'), color = I('black')) + scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, 2))\
+*** *** \cf2 INSTRUCTOR *** version - WORKS, border (outline) of histogram bars - BLACK, histogram bars - BLUE\cf0  ***\
+qplot(data = pf, x = tenure, binwidth = 30, fill = I('#099DD9'), color = I('black')) \
+qplot(data = pf, x = tenure) \
+\
+*** \cf2 *** INSTRUCTOR ***\cf0  \cf2 tenure unit - 
+\f3\b DAYS
+\f1\b0  - divide by 365 - unit - 
+\f3\b YEARS 
+\f1\b0 \cf0 *** *** bin width 1 - 
+\f3\b \cf2 count yearly users
+\f1\b0 \cf0  ***\
+qplot(data = pf, x = (tenure/365), binwidth = 1, fill = I('#099DD9'), color = I('black'))\
+\
+\
+qplot(data = pf, x = (tenure/365), binwidth = 1, fill = I('#099DD9'), color = I('black')) + scale_x_continuous(breaks = seq(1, 7, 1), limits = (c(0, 7)))\
+limits = (c(0, 7) - *** \cf2 granular control of x axis, lowest x value - 0, highest x vale - 7\cf0  *** \cf2 use with breaks\cf0  ***\
+breaks = seq(1, 7, 3) - *** \cf2 granular control of x axis, 1 on left low value, 7 on right high value, 1 increment from 1 to 7 \cf0 *** *** \cf2 use with limits\cf0  ***\
+*** \cf2 manipulate limits, breaks to get what you want\cf0  ***\
+\
+*** \cf2 label the x axis, label the y axis\cf0  *** *** \cf2 good summary, example plot lots of examples in this one plot\cf0  ***\
+qplot(data = pf, x = (tenure/365), binwidth = 1, fill = I('#099DD9'), color = I('black'), xlab = 'Number of years using Facebook', ylab = 'Number of users in sample') + scale_x_continuous(breaks = seq(1, 7, 3), limits = (c(0, 7)))\
+\
+*** \cf2 Facebook, age\cf0  my answer*** \
+qplot(data = pf, x = age, binwidth = 1, color = I('red'), xlab = 'Age of Facebook user', ylab = 'How Many') + scale_x_continuous(breaks = seq(10, 65, 10), limits = (c(10, 65)))\
+\
+\
+***\
+*** How to get qplot to work \
+***\
+library(ggplot2)\
+qplot(data = pf, x = friend_count)\
+\
+\
+***\
+*** Transforming Data 22 of 29\
+***\
+\
+pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
+\
+library(ggplot2)\
+qplot(data = pf, x = friend_count)\
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\
+\
+summary(pf$friend_count)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+    0.0    31.0    82.0   196.4   206.0  4923.0\
+\
+*** \cf2 Transform the Data, Variable, long tailed mitigation\cf0  ***\
+*** \cf2 note: negative infinity, some have Facebook friend count of 
+\f3\b zero, 0,
+\f1\b0  log base 10 of zero -> undefined, hence the Infinity, -Inf\cf0  *** \
+summary(\cf2 log10\cf0 (pf$friend_count))\
+   \cf2 Min.\cf0  1st Qu.  Median    \cf2 Mean\cf0  3rd Qu.    Max. \
+   \cf2 -Inf\cf0    1.491   1.914    \cf2 -Inf\cf0    2.314   3.692  \
+\
+*** \cf2 add one - remove the friend count = zero\cf0  *** \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 summary(\cf2 log10\cf0 (pf$friend_count + 1))\
+\cf2 Min.\cf0  1st Qu.  Median    \cf2 Mean\cf0  3rd Qu.    Max. \
+\cf2 0.000\cf0    1.505   1.919   \cf2 1.868\cf0    2.316   3.692 \
+\
+*** \cf2 Transform the Data, Variable, long tailed mitigation\cf0  ***\
+*** \cf2 square root sqrt\cf0  ***\
+summary(\cf2 sqrt\cf0 (pf$friend_count + 1))\
+Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+1.000   5.657   9.110  11.180  14.390  70.170 \
+\
+*****************\
+p1 = qplot(data = pf, x = (friend_count + 1), binwidth = 75, xlab = 'Facebook Friend Count', ylab = 'Count') + labs(title = "Facebook Friend Count") + theme(plot.title = element_text(colour = 'blue', hjust = 0.5, size = 10)) + theme(axis.title.y = element_text(colour = "red"))\
+\
+p2 = qplot(data = pf, x = (friend_count + 1), binwidth = .07, xlab = 'Facebook Friend Count', ylab = 'log 10')  + scale_x_log10(breaks = seq(1, 5, 1200)) + theme(axis.title.y = element_text(colour = "red")) + labs(title = "FB Friend Count (log 10) - Data Transformation, Normalization (normal distribution)") + theme(plot.title = element_text(colour = 'blue', size = 10, hjust = 0.5))\
+\
+p3 = qplot(data = pf, x = (friend_count + 1), binwidth = 1, xlab = 'Facebook Friend Count', ylab = 'Square Root')  + scale_x_sqrt() + theme(axis.title.y = element_text(colour = "red")) + theme(plot.title = element_text(colour = 'blue', size = 10, hjust = 0.5)) + labs(title = "Facebook Friend Count Square Root - Data Transformation")\
+\
+grid.arrange(p1, p2, p3)\
+*****************\
+*** \cf2 Instructor solution *** note 
+\f3\b ggplot aes 
+\f1\b0 (aesthetic) syntax\cf0 ***\
+```\{r\}\
+pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
+p1 <- ggplot(data = pf, aes(x = friend_count), binwidth = 1) + geom_histogram()\
+p2 <- p1 + scale_x_log10()\
+p3 <- p1 + scale_x_sqrt()\
+grid.arrange(p1, p2, p3)\
+```\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f5 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
 \
 \
 \
