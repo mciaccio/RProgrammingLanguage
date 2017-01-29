@@ -1,8 +1,9 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
-\f3\fmodern\fcharset0 Courier-Bold;\f4\fswiss\fcharset0 Helvetica;\f5\fnil\fcharset0 LucidaGrande;
-}
-{\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red255\green0\blue255;}
+\f3\fmodern\fcharset0 Courier-Bold;\f4\fswiss\fcharset0 Helvetica;\f5\fmodern\fcharset0 Courier-BoldOblique;
+\f6\fmodern\fcharset0 Courier-Oblique;\f7\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red255\green0\blue255;\red0\green0\blue0;
+\red0\green0\blue255;}
 \margl1440\margr1440\vieww36900\viewh13060\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
@@ -361,8 +362,17 @@ qplot(data = diamonds, x = carat, y = price, color = cut) + scale_color_brewer(p
 *** Working commands\
 ***\
 \
-by - \cf2 data\cf0 ,          \cf2 INDICES\cf0 ,   \cf2 FUN\cf0  - \cf2 data.frame statistical output\cf0 \
-by(pf$friend_count, pf$gender, summary)\
+\
+*** \cf2 Apply a Function to a Data Frame Split by Factors\cf0  ***\
+*** \cf2 by() documentation https://stat.ethz.ch/R-manual/R-devel/library/base/html/by.html\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf2 http://www.audhalbritter.com/using-the-by-function-in-r-4/ \cf4 ***\
+*** \cf2 split out one column heading, metric by another column heading\cf4  ***\cf0 \
+by - \cf2 data\cf0 ,          \cf2 INDICES\cf0 ,   \cf2 FUN\cf0  - \cf2 data.frame statistical output - \cf4 FUN - function to run\cf2 \
+\cf0 by -\cf2  data.frame, indices or indexes, function applied to data.frame, \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\cf5 by(pf$\cf2 friend_count\cf5 , pf$gender, summary)\cf0 \
 pf$gender: female\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
       0      37      96     242     244    4923 \
@@ -370,6 +380,32 @@ pf$gender: female\
 pf$gender: male\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
       0      27      74     165     182    4917 \
+\
+\cf5 by(pf$\cf2 friend_count\cf5 , pf$gender, sum)\cf0 \
+pf$gender: female\
+[1] 9740258\
+-------------------------------------------------------------------------------------------------------------------- \
+pf$gender: male\
+[1] 9666787\
+\
+\cf5 by(pf$\cf2 www_likes\cf5 , pf$gender, summary)\cf0 \
+pf$gender: female\
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \
+    0.00     0.00     0.00    87.14    25.00 14860.00 \
+-------------------------------------------------------------------------------------------------------------------- \
+pf$gender: male\
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \
+    0.00     0.00     0.00    24.42     2.00 12900.00 \
+\
+\cf5 by(pf$\cf2 www_likes\cf5 , pf$gender, sum)\cf0 \
+pf$gender: female\
+[1] 3507665\
+-------------------------------------------------------------------------------------------------------------------- \
+pf$gender: male\
+[1] 1430175\
+\
+\
+\
 \
 c, data, dim, head, mean, names, nchar, row.names, str, tail, View(reddit)\
 \
@@ -661,7 +697,7 @@ qplot(x = friend_count, data = subset(pf, \cf2 !is.na(gender\cf0 )), binwidth = 
 \
 *** \cf2 na.omit (not applicable) may be too broad, may loose wanted data, the above, specific, 
 \f3\b !is.na(gender)
-\f1\b0  is the better choice\cf0 ***\
+\f1\b0  is the better choice \cf0 ***. *** \cf2 remove the unexpected third NA histogram \cf4 ***\cf0 \
 qplot(x = friend_count, data = \cf2 na.omit\cf0 (pf), binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + facet_wrap(~gender)\
 \
 ***\
@@ -758,13 +794,177 @@ grid.arrange(p1, p2, p3)\
 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
 p1 <- ggplot(data = pf, aes(x = friend_count), binwidth = 1) + geom_histogram()\
 p2 <- p1 + scale_x_log10()	*** \cf2 Rescale, Transform, Normalize Data\cf0  ***\
-p3 <- p1 + scale_x_sqrt()	*** \cf2 Rescale, Transform, Normalize Data\cf0  ***\
+p3 <- p1 + scale_x_sqrt()	*** \cf2 Rescale, Transform, Normalize Data. Square Root\cf0  ***\
 grid.arrange(p1, p2, p3)\
 ```\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *****************\
+*** \cf5 x axis labeling\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf5                   *** log units ***\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 qplot(data = pf, x = \cf2 log10(friend_count)\cf0 ) + labs(title = "Facebook Friend Count") + theme(plot.title = element_text(colour = 'blue', hjust = 0.5, size = 10))  \
+\cf5 x axis labeling\cf0  - log10(friend_count) 1, 2, 3 \cf5 x axis units log units\
+\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf2 ggplot - scale_x_log10() example \cf4 ***\cf0 \
+*** \cf2 scale_x_log10() preferred \cf0 *** \cf5 *** friend counts *** \cf0 *** \cf2 actual counts preferred by instructor\cf0  *** *** ggplot - \cf2 scale_x_log10() example ***\cf0 \
+ggplot(aes(x = friend_count), data = pf) + geom_histogram() + \cf2 scale_x_log10()\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf5 x axis labeling\cf0  - friend_count 10, 1000 ... \cf5 x axis units friend counts\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf2 ggplot - scale_x_log10() example \cf0 ***\cf5 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf4 *** \cf2 scale_x_log10() preferred \cf0 *** \cf5 *** friend counts *** \cf0 *** \cf2 actual counts preferred by instructor\cf0  ***\cf5 \
+qplot(data = pf, x = friend_count) + \cf2 scale_x_log10()\
+\cf5 x axis labeling\cf0  - friend_count 10, 1000 ... \cf5 x axis units friend counts\
+\
+\cf4 ***\cf5 \
+\cf4 *** Data Analysis with R - Frequency Polygons 24 of 29\
+*** \cf5 !is.na(\cf2 gender\cf5 ) \cf2 SAME\cf5  color = \cf2 gender - color is what gives you the lines on the graph male, female so to get rid of not applicable, NA, N/A, na use, 
+\f3\b *** 
+\f1\b0 \cf5 !is.na(\cf2 gender\cf5 ) 
+\f3\b \cf2 ***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf4 ***\cf2  long tailed try 
+\f1\b0 \cf5 scale_x_log10() not scale_x_continuous \cf4 *** normalize transform long tailed - \cf5 scale_x_log10()\cf4 \
+***\
+              *** \cf2 !is.na(gender) -\cf0  \cf2 Remove the unexpected third histogram\cf4  ***\
+qplot(data = subset(pf, !is.na(\cf2 gender\cf4 )), x = friend_count, binwidth = 10, geom = '\cf2 freqpoly\cf4 ', color = \cf2 gender\cf4 ) + scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50))\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0                                                                                     \cf2 ***               ***\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf4 Example - Frequency Polygon *** \cf2 y axis - proportions, not raw counts\cf4  ***\
+\cf5 *** friend_count ***\cf0 \
+\cf5 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
+\cf4 names(pf) - get the data.frame column names\cf5 \
+qplot(\
+  data = subset(pf, !is.na(\cf2 gender\cf5 )), \
+  x = friend_count, \
+  xlab = 'Friend Count',\
+  y = ..count.. / sum(..count..),\
+  ylab = 'Proportion of Users with that friend count',\
+  binwidth = 10, \
+  geom = 'freqpoly', color = \cf2 gender\cf5 ) + \
+  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50))\
+\
+\cf4 Equivalent ggplot syntax\cf5 \
+ggplot(aes(x = friend_count, y = ..count../sum(..count..)), data = subset(pf, !is.na(\cf2 gender\cf5 ))) +\
+  geom_freqpoly(aes(color = \cf2 gender\cf5 ), binwidth=10) +\
+  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) +\
+  xlab('Friend Count') +\
+  ylab('Percentage of users with that friend count')\
 \
 \
+*** www_likes ***\
+qplot(\
+  data = subset (pf, !is.na(\cf2 gender\cf5 )), \
+  x = www_likes,\
+  geom = 'freqpoly',\
+  color = \cf2 gender\cf5 ) +\
+  scale_x_log10()\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 Equivalent ggplot syntax\cf5 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 ggplot(aes(x = www_likes, y = ..count../sum(..count..)), data = subset(pf, !is.na(gender))) +\
+  geom_freqpoly(aes(color = gender)) +\
+  scale_x_log10()  +\
+  xlab('www_likes') +\
+  ylab('Percentage of users with that www_likes')\
 \
 \
+***\
+*** Box Plots Boxplots 28 January 2017\
+***\
+ \
+qplot(\
+  data = subset(pf, !is.na(gender)), \
+  x = gender,\
+  y = friend_count,\
+  geom = 'boxplot',\
+  \cf2 ylim = c(0, 1000)\cf0 ) *** \cf5 data removed from calculations using this method\cf0  ***\
+  
+\f5\i\b \cf2 \ul \ulc2 Removed
+\f6\b0 \ulnone  2949 rows containing non-finite values (stat_boxplot). \
+
+\f1\i0 \cf0 \
+\
+qplot(\
+  data = subset(pf, !is.na(gender)), \
+  x = gender,\
+  y = friend_count,\
+  geom = 'boxplot') + \
+  \cf2 scale_y_continuous(limits = c(0, 1000)\cf0 )  *** \cf5 data removed from calculations using this method\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f6\i \cf2   
+\f5\b \ul Removed 
+\f6\b0 \ulnone 2949 rows containing non-finite values (stat_boxplot). \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\i0 \cf0 \
+\
+qplot(\
+  data = subset(pf, !is.na(gender)), \
+  x = gender,\
+  y = friend_count,\
+  geom = 'boxplot') +			\
+  \cf2 coord_cartesian(ylim = c(0, 1000\cf0 )) 	\cf2 *** NO DATA LOST, best practices ***\cf0 \
+\
+\
+***\
+*** \cf2 qplots AND corresponding by, by() functions\
+\cf4 ***\cf2  box plot, (boxplots) relationships with the, by(), by(summary) function, Median matches  \cf4 ***\cf2  \
+\cf0 ***\
+qplot(\
+  data = subset(pf,\
+  !is.na(gender)),\
+  x = gender,\
+  y = friendships_initiated,\
+  geom = 'boxplot') +\
+  \cf5 coord_cartesian\cf0 (ylim = c(0, 150)) \cf2 required best practices for\cf0  \cf2 box plot, (boxplot) to match \cf5 by(pf$friendships_initiated, pf$gender, summary)\cf2  \cf0 ***\
+\cf4 \
+\
+*** by() \cf5 median\cf4  MATCHES box plot, (boxplot) median\
+by(pf$friendships_initiated, pf$gender, summary) - \cf5 numerical summary\cf4 \
+\
+pf$gender: \cf2 female									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf4 \
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf4 \
+    0.0    19.0    
+\f3\b\fs28 \cf5 49.0
+\f1\b0\fs24 \cf4    113.9   124.8  3654.0			\cf2 Median matches box plot, (boxplot)\cf4 \
+-------------------------------------------------------------------------------------------------------------------- \
+pf$gender: \cf2 male									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf4 \
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf4 \
+    0.0    15.0    
+\f3\b\fs28 \cf5 44.0
+\f1\b0\fs24 \cf4    103.1   111.0  4144.0			\cf2 Median matches box plot, (boxplot)\cf4 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f3\b\fs28 \cf5           ** females more **
+\f1\b0\fs24 \cf4 \
+\
+qplot(\
+  data = subset(pf, !is.na(gender)), \
+  x = gender,\
+  y = friend_count,\
+  geom = 'boxplot') +			\
+  coord_cartesian(ylim = c(0, 250)) *** \cf2 required best practices for\cf4  \cf2 box plot, (boxplot) to match \cf5 by(pf$friend_count, pf$gender, summary)\cf2  \cf4 ***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf5 by(pf$friend_count, pf$gender, summary)\cf0  - \cf5 numerical summary \cf2 1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf0 \
+pf$gender: female                                           \cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf0 \
+   Min. \cf2 1st Qu.\cf0   Median    Mean \cf2 3rd Qu.\cf0     Max.             \cf2 Median matches box plot, (boxplot)\cf0 \
+      0      \cf2 37\cf0       96     242     \cf2 244\cf0     4923 \
+-------------------------------------------------------------------------------------------------------------------- \
+pf$gender: male                                             \cf2 1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values \cf0 \
+   Min. \cf2 1st Qu.\cf0   Median    Mean \cf2 3rd Qu.\cf0     Max.             \cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf0 \
+      0      \cf2 27\cf0       74     165     \cf2 182\cf0     4917             \cf2 Median box plot, (boxplot)\cf0 \
 \
 \
 \
@@ -780,7 +980,7 @@ grid.arrange(p1, p2, p3)\
 \
 \pard\pardeftab720\partightenfactor0
 
-\f5 \cf0 \expnd0\expndtw0\kerning0
+\f7 \cf0 \expnd0\expndtw0\kerning0
 \
 \pard\pardeftab720\partightenfactor0
 
