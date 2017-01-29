@@ -506,6 +506,7 @@ summary(pf$age) - *** \cf2 useful for plots setting scale_x_continuous(breaks = 
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.							 \
   13.00   20.00   28.00   37.28   50.00  \cf2 113.00\cf0  \
 \
+*** \cf2 count values\cf0  ***\
 \pard\pardeftab720\partightenfactor0
 
 \f4\fs26 \cf0 \expnd0\expndtw0\kerning0
@@ -972,10 +973,53 @@ pf$gender: male                                             \cf2 1st Qu. - match
 *** Data Analysis with R Getting Logical 28 of 29\
 *** 28 January 2017\
 ***\
+\
+*** class(pf$mobile_likes) - bunch of numbers \
+*** \cf2 integer 0 - 25110\cf0  ***\
 summary(pf$mobile_likes)\
  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
   0.0     0.0     4.0   106.1    46.0 25110.0 \
 \
+*** \ul Data Transformation\ulnone  - \cf2 from integers, a bunch of numbers, to boolean (bool), TRUE, FALSE\cf0  \
+summary(pf$mobile_likes > 0)\
+   Mode   FALSE    TRUE    NA's\
+logical   35056   63947       0 \
+\
+*** New Column (\cf5 mobile_check_in\cf0 ) in pf data.frame ***\
+pf$mobile_check_in <- ifelse(pf$mobile_likes > 0, 1, 0)\
+\
+summary(pf$mobile_check_in)\
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+0.0000  0.0000  1.0000  0.6459  1.0000  1.0000 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf4 *** \cf2 count values\cf4  *** \cf5 related - str(), dim()\cf4 \
+length(pf$mobile_check_in) *** \cf2 How many are there, total\cf4  ***\
+[1] 99003\
+ \
+length(which(pf$mobile_check_in == 1)) \cf0 *** \cf2 How many are 1\cf0  ***\cf4 \
+[1] 63947\
+\
+length(which(pf$mobile_check_in == 0)) \cf0 *** \cf2 How many are 0\cf0  ***\cf4 \
+[1] 35056\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf2 count values\cf0  ***  \cf5 related - str(), dim()\cf0 \
+table(pf$mobile_check_in)\
+    0     1 \
+35056 63947 \
+\
+*** \cf2 Now that we have the counts, calculate percent, percentage, one way to calculate percentage\cf0  ***\
+(length(which(pf$mobile_check_in == 0)) / length(pf$mobile_check_in)) * 100\
+35.40903\
+(length(which(pf$mobile_check_in == 1)) / length(pf$mobile_check_in)) * 100\
+64.59097\
+*** \cf5 instructor method\cf0  ***\
+sum(pf$mobile_check_in ==1) / length(pf$mobile_check_in) \
+[1] 0.6459097\
+\
+ \
 \
 \
 \
