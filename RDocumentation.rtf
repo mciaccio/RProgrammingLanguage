@@ -1,11 +1,12 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
 \f3\fmodern\fcharset0 Courier-Bold;\f4\fswiss\fcharset0 Helvetica;\f5\fmodern\fcharset0 Courier-BoldOblique;
-\f6\fmodern\fcharset0 Courier-Oblique;\f7\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red255\green0\blue255;\red0\green0\blue0;
-\red0\green0\blue255;\red38\green38\blue38;\red242\green242\blue242;\red36\green38\blue41;\red235\green236\blue237;
-\red85\green98\blue116;\red210\green0\blue53;\red17\green137\blue135;}
-\margl1440\margr1440\vieww36900\viewh10660\viewkind0
+\f6\fmodern\fcharset0 Courier-Oblique;\f7\fnil\fcharset0 Menlo-Regular;\f8\fnil\fcharset0 Verdana;
+}
+{\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red0\green0\blue255;\red255\green0\blue255;
+\red38\green38\blue38;\red242\green242\blue242;\red36\green38\blue41;\red235\green236\blue237;\red85\green98\blue116;
+\red210\green0\blue53;\red17\green137\blue135;\red0\green0\blue0;}
+\margl1440\margr1440\vieww28000\viewh16500\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
@@ -91,6 +92,7 @@ reruns a vector, subset of the udacious vector. where number of characters == 11
 udacious[mystery == 11]\
 \
 data(mtcars) - mtcars data stored in a dataframe\
+*** \cf3 get Data Frame, data.frame column, attribute names\cf0  *** \
 names(mtcars) - DataFrame column headings - mpg, hp, ... 32 jobs - observations - number of rows \
 \
 dim(mtcars) - 32 rows, by 11 columns \
@@ -127,7 +129,7 @@ read in a file, cvs file  \
 statesInfo <- read.csv('stateData.csv')\
 \pard\pardeftab720\partightenfactor0
 
-\f0\fs22 \cf3 \kerning1\expnd0\expndtw0 \
+\f0\fs22 \cf4 \kerning1\expnd0\expndtw0 \
 get some of the data specify column heading, value example - state.region == 1, state.region IS THE column heading\
 \cf2 subset(statesInfo, state.region == 1) *** one way ***\
 \pard\pardeftab720\partightenfactor0
@@ -147,14 +149,14 @@ mtcars$weight_class <- ifelse(cond, 'heavy', mtcars$weight_class) *** use the ne
 rm(cond) *** clean up, remove ***\
 rm(efficient)  *** clean up, remove ***\
 \pard\pardeftab720\partightenfactor0
-\cf3 \
+\cf4 \
 get some of the data, [ROW, COLUMN] bracket syntax \
 statesInfo[statesInfo$state.region ==1,] bracket syntax \
 \
 \
 \pard\pardeftab720\partightenfactor0
 \cf0 work with subset of data\
-*** \cf2 bracket notation\cf0  ***\cf3 \
+*** \cf2 bracket notation\cf0  ***\cf4 \
 \pard\pardeftab720\partightenfactor0
 \cf2 *** stateSubsetBracket <- statesInfo[statesInfo$state.region ==1,] another way same result ***\
 \pard\pardeftab720\partightenfactor0
@@ -172,6 +174,7 @@ getting help web sites, urls \
 statmethods.net Quick-R \cf2 ***\
 \pard\pardeftab720\partightenfactor0
 \cf0 https://www.rstudio.com/resources/cheatsheets/\
+http://docs.\cf3 ggplot2\cf0 .org/current/\
 \pard\pardeftab720\sl280\partightenfactor0
 \cf0 \
 car - character\
@@ -337,14 +340,18 @@ qplot(data = diamonds, x = carat, y = price, color = cut) + scale_color_brewer(p
 \
 *** \cf2 Apply a Function to a Data Frame Split by Factors\cf0  ***\
 *** \cf2 by() documentation https://stat.ethz.ch/R-manual/R-devel/library/base/html/by.html\cf0  ***\
-\pard\pardeftab720\partightenfactor0
-\cf0 *** \cf2 http://www.audhalbritter.com/using-the-by-function-in-r-4/ \cf4 ***\
-*** \cf2 split out one column heading, metric by another column heading\cf4  ***\cf0 \
-by - \cf2 data\cf0 ,          \cf2 INDICES\cf0 ,   \cf2 FUN\cf0  - \cf2 data.frame statistical output - \cf4 FUN - function to run\cf2 \
+*** \cf2 http://www.audhalbritter.com/using-the-by-function-in-r-4/ \cf0 ***\
+*** \cf2 split out one column heading, metric by another column heading\cf0  ***\
+by - \cf2 data\cf0 ,          \cf2 INDICES\cf0 ,   \cf2 FUN\cf0  - \cf2 data.frame statistical output - \cf0 FUN - function to run\cf2 \
 \cf0 by -\cf2  data.frame, indices or indexes, function applied to data.frame, \
-\pard\pardeftab720\partightenfactor0
 \cf0 \
-\cf5 by(pf$\cf2 friend_count\cf5 , pf$gender, summary)\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+*** \cf3 pf psuedo facebook users\cf0  *** 
+\f0\fs22 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 by(pf$\cf2 friend_count\cf3 , pf$gender, summary)\cf0 \
 pf$gender: female\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
       0      37      96     242     244    4923 \
@@ -353,14 +360,14 @@ pf$gender: male\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
       0      27      74     165     182    4917 \
 \
-\cf5 by(pf$\cf2 friend_count\cf5 , pf$gender, sum)\cf0 \
+\cf3 by(pf$\cf2 friend_count\cf3 , pf$gender, sum)\cf0 \
 pf$gender: female\
 [1] 9740258\
 -------------------------------------------------------------------------------------------------------------------- \
 pf$gender: male\
 [1] 9666787\
 \
-\cf5 by(pf$\cf2 www_likes\cf5 , pf$gender, summary)\cf0 \
+\cf3 by(pf$\cf2 www_likes\cf3 , pf$gender, summary)\cf0 \
 pf$gender: female\
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \
     0.00     0.00     0.00    87.14    25.00 14860.00 \
@@ -369,7 +376,7 @@ pf$gender: male\
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \
     0.00     0.00     0.00    24.42     2.00 12900.00 \
 \
-\cf5 by(pf$\cf2 www_likes\cf5 , pf$gender, sum)\cf0 \
+\cf3 by(pf$\cf2 www_likes\cf3 , pf$gender, sum)\cf0 \
 pf$gender: female\
 [1] 3507665\
 -------------------------------------------------------------------------------------------------------------------- \
@@ -389,7 +396,12 @@ class(statesInfo) - [1] "data.frame", type \
 \
 data(mtcars) - load, mtcars now in Global Environment - Top Right, also reload from disc get rid of interactive changes \
 \
-data.frame, DataFrame - column access example, dollar sign syntax - pf\cf2 $\cf0 dob_month, class(myDataFrame) - "data.frame", myDataFrame$dob_day\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
+\f4\fs26 \
+\pard\pardeftab720\partightenfactor0
+\cf0 data.frame, DataFrame - column access example, dollar sign syntax - pf\cf2 $\cf0 dob_month, class(myDataFrame) - "data.frame", myDataFrame$dob_day\
 \
 dim - number of rows, number of columns\
 \
@@ -413,7 +425,12 @@ head(mtcars, 10)\
 \
 list.files(), see getwd(), setwd()\
 \
-names(mtcars) - *** Get the column headings, names ***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 *** \cf3 get Data Frame, data.frame column, attribute names\cf0  *** 
+\f4\fs26 \
+\pard\pardeftab720\partightenfactor0
+\cf0 names(mtcars) - \
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear" "carb"\
 \
 nchar(udacious) - returns the number of characters, of each string in the vector \
@@ -431,8 +448,12 @@ plot(cars)\
 \pard\pardeftab720\partightenfactor0
 \cf0 \ul read.\ulnone \
 statesInfo <- read.csv('stateData.csv') *** read  Worked ***\
-pf <- read.csv('pseudo_facebook.tsv', sep = '\\t') *** tab delimited, not comma delimited, - \cf2 sep = '\\t'\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
+\f4\fs26 \
 \pard\pardeftab720\partightenfactor0
+\cf0 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t') *** tab delimited, not comma delimited, - \cf2 sep = '\\t'\
 \cf0 xx <- read.delim('pseudo_facebook.tsv') - \cf2 worked on tsp, tab delimited\cf0  \cf2 \
 \cf0 \
 \
@@ -463,7 +484,13 @@ statesInfo[statesInfo$state.region ==1, ]\
 \f0\fs22 \cf0 \kerning1\expnd0\expndtw0 mtcars[(mtcars$hp < 60 | mtcars$mpg >= 30),]\
         ROW                               , COLUMN this case all columns \
 \
-summary(reddit)\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+*** \cf3 pf psuedo facebook users\cf0  *** 
+\f0\fs22 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 summary(reddit)\
 summary(pf$age) - *** \cf2 useful for plots setting scale_x_continuous(breaks = seq(10, 
 \f3\b\fs24 \expnd0\expndtw0\kerning0
 65
@@ -493,12 +520,6 @@ tail(mtcars, 10)
 
 \f4\fs26 \expnd0\expndtw0\kerning0
 View(reddit)\
-\
-\
-\
-\
-\
-\
 \
 vector (
 \i dollar sign notation $) 
@@ -627,7 +648,13 @@ qplot(data = reddit, x = income.range)\
 ***\
 install.packages('ggplot2')\
 library(ggplot2)\
-qplot(x = dob_day, data = pf) # makes a histogram\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+*** \cf3 pf psuedo facebook users\cf0  *** 
+\f0\fs22 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 qplot(x = dob_day, data = pf) # makes a histogram\
 \
 worked *** \cf2 note plus, + sign \cf0 ***\
 qplot(x = dob_day, data = pf) \cf2 +\cf0  scale_x_continuous(breaks = 1 : 31) *** \cf2 worked x axis right labels, 1 - 31, days of month\cf0  ***\
@@ -642,7 +669,7 @@ ggplot(aes(x = dob_day), data = pf) + geom_histogram(binwidth = 0.5) + scale_x_c
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 \expnd0\expndtw0\kerning0
-*** \cf5 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***
+*** \cf3 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***
 \f0\fs22 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 																			*** \cf2 1 histogram per month\cf0  ***\
@@ -651,7 +678,7 @@ ggplot(aes(x = dob_day), data = pf) + geom_histogram(binwidth = 0.5) + scale_x_c
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 \expnd0\expndtw0\kerning0
-*** \cf5 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***
+*** \cf3 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***
 \f0\fs22 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 *** \cf2 3 columns, 4 histograms each, = 12 histograms, 1 for each month\cf0  ***\
@@ -675,21 +702,18 @@ qplot(x = friend_count, data = pf) +  scale_x_continuous(limits = c(0, 1000)) **
 qplot(x = friend_count, data = pf, binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(\cf2 0, 1000, 50\cf0 ))\
 \
 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 *** \cf2 split out by gender, get unexpected third NA histogram\cf0  ***\
-*** \cf5 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***\
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 qplot(x = friend_count, data = pf, binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + \cf2 facet_wrap(~gender)\cf0 \
+*** \cf2 split out by gender, get unexpected third NA histogram\cf0  ***\
+*** \cf3 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***\
+qplot(x = friend_count, data = pf, binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + \cf2 facet_wrap(~gender)\cf0 \
 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 *** \cf5 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***\
+*** \cf3 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***\
 *** \cf2 split out by gender, remove the unexpected third NA histogram\cf0  ***\
 qplot(x = friend_count, data = subset(pf, \cf2 !is.na(gender\cf0 )), binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + facet_wrap(~gender)\
 \
-*** \cf5 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***\
+*** \cf3 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***\
 *** \cf2 na.omit (not applicable) may be too broad, may loose wanted data, the above, specific, 
 \f3\b !is.na(gender)
-\f1\b0  is the better choice \cf0 ***. *** \cf2 remove the unexpected third NA histogram \cf4 ***\cf0 \
+\f1\b0  is the better choice \cf0 ***. *** \cf2 remove the unexpected third NA histogram \cf0 ***\
 qplot(x = friend_count, data = \cf2 na.omit\cf0 (pf), binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + facet_wrap(~gender)\
 \
 ***\
@@ -774,77 +798,80 @@ p2 = qplot(data = pf, x = (friend_count + 1), binwidth = .07, xlab = 'Facebook F
 \
 p3 = qplot(data = pf, x = (friend_count + 1), binwidth = 1, xlab = 'Facebook Friend Count', ylab = 'Square Root')  + scale_x_sqrt() + theme(axis.title.y = element_text(colour = "red")) + theme(plot.title = element_text(colour = 'blue', size = 10, hjust = 0.5)) + labs(title = "Facebook Friend Count Square Root - Data Transformation")\
 \
-grid.arrange(p1, p2, p3) *** \cf5 multiple plots\cf0  ***\
+grid.arrange(p1, p2, p3) *** \cf3 multiple plots\cf0  ***\
 *****************\
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 *** \cf2 Instructor solution *** note 
+*** \cf2 Instructor solution *** note 
 \f3\b ggplot aes 
 \f1\b0 (aesthetic) syntax \cf0 ***\
 *** \cf2 Instructor solution *** multiple plots, Data Transformation, Data Normalization \cf0 ***\
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 ```\{r\}\
+```\{r\}\
 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
 p1 <- ggplot(data = pf, aes(x = friend_count), binwidth = 1) + geom_histogram()\
 p2 <- p1 + scale_x_log10()	*** \cf2 Rescale, Transform, Normalize Data\cf0  ***\
 p3 <- p1 + scale_x_sqrt()	*** \cf2 Rescale, Transform, Normalize Data. Square Root\cf0  ***\
-grid.arrange(p1, p2, p3) *** \cf5 multiple plots\cf0  ***\
+grid.arrange(p1, p2, p3) *** \cf3 multiple plots\cf0  ***\
 ```\
+*****************\
+*** \cf3 x axis labeling\cf0  ***\
 \pard\pardeftab720\sl280\partightenfactor0
-\cf0 *****************\
-*** \cf5 x axis labeling\cf0  ***\
+\cf3                   *** log units ***\cf0 \
+qplot(data = pf, x = \cf2 log10(friend_count)\cf0 ) + labs(title = "Facebook Friend Count") + theme(plot.title = element_text(colour = 'blue', hjust = 0.5, size = 10))  \
+\cf3 x axis labeling\cf0  - log10(friend_count) 1, 2, 3 \cf3 x axis units log units\
 \pard\pardeftab720\sl280\partightenfactor0
-\cf5                   *** log units ***\cf0 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 qplot(data = pf, x = \cf2 log10(friend_count)\cf0 ) + labs(title = "Facebook Friend Count") + theme(plot.title = element_text(colour = 'blue', hjust = 0.5, size = 10))  \
-\cf5 x axis labeling\cf0  - log10(friend_count) 1, 2, 3 \cf5 x axis units log units\
 \cf0 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 *** \cf2 ggplot - scale_x_log10() example \cf4 ***\cf0 \
-*** \cf2 scale_x_log10() preferred \cf0 *** \cf5 *** friend counts *** \cf0 *** \cf2 actual counts preferred by instructor\cf0  *** *** ggplot - \cf2 scale_x_log10() example ***\cf0 \
+*** \cf2 ggplot - scale_x_log10() example \cf0 ***\
+*** \cf2 scale_x_log10() preferred \cf0 *** \cf3 *** friend counts *** \cf0 *** \cf2 actual counts preferred by instructor\cf0  *** *** ggplot - \cf2 scale_x_log10() example ***\cf0 \
 ggplot(aes(x = friend_count), data = pf) + geom_histogram() + \cf2 scale_x_log10()\cf0 \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf5 x axis labeling\cf0  - friend_count 10, 1000 ... \cf5 x axis units friend counts\
+\cf3 x axis labeling\cf0  - friend_count 10, 1000 ... \cf3 x axis units friend counts\
 \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf0 *** \cf2 ggplot - scale_x_log10() example \cf0 ***\cf5 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf4 *** \cf2 scale_x_log10() preferred \cf0 *** \cf5 *** friend counts *** \cf0 *** \cf2 actual counts preferred by instructor\cf0  ***\cf5 \
+\cf0 *** \cf2 ggplot - scale_x_log10() example \cf0 ***\cf3 \
+\cf0 *** \cf2 scale_x_log10() preferred \cf0 *** \cf3 *** friend counts *** \cf0 *** \cf2 actual counts preferred by instructor\cf0  ***\cf3 \
 qplot(data = pf, x = friend_count) + \cf2 scale_x_log10()\
-\cf5 x axis labeling\cf0  - friend_count 10, 1000 ... \cf5 x axis units friend counts\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3 x axis labeling\cf0  - friend_count 10, 1000 ... \cf3 x axis units friend counts\
 \
-\cf4 ***\cf5 \
-\cf4 *** Data Analysis with R - Frequency Polygons 24 of 29\
-*** \cf5 !is.na(\cf2 gender\cf5 ) \cf2 SAME\cf5  color = \cf2 gender - color is what gives you the lines on the graph male, female so to get rid of not applicable, NA, N/A, na use, 
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 ***\cf3 \
+\cf0 *** Data Analysis with R - Frequency Polygons 24 of 29\
+*** \cf3 !is.na(\cf2 gender\cf3 ) \cf2 SAME\cf3  color = \cf2 gender - color is what gives you the lines on the graph male, female so to get rid of not applicable, NA, N/A, na use, 
 \f3\b *** 
-\f1\b0 \cf5 !is.na(\cf2 gender\cf5 ) 
+\f1\b0 \cf3 !is.na(\cf2 gender\cf3 ) 
 \f3\b \cf2 ***\
 \pard\pardeftab720\sl280\partightenfactor0
-\cf4 ***\cf2  long tailed try 
-\f1\b0 \cf5 scale_x_log10() not scale_x_continuous \cf4 *** normalize transform long tailed - \cf5 scale_x_log10()\cf4 \
+\cf0 ***\cf2  long tailed try 
+\f1\b0 \cf3 scale_x_log10() not scale_x_continuous \cf0 *** normalize transform long tailed - \cf3 scale_x_log10()\cf0 \
 ***\
-              *** \cf2 !is.na(gender) -\cf0  \cf2 Remove the unexpected third histogram\cf4  ***\
-qplot(data = subset(pf, !is.na(\cf2 gender\cf4 )), x = friend_count, binwidth = 10, geom = '\cf2 freqpoly\cf4 ', color = \cf2 gender\cf4 ) + scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50))\
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0                                                                                     \cf2 ***               ***\
+              *** \cf2 !is.na(gender) -\cf0  \cf2 Remove the unexpected third histogram\cf0  ***\
+qplot(data = subset(pf, !is.na(\cf2 gender\cf0 )), x = friend_count, binwidth = 10, geom = '\cf2 freqpoly\cf0 ', color = \cf2 gender\cf0 ) + scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50))\
+                                                                                    \cf2 ***               ***\
 \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf4 Example - Frequency Polygon *** \cf2 y axis - proportions, not raw counts\cf4  ***\
-\cf5 *** friend_count ***\cf0 \
-\cf5 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
-\cf4 names(pf) - get the data.frame column names\cf5 \
+\cf0 Example - Frequency Polygon *** \cf2 y axis - proportions, not raw counts\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3 *** friend_count ***\cf0 \
+\cf3 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf3 get Data Frame, data.frame column, attribute names\cf0  *** \cf3 \
+\cf0 names(pf) - get the data.frame column names\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3 \
 qplot(\
-  data = subset(pf, !is.na(\cf2 gender\cf5 )), \
+  data = subset(pf, !is.na(\cf2 gender\cf3 )), \
   x = friend_count, \
   xlab = 'Friend Count',\
   y = ..count.. / sum(..count..),\
   ylab = 'Proportion of Users with that friend count',\
   binwidth = 10, \
-  geom = 'freqpoly', color = \cf2 gender\cf5 ) + \
+  geom = 'freqpoly', color = \cf2 gender\cf3 ) + \
   scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50))\
 \
-\cf4 Equivalent ggplot syntax\cf5 \
-ggplot(aes(x = friend_count, y = ..count../sum(..count..)), data = subset(pf, !is.na(\cf2 gender\cf5 ))) +\
-  geom_freqpoly(aes(color = \cf2 gender\cf5 ), binwidth=10) +\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 Equivalent ggplot syntax\cf3 \
+ggplot(aes(x = friend_count, y = ..count../sum(..count..)), data = subset(pf, !is.na(\cf2 gender\cf3 ))) +\
+  geom_freqpoly(aes(color = \cf2 gender\cf3 ), binwidth=10) +\
   scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) +\
   xlab('Friend Count') +\
   ylab('Percentage of users with that friend count')\
@@ -852,16 +879,14 @@ ggplot(aes(x = friend_count, y = ..count../sum(..count..)), data = subset(pf, !i
 \
 *** www_likes ***\
 qplot(\
-  data = subset (pf, !is.na(\cf2 gender\cf5 )), \
+  data = subset (pf, !is.na(\cf2 gender\cf3 )), \
   x = www_likes,\
   geom = 'freqpoly',\
-  color = \cf2 gender\cf5 ) +\
+  color = \cf2 gender\cf3 ) +\
   scale_x_log10()\
 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf0 Equivalent ggplot syntax\cf5 \
+\cf0 Equivalent ggplot syntax\cf3 \
 \
-\pard\pardeftab720\sl280\partightenfactor0
 \cf0 ggplot(aes(x = www_likes, y = ..count../sum(..count..)), data = subset(pf, !is.na(gender))) +\
   geom_freqpoly(aes(color = gender)) +\
   scale_x_log10()  +\
@@ -884,10 +909,11 @@ qplot(\
   x = \cf2 gender\cf0 ,\
   y = friend_count, *** \cf2 continuous data\cf0  ***\
   geom = 'boxplot',\
-  \cf2 ylim = c(0, 1000)\cf0 ) *** \cf5 data removed from calculations using this method, , data loss, data lost\cf0  ***\
+  \cf2 ylim = c(0, 1000)\cf0 ) *** \cf3 data removed from calculations using this method, , data loss, data lost\cf0  ***\
   
 \f5\i\b \cf2 \ul \ulc2 Removed
 \f6\b0 \ulnone  2949 rows containing non-finite values (stat_boxplot). \
+\pard\pardeftab720\sl280\partightenfactor0
 
 \f1\i0 \cf0 \
 \pard\pardeftab720\partightenfactor0
@@ -901,13 +927,11 @@ qplot(\
   x = \cf2 gender\cf0 ,\
   y = friend_count, *** \cf2 continuous data\cf0  ***\
   geom = 'boxplot') + \
-  \cf2 scale_y_continuous(limits = c(0, 1000)\cf0 )  *** \cf5 data removed from calculations using this method, data loss, data lost\cf0  ***\
-\pard\pardeftab720\sl280\partightenfactor0
+  \cf2 scale_y_continuous(limits = c(0, 1000)\cf0 )  *** \cf3 data removed from calculations using this method, data loss, data lost\cf0  ***\
 
 \f6\i \cf2   
 \f5\b \ul Removed 
 \f6\b0 \ulnone 2949 rows containing non-finite values (stat_boxplot). \
-\pard\pardeftab720\sl280\partightenfactor0
 
 \f1\i0 \cf0 \
 \pard\pardeftab720\partightenfactor0
@@ -926,7 +950,7 @@ qplot(\
 \
 ***\
 *** \cf2 qplots AND corresponding by, by() functions\
-\cf4 ***\cf2  box plot, (boxplots) relationships with the, by(), by(summary) function, Median matches  \cf4 ***\cf2  \
+\cf0 ***\cf2  box plot, (boxplots) relationships with the, by(), by(summary) function, Median matches  \cf0 ***\cf2  \
 \cf0 ***\
 \
 \pard\pardeftab720\partightenfactor0
@@ -941,39 +965,38 @@ qplot(\
   x = \cf2 gender\cf0 ,\
   y = friendships_initiated,\
   geom = 'boxplot') +\
-  \cf5 coord_cartesian\cf0 (ylim = c(0, 150)) \cf2 required best practices for\cf0  \cf2 box plot, (boxplot) to match \cf5 by(pf$friendships_initiated, pf$gender, summary)\cf2  \cf0 ***\
-\cf4 \
+  \cf3 coord_cartesian\cf0 (ylim = c(0, 150)) \cf2 required best practices for\cf0  \cf2 box plot, (boxplot) to match \cf3 by(pf$friendships_initiated, pf$gender, summary)\cf2  \cf0 ***\
 \
-*** by() \cf5 median\cf4  MATCHES box plot, (boxplot) median\
-by(pf$friendships_initiated, pf$gender, summary) - \cf5 numerical summary\cf4 \
 \
-pf$gender: \cf2 female									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf4 \
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf4 \
+*** by() \cf3 median\cf0  MATCHES box plot, (boxplot) median\
+by(pf$friendships_initiated, pf$gender, summary) - \cf3 numerical summary\cf0 \
+\
+pf$gender: \cf2 female									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf0 \
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf0 \
     0.0    19.0    
-\f3\b\fs28 \cf5 49.0
-\f1\b0\fs24 \cf4    113.9   124.8  3654.0			\cf2 Median matches box plot, (boxplot)\cf4 \
+\f3\b\fs28 \cf3 49.0
+\f1\b0\fs24 \cf0    113.9   124.8  3654.0			\cf2 Median matches box plot, (boxplot)\cf0 \
 -------------------------------------------------------------------------------------------------------------------- \
-pf$gender: \cf2 male									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf4 \
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf4 \
+pf$gender: \cf2 male									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf0 \
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf0 \
     0.0    15.0    
-\f3\b\fs28 \cf5 44.0
-\f1\b0\fs24 \cf4    103.1   111.0  4144.0			\cf2 Median matches box plot, (boxplot)\cf4 \
+\f3\b\fs28 \cf3 44.0
+\f1\b0\fs24 \cf0    103.1   111.0  4144.0			\cf2 Median matches box plot, (boxplot)\cf0 \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f3\b\fs28 \cf5           ** females more **
-\f1\b0\fs24 \cf4 \
+\f3\b\fs28 \cf3           ** females more **
+\f1\b0\fs24 \cf0 \
 \
-*** \cf2 gender categorical data\cf4  ***\
+*** \cf2 gender categorical data\cf0  ***\
 qplot(\
-  data = subset(pf, !is.na(\cf2 gender\cf4 )), \
-  x = \cf2 gender\cf4 ,\
-  y = friend_count, \cf0 *** \cf2 continuous data\cf0  ***\cf4 \
+  data = subset(pf, !is.na(\cf2 gender\cf0 )), \
+  x = \cf2 gender\cf0 ,\
+  y = friend_count, *** \cf2 continuous data\cf0  ***\
   geom = 'boxplot') +			\
-  coord_cartesian(ylim = c(0, 250)) *** \cf2 required best practices for\cf4  \cf2 box plot, (boxplot) to match \cf5 by(pf$friend_count, pf$gender, summary)\cf2  \cf4 ***\
+  coord_cartesian(ylim = c(0, 250)) *** \cf2 required best practices for\cf0  \cf2 box plot, (boxplot) to match \cf3 by(pf$friend_count, pf$gender, summary)\cf2  \cf0 ***\
+\
 \pard\pardeftab720\sl280\partightenfactor0
-\cf0 \
-\pard\pardeftab720\sl280\partightenfactor0
-\cf5 by(pf$friend_count, pf$gender, summary)\cf0  - \cf5 numerical summary \cf2 1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf0 \
+\cf3 by(pf$friend_count, pf$gender, summary)\cf0  - \cf3 numerical summary \cf2 1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf0 \
 pf$gender: female                                           \cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf0 \
    Min. \cf2 1st Qu.\cf0   Median    Mean \cf2 3rd Qu.\cf0     Max.             \cf2 Median matches box plot, (boxplot)\cf0 \
       0      \cf2 37\cf0       96     242     \cf2 244\cf0     4923 \
@@ -1000,27 +1023,24 @@ summary(pf$mobile_likes > 0)\
    Mode   FALSE    TRUE    NA's\
 logical   35056   63947       0 \
 \
-*** New Column (\cf5 mobile_check_in\cf0 ) in pf data.frame ***\
+*** New Column (\cf3 mobile_check_in\cf0 ) in pf data.frame ***\
 pf$mobile_check_in <- ifelse(pf$mobile_likes > 0, 1, 0)\
 \
 summary(pf$mobile_check_in)\
  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
 0.0000  0.0000  1.0000  0.6459  1.0000  1.0000 \
 \
-\pard\pardeftab720\partightenfactor0
-\cf4 *** \cf2 count values\cf4  *** \cf5 related - str(), dim()\cf4 \
-length(pf$mobile_check_in) *** \cf2 How many are there, total\cf4  ***\
+*** \cf2 count values\cf0  *** \cf3 related - str(), dim()\cf0 \
+length(pf$mobile_check_in) *** \cf2 How many are there, total\cf0  ***\
 [1] 99003\
  \
-length(which(pf$mobile_check_in == 1)) \cf0 *** \cf2 How many are 1\cf0  ***\cf4 \
+length(which(pf$mobile_check_in == 1)) *** \cf2 How many are 1\cf0  ***\
 [1] 63947\
 \
-length(which(pf$mobile_check_in == 0)) \cf0 *** \cf2 How many are 0\cf0  ***\cf4 \
+length(which(pf$mobile_check_in == 0)) *** \cf2 How many are 0\cf0  ***\
 [1] 35056\
-\pard\pardeftab720\partightenfactor0
-\cf0 \
-\pard\pardeftab720\partightenfactor0
-\cf0 *** \cf2 count values\cf0  ***  \cf5 related - str(), dim()\cf0 \
+\
+*** \cf2 count values\cf0  ***  \cf3 related - str(), dim()\cf0 \
 table(pf$mobile_check_in)\
     0     1 \
 35056 63947 \
@@ -1030,16 +1050,14 @@ table(pf$mobile_check_in)\
 35.40903\
 (length(which(pf$mobile_check_in == 1)) / length(pf$mobile_check_in)) * 100\
 64.59097\
-*** \cf5 instructor method, calculate percent, percentage\cf0  ***\
+*** \cf3 instructor method, calculate percent, percentage\cf0  ***\
 sum(pf$mobile_check_in ==1) / length(pf$mobile_check_in) \
 [1] 0.6459097\
-\pard\pardeftab720\partightenfactor0
 
-\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\f1\fs24 \expnd0\expndtw0\kerning0
 \
-\pard\pardeftab720\partightenfactor0
 
-\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 ***\
+\f0\fs22 \kerning1\expnd0\expndtw0 ***\
 *** Data Analysis with R - Diamonds 1 of 16\
 *** 29 January 2017\
 ***\
@@ -1051,26 +1069,29 @@ dim(diamonds)\
 10 Variables\
 3 ordered factors\
 ordered factor - definition - data type for ordinal data, ordinal data - \
-	examples - Is your general health 	\cf5 poor, reasonable, good, or excellent\cf0 ?" \
-\cf5                                         	$0-$19,999, $20,000-$39,999, $40,000-$59,999, \
+	examples - Is your general health 	\cf3 poor, reasonable, good, or excellent\cf0 ?" \
+\pard\pardeftab720\partightenfactor0
+\cf3                                         	$0-$19,999, $20,000-$39,999, $40,000-$59,999, \
 \pard\pardeftab720\partightenfactor0
 
-\f7\fs26 \cf6 \cb7 \expnd0\expndtw0\kerning0
+\f7\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
 								
-\f0\fs22 \cf5 \cb1 \kerning1\expnd0\expndtw0 c("Lo", "Hi", "Med", "Med", "Hi")\
+\f0\fs22 \cf3 \cb1 \kerning1\expnd0\expndtw0 c("Lo", "Hi", "Med", "Med", "Hi")\
 \pard\pardeftab720\partightenfactor0
 \cf0 diamonds$color\
-\cf5 Levels: D < E < F < G < H < I < J\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 Levels: D < E < F < G < H < I < J\cf0 \
 \
 diamonds$clarity\
-\cf5 Levels: I1 < SI2 < SI1 < VS2 < VS1 < VVS2 < VVS1 < IF\
+\cf3 Levels: I1 < SI2 < SI1 < VS2 < VS1 < VVS2 < VVS1 < IF\
 \
-\cf0 ***\cf5  get the documentation, help \cf4 ***\cf5 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\cf3  get the documentation, help \cf0 ***\cf3 \
 \cf0 ?diamonds\
-	\cf5 color - diamond colour, from J (worst) to D (best)\
+	\cf3 color - diamond colour, from J (worst) to D (best)\
 \cf0 \
-# Create a \cf5 histogram\cf0  of the price of\
-# all the diamonds in the diamond data set.\cf5 \
+# Create a \cf3 histogram\cf0  of the price of\
+# all the diamonds in the diamond data set.\cf3 \
 \cf0 qplot(diamonds$price) - worked \
 qplot(diamonds$price, geom = 'histogram') - worked \
 \
@@ -1083,65 +1104,63 @@ summary(diamonds$price)\
 > median(diamonds$price)\
 [1] 2401\
 \
-*** \cf5 How many cost less than 500\cf0  ***\
+*** \cf3 How many cost less than 500\cf0  ***\
 dim(subset(diamonds, price < 500))\
 1,729 of them (rows), with 10 columns\
 [1] 1729   10\
 sum(diamonds$price < 500)\
 [1] 1729\
 \
-*** \cf5 How many cost less than 250\cf0  ***\
+*** \cf3 How many cost less than 250\cf0  ***\
 dim(subset(diamonds, price < 250))\
 [1]  \cf2 0\cf0  10\
 sum(diamonds$price < 250)\
 [1] 0\
 \
-*** \cf5 How many cost 1500 or more\cf0  ***\
+*** \cf3 How many cost 1500 or more\cf0  ***\
 dim(subset(diamonds, price >= 1500))\
 [1] 33930    10\
 > sum(diamonds$price >= 1500)\
 [1] 33930\
 \
-*** \cf5 generating multiple histograms for comparison at once\cf0  ***\
-*** \cf5 split one column (attribute) into multiple plots, multiple qplot (qplots), multiple ggplot (ggplots) based on another, or second column (attribute) \cf0 ***\
+*** \cf3 generating multiple histograms for comparison at once\cf0  ***\
+*** \cf3 split one column (attribute) into multiple plots, multiple qplot (qplots), multiple ggplot (ggplots) based on another, or second column (attribute) \cf0 ***\
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 \expnd0\expndtw0\kerning0
-*** \cf5 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***
+*** \cf3 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***
 \f0\fs22 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 qplot(x = price, data = diamonds) + facet_wrap(~cut)\
 qplot(x = price, data = diamonds) + facet_wrap(~cut) *** instructor - \cf2 same\cf0  ***\
 qplot(x = price, data = diamonds) + facet_wrap(~cut, 
-\f7\fs24 \cf2 \cb7 \expnd0\expndtw0\kerning0
+\f7\fs24 \cf2 \cb6 \expnd0\expndtw0\kerning0
 scales = 'free_y'
-\f0\fs22 \cf0 \cb1 \kerning1\expnd0\expndtw0 )  *** \cf5 each y axis is now independent, more representative of the data for THAT ONE histogram\cf0  ***\
+\f0\fs22 \cf0 \cb1 \kerning1\expnd0\expndtw0 )  *** \cf3 each y axis is now independent, more representative of the data for THAT ONE histogram\cf0  ***\
 \
 qplot( x = log10(price), data = diamonds, binwidth = .06) + facet_wrap(~cut, scales = 'free_y') *** \cf2 binwidth fix\cf0  ***\
 \
 \
 *** by, by(), by () - numerical not graphical, see \cf2 facet_wrap\cf0  for plot (plots) for graphical *** \
-*** \cf5 Apply a Function to a Data Frame Split by Factors\cf0  ***\
-*** \cf5 Split out one data.frame column - (\cf2 price\cf5 ), attribute, by another column (\cf2 gender, cut\cf5 ), attribute, then apply a function \cf0 ***\
+*** \cf3 Apply a Function to a Data Frame Split by Factors\cf0  ***\
+*** \cf3 Split out one data.frame column - (\cf2 price\cf3 ), attribute, by another column (\cf2 gender, cut\cf3 ), attribute, then apply a function \cf0 ***\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 \expnd0\expndtw0\kerning0
 by(diamonds$price, diamonds$cut, summary)	*** \cf2 risk of rounding error\cf0  ***\
 by(diamonds$price, diamonds$cut, max)		*** \cf2 fixes rounding error\cf0  ***\
-by(diamonds$price, diamonds$cut, summary, digits = max(getOption('digits')))	*** \cf5 instructor method\cf0  - \cf2 fixes rounding error\cf0  ***\
+by(diamonds$price, diamonds$cut, summary, digits = max(getOption('digits')))	*** \cf3 instructor method\cf0  - \cf2 fixes rounding error\cf0  ***\
 \pard\pardeftab720\partightenfactor0
 
 \f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \
+\
 ***\
 *** boxplots, box plots, \
 ***\
-*** \cf2 cut is the category, categorical\cf4  ***\
-\pard\pardeftab720\partightenfactor0
+*** \cf2 cut is the category, categorical\cf0  ***\
 
-\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\f1\fs24 \expnd0\expndtw0\kerning0
 qplot(\
   data = subset(diamonds,!is.na(
 \f0\fs22 \cf2 \kerning1\expnd0\expndtw0 cut
@@ -1150,13 +1169,13 @@ qplot(\
   x = \cf2 cut\cf0 ,\
   y = price, *** \cf2 continuous data\cf0  ***\
   geom = 'boxplot')\
-\pard\pardeftab720\partightenfactor0
 
-\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\f0\fs22 \kerning1\expnd0\expndtw0 \
  \
 ***\
-*** \cf5 Get the Interquartile Range\cf0  ***\
+*** \cf3 Get the Interquartile Range\cf0  ***\
 ***\
+\pard\pardeftab720\partightenfactor0
 
 \f1\fs24 \cf2 \expnd0\expndtw0\kerning0
 IQR\cf0 (subset(diamonds, color == 'D')$price)\
@@ -1167,11 +1186,11 @@ IQR\cf0 (subset(diamonds, color == 'D')$price)\
 by(diamonds$price, diamonds$color, summary) *** \cf2 rounding error\cf0  ***\
 diamonds$color: D\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
-    357     911    1838    3170    4214   18690	\cf5 Interquartile Range - 4214 - 911 = 3303\cf0 \
+    357     911    1838    3170    4214   18690	\cf3 Interquartile Range - 4214 - 911 = 3303\cf0 \
 ------------------------------------------------------------------------------------------------- \
 diamonds$color: J\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
-    335    1860    4234    5324    7695   18710	\cf5 Interquartile Range - 7695 - 1860 = 5835\cf0 \
+    335    1860    4234    5324    7695   18710	\cf3 Interquartile Range - 7695 - 1860 = 5835\cf0 \
  \
 \pard\pardeftab720\partightenfactor0
 
@@ -1184,113 +1203,109 @@ diamonds$color: D\
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. \
   357.000   911.000  1838.000  3169.954  4213.500 18693.000
 \f1\fs24 \expnd0\expndtw0\kerning0
-		\cf5 Interquartile Range - 4213.5 - 911 = 3302.5
+		\cf3 Interquartile Range - 4213.5 - 911 = 3302.5
 \f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
 ------------------------------------------------------------------------------------------------- \
 diamonds$color: J\
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. \
   335.000  1860.500  4234.000  5323.818  7695.000 18710.000		
-\f1\fs24 \cf5 \expnd0\expndtw0\kerning0
+\f1\fs24 \cf3 \expnd0\expndtw0\kerning0
 Interquartile Range - 7695 - 1860.5 = 5834.5\
 \
-\pard\pardeftab720\partightenfactor0
 
 \f0\fs22 \cf0 \kerning1\expnd0\expndtw0 ***\
-*** \cf5 End - Get the Interquartile Range\cf0  *** \
+*** \cf3 End - Get the Interquartile Range\cf0  *** \
 ***
 \f1\fs24 \expnd0\expndtw0\kerning0
- \cf8 \cb9 \
+ \cf7 \cb8 \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf8 \
-\cf5 # Investigate the price per carat of diamonds across\
+\cf7 \
+\cf3 # Investigate the price per carat of diamonds across\
 # the different colors of diamonds using boxplots.\
-\cf4 ***\cf5  \cf2 multiple box plots (boxplots), based on color, color on x axis, multiple boxplots across x axis\cf5   \cf4 ***\cf8 \
-qplot(x = color, y = price / carat, data = diamonds, geom = 'boxplot', \cf5 fill=color\cf8 ) + coord_cartesian(ylim=c(700,7900)) *** \cf5 from the web\cf8  ***\
+\cf0 ***\cf3  \cf2 multiple box plots (boxplots), based on color, color on x axis, multiple boxplots across x axis\cf3   \cf0 ***\cf7 \
+qplot(x = color, y = price / carat, data = diamonds, geom = 'boxplot', \cf3 fill=color\cf7 ) + coord_cartesian(ylim=c(700,7900)) *** \cf3 from the web\cf7  ***\
 \pard\pardeftab720\partightenfactor0
-\cf6 \cb7 qplot\cf10 (\cf6 x \cf10 =\cf6  color, y \cf10 =\cf6  price\cf10 /\cf6 carat,   data \cf10 =\cf6  diamonds, geom \cf10 =\cf6  \cf11 'boxplot'\cf10 )\cf6  \
+\cf5 \cb6 qplot\cf9 (\cf5 x \cf9 =\cf5  color, y \cf9 =\cf5  price\cf9 /\cf5 carat,   data \cf9 =\cf5  diamonds, geom \cf9 =\cf5  \cf10 'boxplot'\cf9 )\cf5  \
 \
-*** \cf5 \cb7 count, sort a data.frame column (attribute) in R Studio\cf6  *** \cf6 \cb7  \
+*** \cf3 count, sort a data.frame column (attribute) in R Studio\cf5  ***  \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf0 \cb1 *** \cf5 Carat Frequency Polygon\cf0  ***\
+\cf0 \cb1 *** \cf3 Carat Frequency Polygon\cf0  ***\
 Investigate the weight of diamonds (carat) using a frequency polygon.\
 Use different bin widths to see how the frequency polygon changes.\
-What carat size has a \cf2 count\cf0  greater than 2000. \cf5 (0.3,  1.01)\cf0 \
+What carat size has a \cf2 count\cf0  greater than 2000. \cf3 (0.3,  1.01)\cf0 \
 \
 library(ggplot2)\
 qplot(data = diamonds, x = carat, binwidth = .01, geom = 'freqpoly') + coord_cartesian(ylim = c(0, 2800), xlim = c(.2, 1.02))\
 \
 \pard\pardeftab720\partightenfactor0
-\cf8 \cb9 *** \cf5 from the web\cf8  ***\cf0 \cb1 \
-\cf6 \cb7 qplot\cf10 (\cf6 x \cf10 =\cf6  carat, data \cf10 =\cf6  diamonds, binwidth \cf10 =\cf12 \cb7 0.01\cf6 \cb7 , geom \cf10 =\cf6  \cf11 'freqpoly'\cf10 )\cf6  \cf10 +\cf6  \cf2 \cb7 scale_x_continuous\cf10 \cb7 (\cf6 lim \cf10 =\cf6  c\cf10 (\cf12 \cb7 0\cf6 \cb7 ,\cf12 \cb7 3\cf10 \cb7 )\cf6 , \cf2 \cb7 breaks = seq(0,3,0.3)\cf10 \cb7 ) *** \cf5 here better to lose data RETAIN \cf2 \cb7 breaks = seq(0,3,0.3)\cf10 \cb7  ***\cf10 \cb7 \
+\cf7 \cb8 *** \cf3 from the web\cf7  ***\cf0 \cb1 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb6 qplot\cf9 (\cf5 x \cf9 =\cf5  carat, data \cf9 =\cf5  diamonds, binwidth \cf9 =\cf11 0.01\cf5 , geom \cf9 =\cf5  \cf10 'freqpoly'\cf9 )\cf5  \cf9 +\cf5  \cf2 scale_x_continuous\cf9 (\cf5 lim \cf9 =\cf5  c\cf9 (\cf11 0\cf5 ,\cf11 3\cf9 )\cf5 , \cf2 breaks = seq(0,3,0.3)\cf9 ) *** \cf3 here better to lose data RETAIN \cf2 breaks = seq(0,3,0.3)\cf9  ***\
 \
 \
 ***\
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb7 *** \cf5 numerical analysis - count, sort a data.frame column (attribute) in R Studio\cf6  ***  \
-\pard\pardeftab720\partightenfactor0
-\cf10 \cb7 ***\
+\cf5 *** \cf3 numerical analysis - count, sort a data.frame column (attribute) in R Studio\cf5  ***  \
+\cf9 ***\
 \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf0 \cb1 table(diamonds$carat) *** \cf5 have to look at table, cumbersome\cf0  ***\
+\cf0 \cb1 table(diamonds$carat) *** \cf3 have to look at table, cumbersome\cf0  ***\
 \pard\pardeftab720\partightenfactor0
 \cf0 \
-\pard\pardeftab720\partightenfactor0
-\cf0 ***\
-*** \cf5 count a column attribute of a data.frame\cf0  *** *** \cf2 worked\cf0  ***\
 ***\
+*** \cf3 count a column attribute of a data.frame\cf0  *** *** \cf2 worked\cf0  ***\
+***\
+\
 \pard\pardeftab720\partightenfactor0
-\cf0 \
 \cf2 \
 \pard\pardeftab720\partightenfactor0
 \cf0 class(diamonds)\
 [1] "tbl_df"     "tbl"        "\cf2 data.frame\cf0 "\
 \
-\pard\pardeftab720\partightenfactor0
-\cf4 head(\cf2 diamonds\cf4 )\
+head(\cf2 diamonds\cf0 )\
 # A tibble: 6 \'d7 10\
-  \cf2 carat\cf4        cut color clarity depth table price     x     y     z\
+  \cf2 carat\cf0        cut color clarity depth table price     x     y     z\
   <dbl>     <ord> <ord>   <ord> <dbl> <dbl> <int> <dbl> <dbl> <dbl>\
 1  0.23     Ideal     E     SI2  61.5    55   326  3.95  3.98  2.43\
-2  \cf2 0.21\cf4    Premium     E     SI1  59.8    61   326  3.89  3.84  2.31\
-3  \cf2 0.23\cf4       Good     E     VS1  56.9    65   327  4.05  4.07  2.31\
+2  \cf2 0.21\cf0    Premium     E     SI1  59.8    61   326  3.89  3.84  2.31\
+3  \cf2 0.23\cf0       Good     E     VS1  56.9    65   327  4.05  4.07  2.31\
 4  0.29   Premium     I     VS2  62.4    58   334  4.20  4.23  2.63\
 \
 ***\
-*** Get carat - column - attribute \cf2 count\cf4 \
-*** Get \cf2 count (\cf3 freq\cf2 )\cf4  for each carat weight\
+*** Get carat - column - attribute \cf2 count\cf0 \
+*** Get \cf2 count (\cf4 freq\cf2 )\cf0  for each carat weight\
 ***\
-\cf2 count(diamonds, 'carat')\cf4 \
-    carat \cf3 freq\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf2 count(diamonds, 'carat')\cf0 \
+    carat \cf4 freq\cf0 \
 1    0.20   12\
 2    0.21    9\
 3    0.22    5\
 4    0.23  293\
 \
-\cf5 class\cf4 (count(diamonds, 'carat'))\
-[1] "\cf5 data.frame\cf4 "\
+\pard\pardeftab720\partightenfactor0
+\cf3 class\cf0 (count(diamonds, 'carat'))\
+[1] "\cf3 data.frame\cf0 "\
 \
 ***\
-\pard\pardeftab720\partightenfactor0
-\cf0 *** sort, arrange, data.frame column, attribute ascending\
+*** sort, arrange, data.frame column, attribute ascending\
 *** sort, arrange, data.frame column, attribute descending\
-\pard\pardeftab720\partightenfactor0
-\cf4 ***\
+***\
 \
+library(plyr)\cf3  - arrange\cf0 \
+head(arrange(count(diamonds, 'carat'),(\cf4 freq\cf0 ))) - \cf2 ascending\cf0 \
+  carat\cf2  \cf4 freq\cf2 \
 \pard\pardeftab720\partightenfactor0
-\cf0 library(plyr)\cf5  - arrange\cf4 \
-head(arrange(count(diamonds, 'carat'),(\cf3 freq\cf4 ))) - \cf2 ascending\cf0 \
-  carat\cf2  \cf3 freq\cf2 \
 \cf0 1  2.59    1\
 2  2.64    1\
 3  2.65    1\
 4  2.67    1\
+\
 \pard\pardeftab720\partightenfactor0
-\cf4 \
-\cf5 head\cf4 (arrange(count(diamonds, 'carat'),desc(\cf3 freq\cf4 ))) - \cf2 descending\cf4 \
-  carat \cf3 freq\cf4 \
-1  0.30 2604	\cf0 *** greater than 2000 count ***\cf4 \
+\cf3 head\cf0 (arrange(count(diamonds, 'carat'),desc(\cf4 freq\cf0 ))) - \cf2 descending\cf0 \
+  carat \cf4 freq\cf0 \
+1  0.30 2604	*** greater than 2000 count ***\
 2  0.31 2249	*** greater than 2000 count ***\
-3  1.01 2242	\cf0 *** greater than 2000 count ***\cf4 \
+3  1.01 2242	*** greater than 2000 count ***\
 4  0.70 1981\
 \
 ***\
@@ -1300,9 +1315,9 @@ head(arrange(count(diamonds, 'carat'),(\cf3 freq\cf4 ))) - \cf2 ascending\cf0 \
 \
 https://www.gapminder.org/data/\
 Armed forces personnel, total	WDI	Society	War & peace\
-WDI - http://data.\cf2 worldbank.org\cf4 /data-catalog/world-development-indicators\
+WDI - http://data.\cf2 worldbank.org\cf0 /data-catalog/world-development-indicators\
 \
-file name - \cf5 indicator army_total.xlsx\cf4 \
+file name - \cf3 indicator army_total.xlsx\cf0 \
 \
 ***\
 *** load, read downloaded data into R Studio \
@@ -1310,7 +1325,7 @@ file name - \cf5 indicator army_total.xlsx\cf4 \
 install.packages("xlsx", dep = T)\
 library(xlsx)\
 \
-armyData <- \cf2 read\cf4 .xlsx('indicatorArmy_total.xlsx', sheetIndex = 1)\
+armyData <- \cf2 read\cf0 .xlsx('indicatorArmy_total.xlsx', sheetIndex = 1)\
 ***\
 *** new smaller data.frame, rows from larger data.frame\
 ***\
@@ -1326,6 +1341,642 @@ colnames(armyData)[which(names(armyData) == "NA.")] <- "Country"\
 *** 1 February 2017 Data Analysis with R\
 *** Explore Two Variables 27 total \
 ***\
+\
+***\
+*** Scatterplot - Examine relationship between 2 (two) continuous variables\
+*** qplot \cf2 choses scatterplot automatically\cf0  when we pass 2 (two) continuous variables to the x and y parameters (arguments) \
+***\
+\
+*** \cf3 Previous working example\cf0  *** \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 # create scatterplot of price vs carat color coded by diamond cuts\
+qplot(data = diamonds, x = carat, y = price, color = cut) + scale_color_brewer(palette = 'Accent')\
+\
+
+\f1\fs24 \expnd0\expndtw0\kerning0
+*** \cf3 2 continuous variables passed to qplot 
+\f0\fs22 \kerning1\expnd0\expndtw0 x = age, y = friend_count, - \cf2 \ul scatterplot
+\f1\fs24 \cf0 \expnd0\expndtw0\kerning0
+\ulnone  *** \
+*** \cf3 Example \cf2 continuous value\cf3  - weight, \cf2 can\cf3  be ANY value to include decimal \cf0 ***
+\f0\fs22 \kerning1\expnd0\expndtw0 \
+
+\f1\fs24 \expnd0\expndtw0\kerning0
+*** \cf3 Example \cf2 discreet value\cf3  coin flip count - integer only can't have 2.5 heads, \cf2 can't\cf3  be ANY value\cf0  ***
+\f0\fs22 \kerning1\expnd0\expndtw0 \
+library(ggplot2)\
+qplot(data = pf, x = age, y = friend_count)\
+qplot(data = pf, age, friend_count) *** \cf3 scatterplot, same result, \cf2 figures out\cf3  x and y value\cf0  ***\
+\
+*** \cf3 manipulate, influence the x axis\cf0  ***\
+qplot(data = pf, x = age, y = friend_count) + scale_x_continuous(limits = c(65, 75), breaks = seq(65, 75, 1))\
+\
+*** \cf3 ggplot syntax, The point geom is used to create scatterplots.
+\f4\fs26 \cf0 \expnd0\expndtw0\kerning0
+ 
+\f0\fs22 \kerning1\expnd0\expndtw0  ***
+\f1\fs24 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point()\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 *** \cf3 manipulate, influence the x axis\cf0  ***\
+*** \cf3 manipulate, influence the x axis - get the scope, minimum, maximum of x axis values \cf0  ***
+\f1\fs24 \expnd0\expndtw0\kerning0
+\
+summary(pf$age)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+  \cf2 13.00\cf0    20.00   28.00   37.28   50.00  \cf2 113.00\cf0  \
+\
+*** \cf3 age 13 - 90, could not get bin width to work here\cf0  ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point() + xlim(c(\cf2 13, 90\cf0 ))\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point() + xlim(13, 90) *** \cf2 worked c not needed, RStudio help AND instructor confirms, \cf3 c\cf2  not needed\cf0  ***\
+\
+*** \cf3 correct overplotting, make points 
+\f4\fs26 transparent (transparency), now takes 20 dots to make one completely dark, non transparent dot 
+\f1\fs24 \cf0 ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(alpha = 1 / 20) + xlim(13, 90)\
+\
+*** \cf3 ggplot, scatterplot, red dots \cf0 ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(alpha = 1 / 20, aes(color ='\cf2 red\cf0 ')) + xlim(13, 90)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 *** \cf2 geom_jitter - \cf3 adds a small amount of random variation, both positive and negative to each point, dot. Useful way of handling overplotting caused by discreteness in smaller datasets\cf0  ***\
+*** \cf2 geom_jitter - \cf3 fixes in reality age is not an integer, someone can be 25 and 1/2 years old, jitter adds the noise or the slop to the dots, the data \cf2 class(pf$age) \cf3 IS integer, jitter visually fixes that.\cf0  ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) + \cf2 geom_jitter\cf0 (alpha = 1 / 20, aes(color ='red')) + xlim(13, 90)\
+\
+*** \cf3 instructor example - Data Analysis with R - Alpha and Jitter 7 of 27, \cf2 h = 0, \cf3 minimum height of 0 (zero), prevents getting negative friend counts from the jitter effect. jitter can add both positive and negative noise to each dot\cf0 *** \
+*** \cf3 instructor example - Data Analysis with R - Alpha and Jitter 7 of 27, Used alpha and jitter to over plotting \cf0 *** \
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(aes(color ='red'), alpha = 1/20, position = position_jitter(\cf2 h = 0\cf0 )) + xlim(13, 90) + coord_trans(x = "sqrt")\
+\
+***\
+*** Data Analysis with R -\cf2  Conditional Means\cf0  9 of 27 - February 2017\
+*** a plot that displays summaries \
+***\
+\pard\pardeftab720\partightenfactor0
+\cf3 Look at two variables a different way.\cf0 \
+\cf2 How does the average friend_count vary over age\cf0 ?\
+\
+Create table (Data Frame, data.frame) that gives us the mean and median \cf2 friend_count\cf0  for each \cf2 age\cf0 . \
+install.packages('dplyr')\
+library(dplyr)\
+\
+***\
+*** group by, group_by, group_by() a column (attribute) - ***\cf3  \cf4 note multiple lines for each age\cf3  \cf0 ***\cf3  \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** next summarise ***  ***\cf3  
+\fs28 \cf4 note one line for each age
+\fs26 \cf3  \cf0 ***\
+Split up a data.frame, then apply a function to SOME parts of the data.\
+\pard\pardeftab720\partightenfactor0
+\cf3 common functions\cf0 \
+	filter()\
+	group_by() \
+	mutate()\
+	arrange()\
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 First group by, group_by() age, "for each age"\cf0  ***\cf3 \
+group_by(pf, \cf2 age\cf3 ) - \cf0 ***\cf3  \cf4 note multiple lines for each age\cf3  \cf0 ***\cf3  \cf0 \
+Source: local data frame [99,003 x 15]\
+Groups: age [101]\
+    userid   \cf2 age\cf0  dob_day dob_year dob_month gender tenure friend_count friendships_initiated likes likes_received mobile_likes\
+     <int> <int>   <int>    <int>     <int> <fctr>  <int>        <int>                 <int> <int>          <int>        <int>\
+1  2094382    \cf2 14\cf0       19     1999        11   male    266            0                     0     0              0            0\
+2  1192601    \cf2 14\cf0        2     1999        11 female      6            0                     0     0              0            0\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 age_groups <- group_by(pf, \cf4 \ul \ulc4 age\cf3 \ulnone )	\cf0 *** \cf3 first group_by\cf0  ***\cf3 \
+summarise(age_groups)			*** next summarise ***\cf0 \
+# A tibble: 101 \'d7 1\
+     age\
+   <int>\
+1     13\
+2     14\
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 summarise(age_groups, \cf2 friend_count_mean\cf3  = mean(friend_count), \cf2 friend_count_median\cf3  = median(friend_count)) - \cf0 ***\cf3  
+\fs28 \cf4 note one line for each age
+\fs26 \cf3  \cf0 ***\
+# A tibble: 101 \'d7 3\
+     \cf4 \ul age\cf0 \ulnone  \cf2 friend_count_mean\cf0  \cf2 friend_count_median\cf0 \
+   <int>             <dbl>               <dbl>\
+1     \cf4 \ul 13\cf0 \ulnone           164.7500                74.0\
+2     \cf4 \ul 14\cf0 \ulnone           251.3901               132.0\
+\
+summarise(age_groups, friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), \cf2 n = n()\cf0 ) ***\cf3  
+\fs36 \cf4 note one line for each age
+\fs26 \cf3  \cf0 *** ***\cf2  and we have n or the count for each age, get the \ul count\cf0 \ulnone  ***\
+# A tibble: 101 \'d7 4\
+     age friend_count_mean friend_count_median     \cf2 n\cf0 \
+   <int>             <dbl>               <dbl> <int>\
+1     13          164.7500                74.0   \cf2 484\cf0 \
+2     14          251.3901               132.0  \cf2 1925\cf0 \
+3     15          347.6921               161.0  \cf2 2618\
+\
+\cf0 *** create new data.frame (\cf2 pseudo facebook\cf0 ) (\cf2 friend_count\cf0 ) by age ***\
+\pard\pardeftab720\partightenfactor0
+\cf2 pf.fc_by_age\cf0  <- summarise(age_groups, friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), n = n()) \
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 arrange\cf0 (pf.fc_by_age, age) *** \cf3 arrange (sort) by age\cf0  ***\
+# A tibble: 101 \'d7 4\
+     age friend_count_mean friend_count_median     n\
+   <int>             <dbl>               <dbl> <int>\
+1     13          164.7500                74.0   484\
+2     14          251.3901               132.0  1925\
+\
+pf.fc_by_age <- \cf3 arrange\cf0 (pf.fc_by_age, age)  *** \cf3 arrange (sort) by age\cf0  ***\
+\
+\cf3 head\cf0 (pf.fc_by_age)\
+# A tibble: 6 \'d7 4\
+    \cf2 age\cf0  friend_count_mean friend_count_median     n\
+  <int>             <dbl>               <dbl> <int>\
+1    \cf2 13\cf0           164.7500                74.0   484\
+2    \cf2 14\cf0           251.3901               132.0  1925\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf0 summary(pf$age)\
+   \cf2 Min.\cf0  1st Qu.  Median    Mean 3rd Qu.    Max. \
+  \cf2 13.00\cf0    20.00   28.00   37.28   50.00  113.00 - *** \cf2 13 is indeed the min, minimum\cf0  *** \
+\
+***  line plot, age versus average or mean friend count *** \
+*** use the right (new) Data Frame data.frame, \cf2 pf.fc_by_age in ALL THREE PLACES \cf4 wrong see next example\cf2  \cf0 *** \
+ggplot(data = \cf2 pf.fc_by_age\cf0 , aes(x = \cf2 pf.fc_by_age\cf0 $age, y = \cf2 pf.fc_by_age\cf0 $friend_count_mean)) + geom_line()\
+\
+*** use the right (new) Data Frame data.frame, \cf2 pf.fc_by_age only needed in one place  \cf0 *** \
+*** \cf2 better syntax\cf0  ***\
+ggplot(\cf2 data = pf.fc_by_age\cf0 , aes(x = age, y = friend_count_mean)) + geom_line()\
+\
+***\
+*** Data Analysis with R - Overlaying Summaries with Raw Data - 10 of 27 - February 2017\
+***\
+\
+*** \cf3 original plot - plot of raw data\cf0  ***			*** \cf2 color inside and outside aes()\cf0  ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(\cf2 aes(color ='red')\cf0 , alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt")\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(\cf2 color ='red'\cf0 , alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt") *** \cf2 \ul \ulc2 instructor\ulnone  way to get color dots no aes()\cf0  ***\
+\
+*** \cf3 original plot - plot of raw data\cf0  ***	\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(color ='red', alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt") + geom_line(stat = 'summary', fun.y = mean)\
+\
+*** add a layer, overlay the summary ***																					*** \cf2 function applied to the y axis, mean applied to the y values\cf0  ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(color ='red', alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt") + geom_line(\cf2 stat = 'summary', fun.y = mean\cf0 )\
+\pard\pardeftab720\partightenfactor0
+\cf2 																											       stat\cf0  - The statistical transformation to use on the data for this layer, as a string.\
+*** \cf3 adds the friend_count \cf2 summary\cf3  "mean" line plot over, on top of the friend_count scatter plot\cf0 , \cf2 geom_point = scatterplot\cf0  ***									      + geom_line(\cf2 stat = 'summary', fun.y = mean\cf0 ) *** \cf3 drives home the adding a layer point, mean applied to the y values \cf0  ***\
+\
+*** \cf3 next display MULTIPLE summaries\cf0  ***\
+*** \cf3 plot quantiles of the data\cf0  ***\
+\
+*** \cf3 add quantiles, 10%, (50% or the median), and 90%\cf0  ***\
+*** \cf3 50% quantile = median \cf0 ***\
+\
+*** \cf3 10% quantile summary line\cf0  ***							*** \cf3 dashed line\cf0  ***\
+*** \cf2 geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.1), linetype = 2, color = 'blue')\cf0  ***\
+\
+*** \cf3 50% quantile summary line, (50% or the median)\cf0  ***		*** \cf3 not\cf0  \cf3 dashed line\cf0  *** ***\cf3  median here, mean above example\cf0  ***\
+*** \cf3 50% quantile = median \cf0 *** ***\cf3  median here, mean above example\cf0  ***\
+*** \cf2 geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.5), color = 'blue')\cf0  ***\
+\
+*** \cf3 90% quantile summary line, 90% of users have friend counts BELOW this line\cf0  ***							*** \cf3 dashed line\cf0  ***\
+*** \cf2 geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.9), linetype = 2, color = 'blue')\cf0  ***\
+\
+*** \cf3 better example below\cf0  ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) +\
+  geom_point(color ='orange', alpha = 1/20, position = position_jitter(h = 0)) +\
+  coord_trans(y = 'sqrt') +\
+  coord_cartesian(xlim = c(13, 90), ylim = c(0, 1000)) +\
+  geom_line(stat = 'summary', fun.y = mean) + \
+  geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.1), linetype = 2, color = 'blue') +\
+  geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.5), color = 'blue') +\
+  geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.9), linetype = 2, color = 'blue')\
+\
+***\cf2  best example, multiple pots, lines over scatterplot \cf0 ***\
+ggplot(data = pf, aes(x = age, y = friend_count)) +\
+  geom_point(color ='orange', alpha = 1/20, position = position_jitter(h = 0)) +\
+  # coord_trans(y = 'sqrt') + *** \cf2 commented out, not used ignored\cf0  ***\
+  coord_cartesian(xlim = c(13, 90), ylim = c(0, 1000)) +\
+  geom_line(stat = 'summary', fun.y = mean) + \
+  geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.1), linetype = 2, color = 'blue') +\
+  geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.5), color = 'blue') +\
+  geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.9), linetype = 2, color = 'blue')
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 ***\
+*** Data Analysis with R -\cf2  Correlation\cf0  12 of 27 - February 2017\
+***  Strength of \cf2 age \cf0 - \cf2 friend_count\cf0  relationship \
+*** Using the Pearson's product-moment correlation lower case \cf3 'r' - \cf0 to measure linear relationship between two variables *** \cf3 descriptive statistics example\cf0  *** ***\cf3  experimental research, inferential statistics needed for causation\cf0  ***\
+*** Using the Pearson's product-moment correlation lower case \cf3 'r' - \cf0 to measure linear relationship between age and friend count. *** \cf3 descriptive statistics example\cf0  *** ***\cf3  experimental research, inferential statistics needed for causation\cf0  ***\
+*** Using the Pearson's product-moment correlation lower case \cf3 'r' - \cf0 to measure strength of relationship between two variables *** \cf3 descriptive statistics example\cf0  *** ***\cf3  experimental research, inferential statistics needed for causation\cf0  ***\
+*** Using the Pearson's product-moment correlation lower case \cf3 'r' - \cf0 to measure strength of relationship between any two Data Frame, data.frame, columns, attributes. *** \cf3 descriptive statistics example\cf0  *** ***\cf3  experimental research, inferential statistics needed for causation\cf0  ***\
+***\
+*** \cf3 Pearson's\cf0  - \cf3 greater than 0.3 or less than 0.3 - correlation is meaningful but small\cf0  ***\
+*** \cf3 Pearson's - 0.5 moderate correlation\cf0  ***\
+*** \cf3 Pearson's - 0.7 or greater correlation\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 *** Method 1 ***  \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
+\f4\fs26 \
+\pard\pardeftab720\partightenfactor0
+\cf0 cor.test(pf$age, pf$friend_count, method = c('pearson'))\
+\
+	Pearson's product-moment correlation\
+\
+data:  pf$age and pf$friend_count\
+t = -8.6268, df = 99001, p-value < 2.2e-16\
+alternative hypothesis: true correlation is not equal to 0\
+95 percent confidence interval:\
+ -0.03363072 -0.02118189\
+sample estimates:\
+        cor \
+\pard\pardeftab720\partightenfactor0
+\cf3 -0.02740737 \cf0 ***\cf3  \cf2 no meaningful relationship between the variables\cf3  \cf0 ***\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+*** Method 2 ***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
+\f4\fs26 \
+\pard\pardeftab720\partightenfactor0
+\cf2 with\cf0 (pf, cor.test(age, friend_count, method = 'pearson'))\
+\cf2 with\cf0 (subset(pf, age <= 70), cor.test(age, friend_count, method = 'pearson')) *** \cf3 instructor works, Pearson's product-moment correlation on a subset of Data Frame, data.frame data\cf0  ***\
+\
+	Pearson's product-moment correlation\
+\
+data:  age and friend_count\
+t = -8.6268, df = 99001, p-value < 2.2e-16\
+alternative hypothesis: true correlation is not equal to 0\
+95 percent confidence interval:\
+ -0.03363072 -0.02118189\
+sample estimates:\
+        cor \
+\cf3 -0.02740737 \cf0 ***\cf3  \cf2 no meaningful relationship between the variables\cf3  \cf0 ***\
+\
+\
+***\
+*** Data Analysis with R - Explore Two Variables -\cf2  Correlation on Subsets\cf0  13 of 27 - February 2017\
+*** \
+***
+\f1\fs24 \cf3 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 ***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Correlation Methods\cf0  14 of 27 - February 2017\
+***
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 ***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Create Scatterplots \cf0 14 of 27 - February 2017\
+***\
+exponent scientific notation review \cf3 5e3 - 5,000\
+\
+\cf0 *** \cf3 mine\cf0  ***\cf3 \
+\cf0 ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) +\
+  geom_point() +\
+  coord_cartesian(xlim = c(0, 700), ylim = c(0, 5e3))\
+\
+*** \cf3 instructor\cf0  ***\
+ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) + geom_point()\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Strong Correlations \cf0 16 of 27 - February 2017\
+***\
+\
+*** \cf3 cool using percentile, in this case the upper limit is the 95 percentile using the quantile command, xlim ylim \cf2 percentage, \cf3 (percentile, quantile, percentage) \cf0 ***\
+	xlim(0, \cf3 quantile(pf$www_likes_received, 0.95\cf0 ))\
+	ylim(0, \cf3 quantile(pf$likes_received, 0.95\cf0 ))\
+\
+ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) +\
+  geom_point() + xlim(0, quantile(pf$www_likes_received, 0.95)) + ylim(0, quantile(pf$likes_received, 0.95)) +\
+  geom_\cf2 smooth\cf0 (method = 'lm', color = 'red') *** \cf2 this red line IS the correlation, adding a correlation line layer\cf0  ***\
+*** \cf2 add a smoother, set method to \cf3 'lm'\cf2  - linear model\cf0  ***\
+\
+ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) +\
+  geom_point() + xlim(0, quantile(pf$www_likes_received, 0.95)) + ylim(0, quantile(pf$likes_received, 0.95))\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf0 \
+What's the \cf2 correlation between the two variables\cf0 ?  Include the top 5% of values for the variables in the calculation and round to 3 decimal places.\
+In other words include all values.  \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3 with(subset(pf), cor.test(\cf2 likes_received\cf3 , \cf2 www_likes_received\cf3 , method = 'pearson'))\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+	Pearson's product-moment correlation\
+\
+data:  likes_received and www_likes_received\
+t = 937.1, df = 99001, p-value < 2.2e-16\
+alternative hypothesis: true correlation is not equal to 0\
+95 percent confidence interval:\
+ 0.9473553 0.9486176\
+sample estimates:\
+      cor \
+0.9479902 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3 with(subset(pf), cor.test(\cf2 www_likes_received\cf3 , \cf2 likes_received\cf3 , method = 'pearson'))\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+	Pearson's product-moment correlation\
+\
+data:  www_likes_received and likes_received\
+t = 937.1, df = 99001, p-value < 2.2e-16\
+alternative hypothesis: true correlation is not equal to 0\
+95 percent confidence interval:\
+ 0.9473553 0.9486176\
+sample estimates:\
+      cor \
+0.9479902 \
+\
+\
+***\
+*** Quantile formula examples (RStudio) - 4 February 2017 \
+*** Side Study\
+***\
+reference, data page\
+http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.quantile.html\
+\
+*** \cf2 create the example Studio data.frame\cf0  ***\
+*** \cf2 note the column names 'a', 'b'\cf0  ***\
+\
+*** \cf2 Create the vectors\cf0  ***\
+a_ListNumbers <- c(1, 2, 3, 4)\
+b_ListNumbers <- c(1, 10, 100, 100)\
+\
+*** \cf2 Create the Data Frame, data.frame with column names \cf0 ***\
+myTestDataFrame = data.frame(\cf2 'a'\cf0  = a_ListNumbers, \cf2 'b'\cf0  = b_ListNumbers)\
+\
+myTestDataFrame\
+  \cf2 a   b\cf0 \
+1 1   1\
+2 2  10\
+3 3 100\
+4 4 100\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 row.names\cf0 .data.frame(myTestDataFrame)\
+[1] "1" "2" "3" "4"\
+\cf2 colnames\cf0 (myTestDataFrame)\
+[1] \cf2 "a" "b"\cf0 \
+\
+*** \cf2 get the a column quantiles\cf0  ***\
+quantile(myTestDataFrame$a, \cf2 0.1\cf0 )\
+\cf2 10%\cf0  \
+\cf2 1.3\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 quantile(myTestDataFrame$a, \cf2 0.5\cf0 )\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 50%\cf0  \
+\cf2 2.5\cf0  \
+quantile(myTestDataFrame$a,seq(0, 1, by=0.1))\
+  0%  \cf2 10%\cf0   20%  30%  40%  \cf2 50%\cf0   60%  70%  80%  90% 100% \
+ 1.0  \cf2 1.3\cf0   1.6  1.9  2.2  \cf2 2.5\cf0   2.8  3.1  3.4  3.7  4.0 \
+(1.0 + 1.6) / 2 = \cf2 1.3\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 (2.2 + 2.8) / 2 = \cf2 2.5\cf0 \
+\
+*** \cf2 get the b column quantiles\cf0  ***\
+quantile(myTestDataFrame$b, \cf2 0.1\cf0 )\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 10%\cf0  \
+\cf2 3.7\cf0  \
+quantile(myTestDataFrame$b, \cf2 0.5\cf0 )\
+\cf2 50%\cf0  \
+\cf2 55 \cf0 \
+quantile(myTestDataFrame$b,seq(0, 1, by=0.1))\
+   0%   \cf2 10%\cf0    20%   30%   40%   \cf2 50%\cf0    60%   70%   80%   90%  100% \
+  1.0   \cf2 3.7\cf0    6.4   9.1  28.0  \cf2 55.0\cf0   82.0 100.0 100.0 100.0 100.0 \
+(1.0 + 6.4) / 2 = \cf2 3.7\cf0 \
+(28.0 + 82.0) / 2 = \cf2 55\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 ***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 More Caution with Correlation \cf0 18 of 27 - February 2017\
+***\
+install.packages("alr3")\
+library(alr3)\
+data(Mitchell)\
+\
+*** \cf3 generate scatter plot, Michell Data, Month versus Temp\cf0  ***\
+ggplot(data = Mitchell, aes(x = Month, y = Temp)) + geom_point() *** Mike ***\
+\
+*** \cf3 Pearson correlation Mitchell data.frame (Data Frame) Month and Temp column headings\cf0   ***\
+with(Mitchell, cor.test(Month, Temp, method = 'pearson'))\
+\
+	Pearson's product-moment correlation\
+\
+data:  Month and Temp\
+t = 0.81816, df = 202, p-value = 0.4142\
+alternative hypothesis: true correlation is not equal to 0\
+95 percent confidence interval:\
+ -0.08053637  0.19331562\
+sample estimates:\
+       cor \
+0.05747063 \
+\
+Remember - \
+*** \cf3 Pearson's\cf0  - \cf3 greater than 0.3 or less than 0.3 - correlation coefficient is meaningful but small\cf0  ***\
+0.05 \cf2 LESS THAN\cf0  0.3 -\cf2  weak correlation\cf0  \
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Making Sense Of Data \cf0 20 of 27 - February 2017\
+***\
+\
+*** \cf3 instructor - improving the x axis - seq() - \cf2 begin, end\cf3  driven by \cf2 range\cf3 , \cf2 str\cf3 , \cf2 interval\cf3  - 12 months in a year\cf0  ***\
+*** ggplot(data = Mitchell, aes(x = Month, y = Temp)) + geom_point() + scale_x_continuous(breaks = seq(\cf2 0\cf0 , \cf2 203\cf0 , \cf2 12\cf0 )) ***\
+																*** \cf2 begin, end, 12 months per year\cf0  ***\
+\
+*** \cf2 What did seq() return?\cf0  \cf3 seq(0, 203, 12)\cf0  ***\
+seq(0,203,12)\
+ [1]   0  12  24  36  48  60  72  84  96 108 120 132 144 156 168 180 192\
+*** \cf2 this is what the x axis looks like\cf0  ***\
+\
+*** \cf3 Where did we get the seq() values? - \cf2 range()\cf12 , \cf2 str()\cf12  \cf0 ***\
+\cf3 range\cf0 (Mitchell$\cf2 Month\cf0 )\
+[1]   0 \cf2 203\
+\cf12 *** \cf3 zero based indexing - 204 values\cf12  ***\cf0 \
+range(Mitchell$Temp)\
+[1] -7.47778 27.60560\
+\
+\cf3 str\cf0 (Mitchell)\
+'data.frame':	\cf2 204\cf0  obs. of  2 variables:  *** \cf3 204 values, not zero based indexing\cf0  ***\
+ $ Month: int  0 1 2 3 4 5 6 7 8 9 ...\
+ $ Temp : num  -5.18 -1.65 2.49 10.4 14.99 ...\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 A New Perspective  \cf0 21 of 27 - February 2017\
+***\
+\
+*** \cf3 Overlapping each years Nebraska data o top of each other - modulus operator, cyclical data visualization\cf0  *** \
+*** \cf3 At first glance the Nebraska Months Temp relationship looked random.\cf0  ***\
+*** \cf3 The modulus operator showed the seasonal relationship between Nebraska Month and Temp, cyclical data visualization\cf0  ***\
+ggplot( data = Mitchell, (aes (x = Month\cf2 %%\cf0 12, y = Temp))) + geom_point()\
+\
+*** \cf3 This too shows the seasonal cycles of Month versus Temp, (cyclical data visualization) - Mike\cf0  ***\
+ggplot(data = Mitchell, aes(x = Month, y = Temp)) + geom_point() + scale_x_continuous(breaks = seq(0, 203, 12), limits = c(0, 24))\
+\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Understanding Noise: Age to Age Months \cf0 22 of 27 - February 2017\
+***\
+\
+*** \cf3 make a backup copy of a data.frame in Studio\cf0  ***\
+myPF <- pf\
+ \
+*** \cf3 access two columns of the backup copy Data Frame, data.frame, bracket notation \cf0 ***\
+head(myPF[,c('age',"dob_month")])\
+\
+*** \cf3 create a new column in a data.frame, based on other columns in the data.frame, Data Frame\cf0  ***\
+pf$age_with_months <- ((1 - (pf$dob_month / 12)) + pf$age)\
+\
+*** \cf3 access the new added data.frame, Data Frame \cf2 column\cf3 , bracket notation \cf0 ***\
+*** \cf3 access some columns, attributes, Data Frame, data.frame bracket notation \cf0 ***\
+head(pf[,c('age',"dob_month",'age_with_months')])\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Age with Months Means  \cf0 23 of 27 - February 2017\
+***\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f8 \cf0 \expnd0\expndtw0\kerning0
+*** create the new \cf2 age_groups\cf0  data.frame***\
+*** group_by an existing column, attribute of the parent data.frame, Data Frame ***\
+***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 *** \cf4 working example 1\cf0  ***
+\f8\fs24 \
+
+\f4\fs26 \cf2 age_groups\cf0  <- group_by(pf, \ul \ulc4 age\ulnone )\
+\
+*** \cf4 working example 2\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf2 age_with_months\cf0  <- group_by(pf, age_with_months) \
+\pard\pardeftab720\partightenfactor0
+
+\f8\fs24 \cf0 \
+class(\cf2 age_groups\cf0 )\
+[1] "grouped_df" "tbl_df"     "tbl"        "\cf2 data.frame\cf0 "\
+\
+***\
+*** examine the new data.frame, Data Frame ***\
+*** 
+\b \cf4 multiple
+\b0 \cf2  rows for each age\cf0  ***\
+*** \cf2 all columns, attributes from the parent data.frame, Data Frame, present \cf0 ***\
+***\
+head(age_groups)\
+Source: local data frame [6 x 15]\
+Groups: age [1]\
+\
+userid  	\cf2 age\cf0 	dob_day	dob_year	dob_month\
+<int>		<int>	<int>		<int>		<int> \
+1 2094382    \cf2 14\cf0 	19		1999		11    \
+2 1192601    \cf2 14	\cf0 2		1999		11\
+\
+***\
+*** 
+\f4\fs26 \cf3 summarise\cf0  - 
+\f8\b\fs24 \cf2 ONE
+\b0 \cf3  row for each 
+\f4\fs26 group_by(pf, \cf2 age\cf3 ) column, attribute\cf0  ***
+\f8\fs24 \
+*** \cf3 create new attributes for each  
+\f4\fs26 \cf2 age
+\f8\fs24 \cf3  row 
+\f4\fs26 \cf0 ***\
+
+\f8\fs24 *** get the \cf2 count for each \cf3 group_by(pf, \cf2 age\cf3 ) row\cf0   ***\
+***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 *** \cf4 working example 1\cf0  ***
+\f8\fs24 \
+
+\f4\fs26 summarise(\cf2 age_groups\cf0 , \cf2 friend_count_mean\cf0  = mean(friend_count), \cf2 friend_count_median \cf0 = median(friend_count), \cf2 n = n()\cf0 ) *** \cf2 n\cf0  - count ***\
+*** \cf4 the new data.frame created\cf2  \cf0 ***\
+\
+# A tibble: 101 \'d7 4\
+     \cf2 age\cf0 	friend_count_mean	friend_count_median	\cf2 n\cf0 \
+   <int>	<dbl>				<dbl>				<int>\
+1     \cf2 13\cf0 	164.7500			74.0				\cf2 484\cf0 \
+2     \cf2 14\cf0 	251.3901			132.0				\cf2 1925\
+\
+\cf0 *** \cf4 working example 2\cf0  ***\
+summarise(\cf2 age_with_months\cf0 , \cf2 friend_count_mean\cf0  = mean(friend_count), \cf2 friend_count_median \cf0 = median(friend_count), \cf2 n = n()\cf0 )  *** \cf2 n\cf0  - count ***\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\
+*** arrange, sort ascending by the \cf3 group_by(pf, \cf2 age\cf3 ) column, attribute\
+\cf0 *** create the new \cf4 data.frame\cf0 , Data Frame ***\
+***\cf2 \
+\
+\cf0 *** \cf4 working example 1\cf0  ***\
+pf.fc_by_age <- \cf2 arrange\cf0 (summarise(age_groups, friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), n = n()),\cf2 age\cf0 )\
+\
+*** \cf4 working example 2\cf0  ***\
+pf.fc_by_age_months <- \cf2 arrange\cf0 (summarise(\cf2 age_with_months\cf0 , friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), n = n())\cf2 ,age_with_months\cf0 )\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\cf2 \
+\cf0 *** arrange, sort ascending by the \cf3 group_by(pf, \cf2 age\cf3 ) column, attribute\cf0  ***\
+*** create the new \cf4 data.frame\cf0 , Data Frame ***\
+***\
+ \cf2 \
+\
+\
+\
+\cf0  \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+ \
+\
+\
+  
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
+\
+\
+\
+\
 \
 \
 }
