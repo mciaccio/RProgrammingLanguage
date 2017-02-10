@@ -5,13 +5,13 @@
 }
 {\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red0\green0\blue255;\red255\green0\blue255;
 \red38\green38\blue38;\red242\green242\blue242;\red36\green38\blue41;\red235\green236\blue237;\red85\green98\blue116;
-\red210\green0\blue53;\red17\green137\blue135;\red0\green0\blue0;}
-\margl1440\margr1440\vieww28000\viewh16500\viewkind0
+\red210\green0\blue53;\red17\green137\blue135;}
+\margl1440\margr1440\vieww28000\viewh11320\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
 \f0\fs22 \cf0  \
-https://www.rstudio.com\
+https://www.rstudio.com   \
 \
 Install R first.\
 https://cran.rstudio.com\
@@ -765,7 +765,7 @@ pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
 \
 library(ggplot2)\
 qplot(data = pf, x = friend_count)\
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\
+generated message *** \cf3 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\cf0  ***\
 \
 summary(pf$friend_count)\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
@@ -909,7 +909,7 @@ qplot(\
   x = \cf2 gender\cf0 ,\
   y = friend_count, *** \cf2 continuous data\cf0  ***\
   geom = 'boxplot',\
-  \cf2 ylim = c(0, 1000)\cf0 ) *** \cf3 data removed from calculations using this method, , data loss, data lost\cf0  ***\
+  \cf2 ylim = c(0, 1000)\cf0 ) *** \cf3 data removed from calculations using this method, data loss, data lost\cf0  ***\
   
 \f5\i\b \cf2 \ul \ulc2 Removed
 \f6\b0 \ulnone  2949 rows containing non-finite values (stat_boxplot). \
@@ -928,10 +928,12 @@ qplot(\
   y = friend_count, *** \cf2 continuous data\cf0  ***\
   geom = 'boxplot') + \
   \cf2 scale_y_continuous(limits = c(0, 1000)\cf0 )  *** \cf3 data removed from calculations using this method, data loss, data lost\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
 
 \f6\i \cf2   
 \f5\b \ul Removed 
 \f6\b0 \ulnone 2949 rows containing non-finite values (stat_boxplot). \
+\pard\pardeftab720\sl280\partightenfactor0
 
 \f1\i0 \cf0 \
 \pard\pardeftab720\partightenfactor0
@@ -1414,7 +1416,7 @@ ggplot(data = pf, aes(x = age, y = friend_count)) + \cf2 geom_jitter\cf0 (alpha 
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(aes(color ='red'), alpha = 1/20, position = position_jitter(\cf2 h = 0\cf0 )) + xlim(13, 90) + coord_trans(x = "sqrt")\
 \
 ***\
-*** Data Analysis with R -\cf2  Conditional Means\cf0  9 of 27 - February 2017\
+*** Data Analysis with R -\cf2  Conditional Means\cf0  9 of 27 - February 2017 (\cf3 Conditional Means example of Conditional Summaries\cf0 )\
 *** a plot that displays summaries \
 ***\
 \pard\pardeftab720\partightenfactor0
@@ -1428,19 +1430,21 @@ library(dplyr)\
 ***\
 *** group by, group_by, group_by() a column (attribute) - ***\cf3  \cf4 note multiple lines for each age\cf3  \cf0 ***\cf3  \
 \pard\pardeftab720\partightenfactor0
+\cf0 *** (group_by(), \cf3 number of rows remains the same\cf0 ) \cf3 \
 \cf0 *** next summarise ***  ***\cf3  
 \fs28 \cf4 note one line for each age
 \fs26 \cf3  \cf0 ***\
 Split up a data.frame, then apply a function to SOME parts of the data.\
 \pard\pardeftab720\partightenfactor0
-\cf3 common functions\cf0 \
+\cf3 common functions - *** \cf2 dplyr \cf3 ***\cf0 \
 	filter()\
 	group_by() \
 	mutate()\
 	arrange()\
 \cf3 \
 \pard\pardeftab720\partightenfactor0
-\cf0 *** \cf3 First group by, group_by() age, "for each age"\cf0  ***\cf3 \
+\cf0 *** \cf3 First group by, group_by() age, "for each age"\cf0  ***\
+*** (group_by(), \cf3 number of rows remains the same\cf0 ) \cf3 \
 group_by(pf, \cf2 age\cf3 ) - \cf0 ***\cf3  \cf4 note multiple lines for each age\cf3  \cf0 ***\cf3  \cf0 \
 Source: local data frame [99,003 x 15]\
 Groups: age [101]\
@@ -1449,6 +1453,7 @@ Groups: age [101]\
 1  2094382    \cf2 14\cf0       19     1999        11   male    266            0                     0     0              0            0\
 2  1192601    \cf2 14\cf0        2     1999        11 female      6            0                     0     0              0            0\
 \
+*** (group_by(), \cf3 number of rows remains the same\cf0 ) \
 \pard\pardeftab720\partightenfactor0
 \cf3 age_groups <- group_by(pf, \cf4 \ul \ulc4 age\cf3 \ulnone )	\cf0 *** \cf3 first group_by\cf0  ***\cf3 \
 summarise(age_groups)			*** next summarise ***\cf0 \
@@ -1815,13 +1820,16 @@ seq(0,203,12)\
  [1]   0  12  24  36  48  60  72  84  96 108 120 132 144 156 168 180 192\
 *** \cf2 this is what the x axis looks like\cf0  ***\
 \
-*** \cf3 Where did we get the seq() values? - \cf2 range()\cf12 , \cf2 str()\cf12  \cf0 ***\
+*** \cf3 Where did we get the seq() values? - \cf2 range()\cf0 , \cf2 str()\cf0  ***\
+\pard\pardeftab720\partightenfactor0
 \cf3 range\cf0 (Mitchell$\cf2 Month\cf0 )\
 [1]   0 \cf2 203\
-\cf12 *** \cf3 zero based indexing - 204 values\cf12  ***\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 zero based indexing - 204 values\cf0  ***\
 range(Mitchell$Temp)\
 [1] -7.47778 27.60560\
 \
+\pard\pardeftab720\partightenfactor0
 \cf3 str\cf0 (Mitchell)\
 'data.frame':	\cf2 204\cf0  obs. of  2 variables:  *** \cf3 204 values, not zero based indexing\cf0  ***\
  $ Month: int  0 1 2 3 4 5 6 7 8 9 ...\
@@ -1860,24 +1868,30 @@ head(pf[,c('age',"dob_month",'age_with_months')])\
 ***\
 *** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Age with Months Means  \cf0 23 of 27 - February 2017\
 ***\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 
 \fs24 \cf0 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 
 \f8 \cf0 \expnd0\expndtw0\kerning0
 *** create the new \cf2 age_groups\cf0  data.frame***\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 *** (group_by(), \cf3 number of rows remains the same\cf0 ) 
+\f8\fs24 \
 *** group_by an existing column, attribute of the parent data.frame, Data Frame ***\
 ***\
 \
-\pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 *** \cf4 working example 1\cf0  ***
+\f4\fs26 *** \cf4 working example 1\cf0  ***\
+*** (group_by(), \cf3 number of rows remains the same\cf0 ) 
 \f8\fs24 \
+\pard\pardeftab720\partightenfactor0
 
 \f4\fs26 \cf2 age_groups\cf0  <- group_by(pf, \ul \ulc4 age\ulnone )\
 \
 *** \cf4 working example 2\cf0  ***\
+*** (group_by(), \cf3 number of rows remains the same\cf0 ) \
 \pard\pardeftab720\partightenfactor0
 \cf2 age_with_months\cf0  <- group_by(pf, age_with_months) \
 \pard\pardeftab720\partightenfactor0
@@ -1947,30 +1961,550 @@ pf.fc_by_age <- \cf2 arrange\cf0 (summarise(age_groups, friend_count_mean = mean
 \
 *** \cf4 working example 2\cf0  ***\
 pf.fc_by_age_months <- \cf2 arrange\cf0 (summarise(\cf2 age_with_months\cf0 , friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), n = n())\cf2 ,age_with_months\cf0 )\
+\
+\
+***\
+*** Instructor - create two plots for Conditional Means *** (\cf3 Conditional Means example of Conditional Summaries\cf0 )\
+***\
+\
+*** \cf4 working example 1\cf0  ***\
+ggplot(\cf2 data = pf.fc_by_age\cf0 , aes(x = age, y = friend_count_\cf2 mean\cf0 )) + geom_line()\
+\
+*** \cf4 working example 2\cf0  ***\
+ggplot(data = subset(\cf2 pf.fc_by_age_months\cf0 , age_with_months < 71), aes(x = age_with_months, y = friend_count_\cf2 mean\cf0 )) + geom_line() *** \cf2 instructor\cf0  ***\
+ggplot(data = subset(pf.fc_by_age_months, age_with_months < 71), aes(x = age_with_months, y = friend_count_mean)) + geom_line() + xlim(c(13,66))\
+ggplot(data = subset(pf.fc_by_age_months, age_with_months < 71), aes(x = age_with_months, y = friend_count_mean)) + geom_line() + coord_cartesian(xlim = c(13, 72))\
 \pard\pardeftab720\partightenfactor0
 \cf2 \
 \pard\pardeftab720\partightenfactor0
-\cf0  \cf2 \
+\cf0 ***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Noise in Conditional Means \cf0 24 of 27 - February 2017 (\cf3 Conditional Means example of Conditional Summaries\cf0 )\
+***\
+\
+*** \cf3 all of these are OK\cf0  ***\
+\
+pf.fc_by_age_monthsShort <- subset(pf.fc_by_age_months, age_with_months < 71)\
+ggplot(data = pf.fc_by_age_monthsShort, aes(x = age_with_months, y = friend_count_mean)) + geom_line() + xlim(c(13,66))\
+\
+ggplot(data = subset(pf.fc_by_age_months, age_with_months < 71), aes(x = age_with_months, y = friend_count_mean)) + geom_line() + xlim(c(13,66))\
+ggplot(data = subset(pf.fc_by_age_months, age_with_months < 71), aes(x = age_with_months, y = friend_count_mean)) + geom_line() + coord_cartesian(xlim = c(13, 72))\
+ggplot(data = subset(pf.fc_by_age_months, age_with_months < 71), aes(x = age_with_months, y = friend_count_mean)) + geom_line() *** \cf2 instructor\cf0  ***\
 \
 \
-\cf0  \
+***\
+*** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Smoothing Conditional Means \cf0 24 of 27 - February 2017 (\cf3 Conditional Means example of Conditional Summaries\cf0 )\
+***\
+\
+*** Instructor - create two plots for \cf3 Conditional Means\cf0  ***\
+\
+*** \cf4 working example 1\cf0  ***\
+ggplot(data = pf.fc_by_age, aes(x = age, y = friend_count_mean)) + geom_line()\
+ggplot(data = subset(pf.fc_by_age, \cf2 age < 71)\cf0 , aes(x = age, y = friend_count_mean)) + geom_line()\
+\
+*** \cf4 working example 2\cf0  ***\
+ggplot(data = subset(pf.fc_by_age_months, age_with_months < 71), aes(x = age_with_months, y = friend_count_mean)) + geom_line()\
+\
+*** attempt to \cf2 smooth out jagged line, reduce noise\cf0 , concern lose detail ***\
+*** back to the \cf2 pf\cf0  data.frame, Data Frame *** \
+*** age divided by 5, rounded then multiplied by 5 *** *** \cf3 similar to changing binwidth \cf0 ***\
+*** plot \cf4 mean\cf3  friend_count\cf0 , NOT friend_count versus age ***\
+*** geom_line() with a \cf2 stat summary\cf0  - geom_line(\cf2 stat = 'summary'\cf0 , \cf3 fun.y = \cf4 mean\cf0 ) \
+*** \cf2 stat\cf0  - The statistical transformation to use on the data for this layer, as a string. ***\
+*** \cf3 instructor example\cf0 , plots \cf2 only one line\cf0 , the smoother line, concern loss of detail***\
+ggplot(data = subset(\cf2 pf\cf0 , age < 71), aes(x = round(age / 5) * 5, y = friend_count)) + geom_line(stat = 'summary', \cf3 fun.y = mean\cf0 )\
+\
+*** \cf4 another way, instructor way, seems like best practices\cf0  ***\
+*** mitigate, reduce, jagged plot line, noise, use geom_smooth, concern is the loss of detail in this example \cf2 both\cf0  t\cf2 he jagged and smooth lines are plotted two lines plotted\cf0  *** *** \cf2 mitigates loss of detail, see BOTH LINES\cf0  ***\
+*** geom_\cf2 smooth example\cf0  *** \
+*** \cf3 instructor example\cf0  ***\
+ggplot(data = subset(pf.fc_by_age, age < 71), aes(x = age, y = friend_count_mean)) + geom_line() + \cf2 geom_smooth\cf0 ()\
+\
+*** \cf3 view, see, two or more plots next to each other, at the same time\cf0  ***\
+library(gridExtra) \
+grid.arrange(p1,p2)\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
+\f8\fs24 \cf3 Adjustments - price vs depth 5 of 16
+\f4\fs26 \cf0  - February 2017\
+***\
+\
+*** \cf3 code - given from the quiz\cf0  ***\
+ggplot(data = diamonds, aes(x = depth, y = price)) + geom_point()\
+\
+*** \cf3 instructions - given from the quiz\cf0  ***\
+\cf3 Change the code to make the\cf0  \cf2 transparency\cf0  \cf3 of the points to be\cf0  \cf2 1/100\cf0  \cf3 of what they are now,\cf0 \
+ggplot(data = diamonds, aes(x = depth, y = price)) + \cf2 geom_point(alpha = 1 / 100)\cf0 \
+\
+*** \cf3 instructions - given from the quiz\cf0  ***\cf3 \
+and mark the x-axis every 
+\b \cf2 2
+\b0 \cf3  units\cf0 . \
+>ggplot(data = diamonds, aes(x = depth, y = price)) + geom_point(alpha = 1 / 100) + scale_x_continuous(breaks = seq(55, 71, 
+\b \cf2 2
+\b0 \cf0 )) *** Method 1 ***\
+\
+*** Method 2, might be a better way ***\
+ggplot(data = diamonds, aes(x = depth, y = price)) + 
+\b \cf2 geom_point(alpha = 1 / 100)
+\b0 \cf0  + coord_cartesian(xlim = c(55, 71)) + scale_x_continuous(breaks = seq(55, 71, 
+\b \cf2 2
+\b0 \cf0 ))\
+\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
+\f8\fs24 \cf3 price vs carat 8 of 16
+\f4\fs26 \cf0  - February 2017\
+***\
+\
+*** \cf3 given from the quiz\cf0  ***\
+# Create a scatterplot of price vs carat\
+# and omit the top 1% of price and carat\
+# values.\
+\
+# This assignment is not graded and\
+# will be marked as correct when you submit.\
+\
+ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) +\
+    geom_point() + xlim(0, quantile(pf$www_likes_received, 0.95)) + \
+    ylim(0, quantile(pf$likes_received, 0.95))\
+\
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_point() + xlim(0, quantile(pf$carat, 0.99)) + ylim(0, quantile(pf$price, 0.99))\
+\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
+\f8\fs24 \cf3 price vs volume 9 of 16
+\f4\fs26 \cf0  - February 2017\
+***\
+\
+*** \cf3 From the Quiz\cf0  ***\
+# Create a scatterplot of price vs. volume (x * y * z).\
+# This is a very rough approximation for a diamond's volume.\
+\
+# Create a new variable for volume in the diamonds data frame.\
+# This will be useful in a later exercise.\
+\
+# Don't make any adjustments to the plot just yet.\
+\
+# This assignment is not graded and\
+# will be marked as correct when you submit.\
+\
+# ENTER YOUR CODE BELOW THIS LINE\
+# =================================================================\
+\
+install.packages('ggplot2')\
+library('ggplot2')\
+\
+*** \cf3 access the first 10 lines of a data.frame, Data Frame\cf0  ****\
+*** \cf3 create a new smaller, working, test, temp  data.frame, Data Frame\cf0  ****\
+diamondsShort <- head(diamonds,10)\
+diamondsShort <- head(diamonds,10)\
+\
+*** \cf3 Create a new data.frame, Data Frame, column from existing, based on existing data.frame, Data Frame columns\cf0  ****\
+diamondsShort$volume  <- diamondsShort$x * diamondsShort$y * diamondsShort$z\
+diamonds$volume  <- diamonds$x * diamonds$y * diamonds$z\
+\
+*** \cf3 draw the scatter plot, using the new column, attribute of the data.frame, Data Frame\cf0  ****\
+ggplot(data = diamondsShort, aes(x = price, y = volume)) + geom_point()\
+ggplot(data = diamonds, aes(x = price, y = volume)) + geom_point()\
+\
+*** \cf3 how to detach or unload a conflicting package\cf0  ***\
+detach("package:dplyr", unload=TRUE)\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
+\f8\fs24 \cf3 Correlations on 
+\f4\fs26 \cf2 Subsets
+\f8\fs24 \cf3  11 of 16
+\f4\fs26 \cf0  - February 2017\
+***\
+\
+summary(diamonds$x)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+  0.000   4.710   5.700   5.731   6.540  10.740 \
+summary(diamonds$y)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+  0.000   4.720   5.710   5.735   6.540  58.900 \
+summary(diamonds$z)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+  0.000   2.910   3.530   3.539   4.040  31.800 \
+summary(diamonds$volume)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+   0.00   65.14  114.80  129.80  170.80 \cf2 3841.00\cf0  \
+\
+*** \cf3 create new data.frame, Data Frame meeting selection criteria\cf0  ***\
+ greaterZeroLessThan800 <- ( \cf2 subset\cf0 (diamonds, volume < 800 & volume > 0) )\
+\
+*** \cf3 correlation price versus volume\cf0   *** \
+with(greaterZeroLessThan800, cor.test(volume, price, method = 'pearson'))\
+	Pearson's product-moment correlation\
+data:  volume and price\
+t = 559.19, df = 53915, p-value < 2.2e-16\
+alternative hypothesis: true correlation is not equal to 0\
+95 percent confidence interval:\
+ 0.9222944 0.9247772\
+sample estimates:\
+      cor \
+\pard\pardeftab720\partightenfactor0
+\cf2 0.9235455\cf0  < - \cf3 right answer\cf0  \
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - \cf3 Adjustments Price Versus Volume\cf0  - 
+\f8\fs24 \cf3 12 of 16
+\f4\fs26 \cf0  - February 2017\
+***\
+\
+# Subset the data to exclude diamonds with a volume\
+# greater than or equal to 800. Also, exclude diamonds\
+# with a volume of 0. \
+\
+# Adjust the transparency of the\
+# points and add a linear model to the plot. (See the\
+# Instructor Notes or look up the documentation of\
+# geom_smooth() for more details about smoothers.)  
+\f1\fs24  \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 *** \cf3 geom_smooth example lm - linear module\cf0  ***\
+*** \cf3 the point is the generation of the smooth, noise reduction red line through the middle of the scatterplot\cf0  ***\
+*** \cf3 geom_smooth - lm linear module \cf0 ***\
+*** \cf2 this red line IS the correlation, adding a correlation line layer geom_smooth()\cf0  - \cf3 lm linear module\cf0  ***\
+ggplot(data = greaterZeroLessThan800, aes(x = price, y = volume)) +\
+  geom_point() +\
+  geom_smooth(method = 'lm', color = 'red')\
+\
+\
+***\
+*** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - Mean price by Clarity - 
+\f8\fs24 \cf3 13 of 16
+\f4\fs26 \cf0  - February 2017\
+*** \cf3 install.packages("dplyr")\cf0  ***\
+***\
+\
+# Use the function dplyr package\
+# to create a new data frame containing\
+# info on diamonds by clarity.\
+\
+# Name the data frame diamondsByClarity\
+\
+# The data frame should contain the following\
+# variables in this order.\
+\
+#       (1) mean_price\
+#       (2) median_price\
+#       (3) min_price\
+#       (4) max_price\
+#       (5) n\
+\
+# where n is the number of diamonds in each\
+# level of clarity.\
+\
+*** some dplyr background ***\
+\cf3 common functions - *** \cf2 dplyr \cf3 ***\cf0 \
+	filter()\
+	group_by() \
+	mutate()\
+	arrange()\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf0 install.packages("dplyr")\
+library(dplyr)\
+\
+*** \cf3 First group by, group_by() clarity\cf0  ***\
+*** (group_by(), \cf2 number of rows remains the same\cf0 ) \
+\
+group_by(greaterZeroLessThan800, clarity)\
+Source: local data frame [53,917 x 11]\
+*** \cf3 we have \cf2 8\cf3  groups\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf2 Groups: clarity [8] \cf0 *** \cf2 8 groups\cf0  ***\
+\
+   carat       cut color clarity depth table price     x     y     z   volume\
+   <dbl>     <ord> <ord>   <ord> <dbl> <dbl> <int> <dbl> <dbl> <dbl>    <dbl>\
+1   0.23     Ideal     E     SI2  61.5    55   326  3.95  3.98  2.43 38.20203\
+2   0.21   Premium     E     SI1  59.8    61   326  3.89  3.84  2.31 34.50586\
+\
+\cf2 summarise\cf0 (group_by(greaterZeroLessThan800, clarity))\
+# A tibble: \cf2 8\cf0  \'d7 1 *** \cf2 8 groups\cf0  ***\
+  clarity\
+    <ord>\
+1      I1\
+2     SI2\
+3     SI1\
+4     VS2\
+5     VS1\
+6    VVS2\
+7    VVS1\
+\cf2 8\cf0       IF *** \cf2 8 groups\cf0  ***\
+\
+*** \cf3 group_by() alone the \cf2 number of rows remains unchanged\cf0  ***\
+dim(greaterZeroLessThan800)\
+[1] \cf2 53917\cf0     11\
+\
+dim(group_by(greaterZeroLessThan800, clarity))\
+[1] \cf2 53917\cf0     11\
+\
+summarise(group_by(greaterZeroLessThan800, clarity), mean_price = mean(price), median_price = median(price), min_price = min(price), max_price = max(price), n = n())\
+\
+*** get, echo the $clarity column, attribute of the data.frame, Data Frame *** \
+summarise(group_by(greaterZeroLessThan800, clarity), mean_price = mean(price), median_price = median(price), min_price = min(price), max_price = max(price), n = n())$\cf2 clarity\cf0 \
+[1] I1   SI2  SI1  VS2  VS1  VVS2 VVS1 IF  ***\cf2  8 groups\cf0  ***\
+Levels: I1 < SI2 < SI1 < VS2 < VS1 < VVS2 < VVS1 < IF ***\cf2  8 groups\cf0  ***\
+\
+*** \cf3 correct answer - use diamonds data.frame, Data Frame, NOT greaterZeroLessThan800\cf0  ***\
+group_by(diamonds, clarity)\
+Source: local data frame [53,940 x 11]\
+Groups: clarity [8]\
+\
+*** \cf3 correct answer\cf0  ***\
+diamondsByClarity <- summarise(group_by(diamonds, clarity), mean_price = mean(price), median_price = median(price), min_price = min(price), max_price = max(price), n = n())\
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\
+*** Data Analysis with R -\cf2  \cf0 Problem Set Explore: \cf3 Bar Charts of Mean Price\cf0  - 
+\f8\fs24 \cf3 14 of 16
+\f4\fs26 \cf0  - February 2017\
+***\
+\
+*** \cf3 bar plots, bar charts working example\cf0  ***\
+\
+*** \cf3 stat The statistical transformation to use on the data for this layer.\cf0  ***\
+\
+*** \cf2 could not find function "grid.arrange"\cf0  *** library(gridExtra) ***\
+*** \cf2 Error: could not find function "ggplot"\cf0  *** library(ggplot2) ***\
+\
+p1 <- ggplot(data = diamonds_mp_by_color, aes(color, mean_price)) + \cf2 geom_bar\cf0 (stat = "identity")\
+p2 <- ggplot(data = diamonds_mp_by_clarity, aes(clarity, mean_price)) + \cf2 geom_bar\cf0 (stat = "identity")\
+grid.arrange(p1, p2) *** \cf3 multiple plots\cf0  ***\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf2 Third\cf3  Qualitative Variable\cf0  3 of 28 - February 2017 \
+***\
+*** \cf3 dplyr package used\cf0  ***\
+*** \cf3 mean IS the \cf2 third value\cf3 , added to the age - gender boxplot, box plot\cf0  ***\
+\
+*** \cf3 is.na - testing for missing values\cf0  ***\
+dim(subset(pf))\
+[1] \cf3 99003 \cf0    15\
+\
+dim(subset(pf, !is.na(gender)))\
+[1] \cf3 98828\cf0     15\
+\
+99,003 - 98,828 = 175 were na - were not applicable, were dropped\
+\
+ggplot(data = subset(pf, !is.na(gender)), aes(x = gender, y = age)) + geom_boxplot() + stat_summary(fun.y = mean,geom = 'point', shape = 4 )\
+\
+*** \cf3 generate the boxplot, box plot, line in box is the median\cf0  ***\
+ggplot(data = subset(pf, !is.na(gender)), aes(x = gender, y = age)) + geom_boxplot() \
+\
+*** \cf3 generate the boxplot, box plot, default box plot line in box is the \cf2 median\cf3 , this time \cf2 add the mean\cf3  fun.y = mean as an x (\cf2 shape = 4\cf3 ), \cf2 add the mean\cf3  to a boxplot, box plot\cf0  ***\
+ggplot(data = subset(pf, !is.na(gender)), aes(x = gender, y = age)) + geom_boxplot() + stat_summary(fun.y = mean,geom = 'point', shape = 4)\
+\
+*** \cf3 generate the boxplot, box plot, default box plot line in box is the \cf2 median\cf3 , this time \cf2 add the mean\cf3  fun.y = mean as an x (\cf2 shape = 4\cf3 ), \cf2 add the mean\cf3  to a boxplot, box plot, \cf2 shape = 4\cf0 (\cf3 x mean marker\cf0 )\cf3 , \cf2 size = 2\cf0 (\cf3 size of the x mean marker\cf0 )\cf3  \cf0  ***\
+ggplot(data = subset(pf, !is.na(gender)), aes(x = gender, y = age)) + geom_boxplot() + stat_summary(fun.y = mean,geom = 'point', shape = 4, size = 2)\
+\
+*** \cf3 plotting\cf0  \cf3 three, 3 columns, attributes, \cf2 age, friend_count, gender\cf3  \cf0 ***\
+ggplot( data = subset(pf, !is.na(gender)), aes(x = \cf2 age\cf0 , y = \cf2 friend_count\cf0 )) + geom_line(aes(\cf2 color = gender\cf0 ), stat = 'summary', fun.y = median)\
+ \
+***\
+*** Data Analysis with R - Explore Many Variables - \cf2 Third\cf3  Qualitative Variable, \cf2 now the quiz, the programming assignment\cf3  \cf0  3 of 28 - February 2017 \
+***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f8\fs24 \cf0 *** \cf3 Get the summary data using the \cf2 dplyr\cf3  package.\cf0  ***\
+*** \cf3 Divide the data by age and gender, then compute mean and median friend_count for each sub group\cf0  ***\
+*** \cf3 use group_by(), summarise, arrange functions from the dplyr package\cf0  ***\
+\
+*** \cf3 group_by() - group by multiple variables\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf2 group_by()\cf3  function from the \cf2 dplyr\cf3  package\cf0  ***\
+\
+\cf4 new_groupings <- group_by(data, variable1, variable2)\cf0 \
+\
+\
+# Write code to create a new data frame,\
+# called 'pf.fc_by_age_gender', that contains\
+# information on each age AND gender group.\
+\
+# The data frame should contain the following variables:\
+\
+#    mean_friend_count,\
+#    median_friend_count,\
+#    n (the number of users in each age and gender grouping)\
+\
+# Here is an example of the structure of your data frame. Your\
+# data values will be different. Note that if you are grouping by\
+# more than one variable, you will probably need to call the\
+# ungroup() function. \
+\
+#   age gender mean_friend_count median_friend_count    n\
+# 1  13 female          247.2953                 150  207\
+# 2  13   male          184.2342                  61  265\
+# 3  14 female          329.1938                 245  834\
+# 4  14   male          157.1204                  88 1201\
+\
+***\cf3  my correct answer 1\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 library(dplyr)\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 myTempDataFrame <- \cf2 group_by(pf, age, gender)\
+\cf0 pf.fc_by_age_gender <- summarise(myTempDataFrame, mean_friend_count = mean(friend_count), median_friend_count = median(friend_count), n = n())\
+\
+***\cf3  my correct answer 2\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 library(dplyr)\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 pf.fc_by_age_gender <- summarise(\cf2 group_by(pf, age, gender)\cf0 , mean_friend_count = mean(friend_count), median_friend_count = median(friend_count), n = n())\
+\
+***\cf3  answer 3 with instructor input\cf0  ***\
+***\cf3  \cf4 median friend_count\cf3  calculated here, then added to the new data.frame, Data Frame (\cf2 pf.fc_by_age_gender\cf3 )\cf0  ***\
+myTempDataFrame <- group_by(subset(pf, !is.na(gender)), age, gender)\
+\cf4 pf.fc_by_age_gender\cf0  <- summarise(myTempDataFrame, mean_friend_count = mean(friend_count), \cf4 median_friend_count = median(friend_count)\cf0 , n = n())\
+pf.fc_by_age_gender <- ungroup(pf.fc_by_age_gender)\
+pf.fc_by_age_gender <- arrange(pf.fc_by_age_gender, age)\
+\
+***\cf3  instructor working final answer 3\cf0  ***\
+***\cf3  \cf4 median friend_count\cf3  calculated here, then added to the new data.frame, Data Frame (\cf2 pf.fc_by_age_gender\cf3 )\cf0  ***\
+\cf4 pf.fc_by_age_gender\cf0  <- pf \cf2 %>%\cf0 \
+  \cf2 filter\cf0 (!is.na(gender))\cf2 %>% \cf0 *** \cf2 filter instead of subset\cf0 *** *** \cf2 filter filter\cf0  ***\
+  group_by(age, gender) \cf2 %>%\cf0 \
+  summarise(mean_friend_count = mean(friend_count), \cf4 median_friend_count = median(friend_count)\cf0 , n = n()) %>% \
+  ungroup() \cf2 %>%\cf0 \
+  arrange(age)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs26 \cf0 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Plotting Conditional Summaries\cf0  4 of 28 - February 2017 \
+***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f8\fs24 \cf0 ***\cf3  my first answer - worked in RStudio, \cf2 same as instructor answer\cf0  ***
+\f4\fs26 \
+
+\f8\fs24 ***\cf3  these 2 two plots generate the SAME line graph\cf0  ***
+\f4\fs26 \
+
+\f8\fs24 ***\cf3  here the \cf4 median\cf3  was PREVIOUSLY calculated \cf0  *** *** \cf3 see\cf0  \cf4 pf.fc_by_age_gender\cf0  <- \cf3 line above\cf0   ***
+\f4\fs26 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ggplot( data = subset(pf.fc_by_age_gender, !is.na(gender)), aes(x = age, y = median_friend_count)) + geom_line(aes(color = gender))\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f8\fs24 \cf0 ***\cf3  this is the one we did first \cf0 ***
+\f4\fs26 \
+
+\f8\fs24 ***\cf3  here y was first assigned the friend_count (
+\f4\fs26 \cf2 y = friend_count
+\f8\fs24 \cf3 ), \cf2 next the friend_count median was calculated, then applied to the y axis\cf3  -> 
+\f4\fs26 \cf2 stat = 'summary', fun.y = median 
+\f8\fs24 \cf3 <-  \cf0 ***\
+***\cf3  \cf2 example of applying a function to an axis\cf3  \cf0 ***
+\f4\fs26 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ggplot( data = subset(pf, !is.na(gender)),                                aes(x = \cf2 age\cf0 , y = \cf2 friend_count\cf0 )) + geom_line(aes(\cf2 color = gender\cf0 ), stat = 'summary', fun.y = median)\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Wide and Long Format\cf0  6 of 28 - February 2017 \
+***\
+*** \cf3 transition from long to wide format \cf0 ***\
+*** \cf3 tidyr - spread -\cf0  \cf3 identified as best practices in video\cf0  ***\
+*** \cf3 tidyr - spread -\cf0  use when data in LONG format has many rows for the same variable (\cf2 age\cf0 ) and the WIDE format will have ONLY ONE row for each variable (\cf2 age\cf0 ) ***\
+\
+install.packages("tidyr")\
+library(tidyr) \
+\
+*** \cf3 first background information - the existing column names\cf0  ***\
+names(pf.fc_by_age_gender)\
+[1] "age"                 "gender"              "mean_friend_count"   "median_friend_count" "n"     \
+\
+*** \cf4 select\cf3 , get selected wanted columns, attributes from a data.frame, Data Frame \cf0 ***\
+When working with a sizable dataframe, often we desire to only assess \cf3 specific variables\cf0 .\
+\
+*** \cf2 subset\cf3  a data.frame, Data Frame, retaining specific selected columns, attributes\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs24 \cf2 subset\cf0 (pf.fc_by_age_gender, select = c('\cf2 gender\cf0 ', '\cf3 age\cf0 ', '\cf4 median_friend_count\cf0 '))\
+# A tibble: 202 \'d7 3\
+   \cf2 gender\cf0    \cf3 age\cf0  \cf4 median_friend_count\cf0 \
+   <fctr> <int>               <dbl>\
+1  female    13               148.0\
+2    male    13                55.0\
+3  female    14               224.0\
+\
+*** \cf3 break down tidyr spread function\cf0  ***\
+spread(subset(pf.fc_by_age_gender, select = c('gender', 'age', 'median_friend_count')), gender, median_friend_count)\
+\
+*** \cf3 first agrument to the \cf2 tidyr spread\cf3  function is a data.frame, Data Frame, subset simply gets the needed columns, \cf2 and no others\cf0   ***\
+*** here we lopped it down to three columns, attributes, \cf2 gender\cf0  will be the column heading or \cf2 key\cf3 , median_friend_count\cf0  will be the \cf2 value \cf0 in the gender column, \cf4 age\cf0  will be the \cf4 row\cf3  \cf0 ***\
+*** subset \cf2 order\cf0  - 'gender', 'age', 'median_friend_count'- \cf2 not relevant\cf0 , just get the needed ones, \cf2 and no others\cf0  ***\
+subset(pf.fc_by_age_gender, select = c('gender', 'age', 'median_friend_count')) *** \cf3 get \cf2 ONLY\cf3  the columns needed for spread()\cf0  ***\
+\
+*** head(pf.fc_by_age_gender) ***\
+\cf3 multiple rows per \cf2 age\cf0  \
+> head(pf.fc_by_age_gender)\
+# A tibble: 6 \'d7 5\
+    age \cf4 gender\cf0  mean_friend_count \cf3 median_friend_count\cf0      n\
+  <int> <fctr>             <dbl>               <dbl> <int>\
+1    \cf2 13\cf0  \cf4 female\cf0           259.1606               \cf3 148.0\cf0    193\
+2    \cf2 13\cf0    \cf4 male\cf0           102.1340                \cf3 55.0\cf0    291\
+3    14 \cf4 female\cf0           362.4286               \cf3 224.0\cf0    847\
+    *** \cf4 spread - column names - KEY\cf0  ***    *** \cf3 spread\cf0  \cf3 column VALUES\cf0  ***\
+\
+*** subset(pf.fc_by_age_gender, select = c('gender', 'age', 'median_friend_count')) ***\
+\cf4 still\cf3  multiple rows per \cf2 age\cf0  \
+# A tibble: 202 \'d7 3\
+   gender   age median_friend_count\
+   <fctr> <int>               <dbl>\
+1  female    13               148.0\
+2    male    13                55.0\
+3  female    14               224.0\
+                                               *** \cf4 column heading, names\cf0  \cf4 KEY\cf0  ***        *** \cf4 column heading, names KEY\cf0  ***\
+*** \cf3 spread\cf0 (subset(pf.fc_by_age_gender, select = c('\cf4 gender\cf0 ', '\cf3 age\cf0 ', '\cf3 median_friend_count\cf0 ')), \cf4 gender\cf0 , \cf3 median_friend_count\cf0 ) ***\
+                                                                *** \cf3 spread\cf0  \cf3 column VALUES\cf0  ***    *** \cf3 spread\cf0  \cf3 column VALUES\cf0  ***\
+*** \cf2 spread output,\cf0  \cf3 age is the row\cf0  ***\
+\cf2 one\cf0  row per \cf2 age\cf0 \
+# A tibble: 101 \'d7 3\
+     age \cf4 female  male\cf0 \
+*  <int>  <dbl> <dbl>\
+1     \cf2 13\cf0   \cf3 148.0  55.0\cf0 \
+2     \cf2 14\cf0   \cf3 224.0  92.5\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs26 \cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Reshaping Data\cf0  7 of 28 - February 2017 \
+***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f8\fs24 \cf0 We could also create a similar data frame using the dplyr and tidyr packages:\
+pf.fc_by_age_gender.wide <- subset(pf.fc_by_age_gender[c('age', 'gender', 'median_friend_count')], !is.na(gender)) %>%\
+	spread(gender, median_friend_count) %>%\
+	mutate(ratio = male / female)\
 \
 \pard\pardeftab720\partightenfactor0
 \cf0 \
  \
 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0  \
+\pard\pardeftab720\partightenfactor0
+\cf0  \
 \
-  
-\f1\fs24 \
+\
+  \
 \pard\pardeftab720\sl280\partightenfactor0
 \cf0 \
-\
+ \
 \pard\pardeftab720\partightenfactor0
-
-\f0\fs22 \cf0 \kerning1\expnd0\expndtw0 \
-\
-\
-\
+\cf0 \
 \
 \
 \
