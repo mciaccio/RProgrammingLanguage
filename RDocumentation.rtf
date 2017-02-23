@@ -1,22 +1,22 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
 {\fonttbl\f0\fnil\fcharset0 Monaco;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
-\f3\fmodern\fcharset0 Courier-Bold;\f4\fswiss\fcharset0 Helvetica;\f5\fmodern\fcharset0 Courier-BoldOblique;
-\f6\fmodern\fcharset0 Courier-Oblique;\f7\fnil\fcharset0 Menlo-Regular;\f8\fnil\fcharset0 Verdana;
-}
+\f3\fswiss\fcharset0 Helvetica;\f4\fnil\fcharset0 Verdana;\f5\fmodern\fcharset0 Courier-Bold;
+\f6\fmodern\fcharset0 Courier-BoldOblique;\f7\fmodern\fcharset0 Courier-Oblique;\f8\fnil\fcharset0 Menlo-Regular;
+\f9\fnil\fcharset0 LucidaGrande;}
 {\colortbl;\red255\green255\blue255;\red255\green0\blue0;\red0\green0\blue255;\red255\green0\blue255;
 \red38\green38\blue38;\red242\green242\blue242;\red36\green38\blue41;\red235\green236\blue237;\red85\green98\blue116;
-\red210\green0\blue53;\red17\green137\blue135;}
-\margl1440\margr1440\vieww28000\viewh11320\viewkind0
+\red210\green0\blue53;\red17\green137\blue135;\red0\green0\blue0;}
+\margl1440\margr1440\vieww32500\viewh16960\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
-\f0\fs22 \cf0  \
+\f0\fs22 \cf0 \
 https://www.rstudio.com   \
 \
 Install R first.\
 https://cran.rstudio.com\
 R-3.3.2.pkg - R-3.3.2.pkg\
-XQuartz ?\
+I ?\
 \
 Next RStudio\
 RStudio-1.0.136.dmg\
@@ -40,8 +40,13 @@ Highlight code in editor, top left, then command enter \
 \f1\fs24 \cf0 \expnd0\expndtw0\kerning0
 install.packages("swirl")
 \f2  \
+\pard\pardeftab720\sl280\partightenfactor0
 
-\f1 library(swirl)
+\f3\fs26 \cf0 *** \cf2 library () loads an installed package\cf0  ***
+\f2\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 library(swirl)
 \f2  \
 
 \f1 swirl()\
@@ -134,7 +139,7 @@ get some of the data specify column heading, value example - state.region == 1, 
 \cf2 subset(statesInfo, state.region == 1) *** one way ***\
 \pard\pardeftab720\partightenfactor0
 \cf0 subset(statesInfo, illiteracy == 0.5)\
-subset(mtcars, mpg > 30 & hp > 100) *** 2 criteria ***\
+subset(mtcars, mpg > 30 & hp > 100) *** 2 criteria, \cf3 subset2\cf0  ***\
 subset(mtcars, mpg < 14 | disp > 390) *** 2 criteria ***\
 subset(mtcars, qsec < 16.9 | qsec == 16.9) *** 2 criteria ***\
 subset(mtcars, qsec <= 16.9) *** less than equal to ***\
@@ -175,11 +180,25 @@ statmethods.net Quick-R \cf2 ***\
 \pard\pardeftab720\partightenfactor0
 \cf0 https://www.rstudio.com/resources/cheatsheets/\
 http://docs.\cf3 ggplot2\cf0 .org/current/\
+http://sape.inf.usi.ch/quick-reference/ggplot2/
+\f3\b\fs26 \cf2 shape \cf0 *** 
+\f1\b0\fs24 \cf3 get help with \cf2 shape, shape()\cf3  options, values
+\f3\b\fs26 \cf0  ***\
+
+\f1\b0\fs24 http://www.statmethods.net/advgraphs/parameters.html 
+\f3\b\fs26 *** 
+\f1\b0\fs24 \cf3 get help with \cf2 shape, shape()\cf3  options, values
+\f3\b\fs26 \cf0  ***
+\f1\b0\fs24 \
 \pard\pardeftab720\sl280\partightenfactor0
 \cf0 \
 car - character\
-eda exploratory data analysis \
-R.version\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4 \cf2 EDA - 
+\f1 \cf3 Exploratory Data Analysis \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 R.version\
 RMD file R Markdown document - author web pages \
 vector - A vector is one of the data types in R. Vectors must contain\
 	the same type of data, that is the entries must all be of the\
@@ -245,7 +264,7 @@ qplot(data=reddit, x = income.range)\
 \
 Definitions\
 Ordered Factor - 
-\f3\b Highest to Lowest, Lowest to Highest
+\f5\b Highest to Lowest, Lowest to Highest
 \f1\b0  \
 	$ age.range        : Factor w/ 7 levels "18-24","25-34",..: 2 2 1 2 2 2 2 1 3 2 ...\
 	$ income.range     : Factor w/ 8 levels "$100,000 - $149,999",..: 2 2 8 2 7 2 NA 7 2 7 ...\
@@ -330,6 +349,7 @@ library(RColorBrewer) \
 \pard\pardeftab720\partightenfactor0
 \cf0 \
 # create scatterplot of price vs carat color coded by diamond cuts\
+*** \cf3 example of color and column or attribute\cf0  ***\
 qplot(data = diamonds, x = carat, y = price, color = cut) + scale_color_brewer(palette = 'Accent')\
 \
 \
@@ -389,7 +409,7 @@ pf$gender: male\
 c, data, dim, head, mean, names, nchar, row.names, str, tail, View(reddit)\
 \
 c - 
-\f4\fs26 \expnd0\expndtw0\kerning0
+\f3\fs26 \expnd0\expndtw0\kerning0
 This is a generic function which combines its arguments.\
 \
 class(statesInfo) - [1] "data.frame", type \
@@ -399,7 +419,7 @@ data(mtcars) - load, mtcars now in Global Environment - Top Right, also reload f
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
-\f4\fs26 \
+\f3\fs26 \
 \pard\pardeftab720\partightenfactor0
 \cf0 data.frame, DataFrame - column access example, dollar sign syntax - pf\cf2 $\cf0 dob_month, class(myDataFrame) - "data.frame", myDataFrame$dob_day\
 \
@@ -428,7 +448,7 @@ list.files(), see getwd(), setwd()\
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 *** \cf3 get Data Frame, data.frame column, attribute names\cf0  *** 
-\f4\fs26 \
+\f3\fs26 \
 \pard\pardeftab720\partightenfactor0
 \cf0 names(mtcars) - \
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear" "carb"\
@@ -451,10 +471,10 @@ statesInfo <- read.csv('stateData.csv') *** read  Worked ***\
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
-\f4\fs26 \
+\f3\fs26 \
 \pard\pardeftab720\partightenfactor0
 \cf0 pf <- read.csv('pseudo_facebook.tsv', sep = '\\t') *** tab delimited, not comma delimited, - \cf2 sep = '\\t'\
-\cf0 xx <- read.delim('pseudo_facebook.tsv') - \cf2 worked on tsp, tab delimited\cf0  \cf2 \
+\cf0 xx <- read.delim('pseudo_facebook.tsv') - \cf2 worked on tsv, tab delimited\cf0  \cf2 \
 \cf0 \
 \
 \
@@ -492,33 +512,46 @@ statesInfo[statesInfo$state.region ==1, ]\
 \pard\pardeftab720\partightenfactor0
 \cf0 summary(reddit)\
 summary(pf$age) - *** \cf2 useful for plots setting scale_x_continuous(breaks = seq(10, 
-\f3\b\fs24 \expnd0\expndtw0\kerning0
+\f5\b\fs24 \expnd0\expndtw0\kerning0
 65
 \f0\b0\fs22 \kerning1\expnd0\expndtw0 , 10)\cf0  ***\
                             *** replace upper age 
-\f3\b\fs24 \cf2 \expnd0\expndtw0\kerning0
+\f5\b\fs24 \cf2 \expnd0\expndtw0\kerning0
 65
 \f0\b0\fs22 \cf0 \kerning1\expnd0\expndtw0  limit with real upper age limit 
-\f3\b\fs24 \cf2 \expnd0\expndtw0\kerning0
+\f5\b\fs24 \cf2 \expnd0\expndtw0\kerning0
 113.00
 \f0\b0\fs22 \kerning1\expnd0\expndtw0  \cf0 ***\
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.							 \
   13.00   20.00   28.00   37.28   50.00  \cf2 113.00\cf0  \
 \
-*** \cf2 count values\cf0  ***\
+*** 
+\f1\fs24 \cf2 \expnd0\expndtw0\kerning0
+count
+\f0\fs22 \cf3 \kerning1\expnd0\expndtw0  values, 
+\f1\fs24 \cf2 \expnd0\expndtw0\kerning0
+Factor
+\f0\fs22 \cf3 \kerning1\expnd0\expndtw0  column or attribute\cf0  *** 
+\f3\fs26 \expnd0\expndtw0\kerning0
+*** \cf2 counts within column heading\cf0  ***
+\f0\fs22 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 \expnd0\expndtw0\kerning0
-table(reddit$employment.status) *** table *** *** \cf2 counts within column heading\cf0  *** Factor variable - see str(reddit)\
-table(pf$\cf2 gender\cf0 ) - class(pf) - "\cf2 data.frame\cf0 " - class(pf$\cf2 gender\cf0 ) - "\cf2 factor\cf0 ", count of column heading, data.frame factor \
+\f1\fs24 \cf2 \expnd0\expndtw0\kerning0
+table
+\f3\fs26 \cf0 (reddit$employment.status) *** table *** *** \cf2 counts within column heading\cf0  *** Factor variable - see str(reddit)\
+
+\f1\fs24 \cf2 table
+\f3\fs26 \cf0 (pf$\cf2 gender\cf0 ) - class(pf) - "\cf2 data.frame\cf0 " - class(pf$\cf2 gender\cf0 ) - "\cf2 factor\cf0 ", count of column heading, data.frame factor \
 	female   male \
 	40254  58574 \
 \
 tail(mtcars, 10)
 \f0\fs22 \kerning1\expnd0\expndtw0 \
 \
+\pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \expnd0\expndtw0\kerning0
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
 View(reddit)\
 \
 vector (
@@ -712,15 +745,15 @@ qplot(x = friend_count, data = subset(pf, \cf2 !is.na(gender\cf0 )), binwidth = 
 \
 *** \cf3 generate multiple histograms at once, split one column (attribute), by another or second column (attribute)\cf2  \cf0 ***\
 *** \cf2 na.omit (not applicable) may be too broad, may loose wanted data, the above, specific, 
-\f3\b !is.na(gender)
+\f5\b !is.na(gender)
 \f1\b0  is the better choice \cf0 ***. *** \cf2 remove the unexpected third NA histogram \cf0 ***\
 qplot(x = friend_count, data = \cf2 na.omit\cf0 (pf), binwidth = 25) +  scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50)) + facet_wrap(~gender)\
 \
 ***\
 *** plotting change color\
 ***\
-qplot(data = pf, x = tenure, binwidth = 0.3) + scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 2))\
-qplot(data = pf, x = tenure, binwidth = .3, color = I('green')) + scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 2)) ***\cf2  histogram bars green color\cf0  ***\
+qplot(data = pf, x = tenure, binwidth = 0.3) + scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 2)) *** \cf3 histogram, note only x, NO y\cf0  *** \
+qplot(data = pf, x = tenure, binwidth = .3, color = I('green')) + scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 2)) ***\cf2  histogram bars green color\cf0  *** *** \cf3 histogram, note only x, NO y\cf0  *** \
 \
 *** \cf2 my version - WORKS, border (outline) of histogram bars - BLACK, histogram bars - BLUE - great spacing\cf0  ***\
 qplot(data = pf, x = tenure, binwidth = .3, fill = I('blue'), color = I('black')) + scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, 2))\
@@ -729,11 +762,11 @@ qplot(data = pf, x = tenure, binwidth = 30, fill = I('#099DD9'), color = I('blac
 qplot(data = pf, x = tenure) \
 \
 *** \cf2 *** INSTRUCTOR ***\cf0  \cf2 tenure unit - 
-\f3\b DAYS
+\f5\b DAYS
 \f1\b0  - divide by 365 - unit - 
-\f3\b YEARS 
+\f5\b YEARS 
 \f1\b0 \cf0 *** *** bin width 1 - 
-\f3\b \cf2 count yearly users
+\f5\b \cf2 count yearly users
 \f1\b0 \cf0  ***\
 qplot(data = pf, x = (tenure/365), binwidth = 1, fill = I('#099DD9'), color = I('black'))\
 \
@@ -773,7 +806,7 @@ summary(pf$friend_count)\
 \
 *** \cf2 Transform the Data, Variable, long tailed mitigation\cf0  ***\
 *** \cf2 note: negative infinity, some have Facebook friend count of 
-\f3\b zero, 0,
+\f5\b zero, 0,
 \f1\b0  log base 10 of zero -> undefined, hence the Infinity, -Inf\cf0  *** \
 summary(\cf2 log10\cf0 (pf$friend_count))\
    \cf2 Min.\cf0  1st Qu.  Median    \cf2 Mean\cf0  3rd Qu.    Max. \
@@ -801,7 +834,7 @@ p3 = qplot(data = pf, x = (friend_count + 1), binwidth = 1, xlab = 'Facebook Fri
 grid.arrange(p1, p2, p3) *** \cf3 multiple plots\cf0  ***\
 *****************\
 *** \cf2 Instructor solution *** note 
-\f3\b ggplot aes 
+\f5\b ggplot aes 
 \f1\b0 (aesthetic) syntax \cf0 ***\
 *** \cf2 Instructor solution *** multiple plots, Data Transformation, Data Normalization \cf0 ***\
 ```\{r\}\
@@ -835,10 +868,15 @@ qplot(data = pf, x = friend_count) + \cf2 scale_x_log10()\
 \pard\pardeftab720\sl280\partightenfactor0
 \cf0 ***\cf3 \
 \cf0 *** Data Analysis with R - Frequency Polygons 24 of 29\
-*** \cf3 !is.na(\cf2 gender\cf3 ) \cf2 SAME\cf3  color = \cf2 gender - color is what gives you the lines on the graph male, female so to get rid of not applicable, NA, N/A, na use, 
-\f3\b *** 
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 *** \cf2 color\cf0  \cf3 gave us the multiple graphs, multiple plots, one way to get multiple plots, multiple graphs\cf0  ***
+\f1\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf3 !is.na(\cf2 gender\cf3 ) \cf2 SAME\cf3  color = \cf2 gender - color is what gives you the lines on the graph male, female so to get rid of not applicable, NA, N/A, na use, 
+\f5\b *** 
 \f1\b0 \cf3 !is.na(\cf2 gender\cf3 ) 
-\f3\b \cf2 ***\
+\f5\b \cf2 ***\
 \pard\pardeftab720\sl280\partightenfactor0
 \cf0 ***\cf2  long tailed try 
 \f1\b0 \cf3 scale_x_log10() not scale_x_continuous \cf0 *** normalize transform long tailed - \cf3 scale_x_log10()\cf0 \
@@ -865,7 +903,9 @@ qplot(\
   y = ..count.. / sum(..count..),\
   ylab = 'Proportion of Users with that friend count',\
   binwidth = 10, \
-  geom = 'freqpoly', color = \cf2 gender\cf3 ) + \
+  geom = 'freqpoly', color = \cf2 gender\cf3 ) + 
+\f3\fs26 \cf0 *** \cf2 color\cf0  \cf3 gave us the multiple graphs, multiple plots, one way to get multiple plots, multiple graphs\cf0  ***
+\f1\fs24 \cf3 \
   scale_x_continuous(limits = c(0, 1000), breaks = seq(0, 1000, 50))\
 \
 \pard\pardeftab720\sl280\partightenfactor0
@@ -878,13 +918,19 @@ ggplot(aes(x = friend_count, y = ..count../sum(..count..)), data = subset(pf, !i
 \
 \
 *** www_likes ***\
-qplot(\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 *** \cf2 color\cf0  \cf3 gave us the multiple graphs, multiple plots, one way to get multiple plots, multiple graphs\cf0  ***
+\f1\fs24 \cf3 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf3 qplot(\
   data = subset (pf, !is.na(\cf2 gender\cf3 )), \
   x = www_likes,\
   geom = 'freqpoly',\
   color = \cf2 gender\cf3 ) +\
   scale_x_log10()\
 \
+\pard\pardeftab720\sl280\partightenfactor0
 \cf0 Equivalent ggplot syntax\cf3 \
 \
 \cf0 ggplot(aes(x = www_likes, y = ..count../sum(..count..)), data = subset(pf, !is.na(gender))) +\
@@ -911,8 +957,8 @@ qplot(\
   geom = 'boxplot',\
   \cf2 ylim = c(0, 1000)\cf0 ) *** \cf3 data removed from calculations using this method, data loss, data lost\cf0  ***\
   
-\f5\i\b \cf2 \ul \ulc2 Removed
-\f6\b0 \ulnone  2949 rows containing non-finite values (stat_boxplot). \
+\f6\i\b \cf2 \ul \ulc2 Removed
+\f7\b0 \ulnone  2949 rows containing non-finite values (stat_boxplot). \
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\i0 \cf0 \
@@ -930,9 +976,9 @@ qplot(\
   \cf2 scale_y_continuous(limits = c(0, 1000)\cf0 )  *** \cf3 data removed from calculations using this method, data loss, data lost\cf0  ***\
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f6\i \cf2   
-\f5\b \ul Removed 
-\f6\b0 \ulnone 2949 rows containing non-finite values (stat_boxplot). \
+\f7\i \cf2   
+\f6\b \ul Removed 
+\f7\b0 \ulnone 2949 rows containing non-finite values (stat_boxplot). \
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\i0 \cf0 \
@@ -976,17 +1022,17 @@ by(pf$friendships_initiated, pf$gender, summary) - \cf3 numerical summary\cf0 \
 pf$gender: \cf2 female									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf0 \
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf0 \
     0.0    19.0    
-\f3\b\fs28 \cf3 49.0
+\f5\b\fs28 \cf3 49.0
 \f1\b0\fs24 \cf0    113.9   124.8  3654.0			\cf2 Median matches box plot, (boxplot)\cf0 \
 -------------------------------------------------------------------------------------------------------------------- \
 pf$gender: \cf2 male									1st Qu. - matches bottom of box plot, (boxplot), bottom of interquartile range, 50% of values\cf0 \
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.			\cf2 3rd Qu. - matches top of box plot, (boxplot), top of interquartile range, 50% of values\cf0 \
     0.0    15.0    
-\f3\b\fs28 \cf3 44.0
+\f5\b\fs28 \cf3 44.0
 \f1\b0\fs24 \cf0    103.1   111.0  4144.0			\cf2 Median matches box plot, (boxplot)\cf0 \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f3\b\fs28 \cf3           ** females more **
+\f5\b\fs28 \cf3           ** females more **
 \f1\b0\fs24 \cf0 \
 \
 *** \cf2 gender categorical data\cf0  ***\
@@ -1042,7 +1088,10 @@ length(which(pf$mobile_check_in == 1)) *** \cf2 How many are 1\cf0  ***\
 length(which(pf$mobile_check_in == 0)) *** \cf2 How many are 0\cf0  ***\
 [1] 35056\
 \
-*** \cf2 count values\cf0  ***  \cf3 related - str(), dim()\cf0 \
+*** \cf2 count values\cf0  ***  \cf3 related - str(), dim() 
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
+*** \cf2 counts within column heading, Factor\cf0  ***
+\f0\fs22 \kerning1\expnd0\expndtw0 \
 table(pf$mobile_check_in)\
     0     1 \
 35056 63947 \
@@ -1076,7 +1125,7 @@ ordered factor - definition - data type for ordinal data, ordinal data - \
 \cf3                                         	$0-$19,999, $20,000-$39,999, $40,000-$59,999, \
 \pard\pardeftab720\partightenfactor0
 
-\f7\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
+\f8\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
 								
 \f0\fs22 \cf3 \cb1 \kerning1\expnd0\expndtw0 c("Lo", "Hi", "Med", "Med", "Hi")\
 \pard\pardeftab720\partightenfactor0
@@ -1136,7 +1185,7 @@ dim(subset(diamonds, price >= 1500))\
 \cf0 qplot(x = price, data = diamonds) + facet_wrap(~cut)\
 qplot(x = price, data = diamonds) + facet_wrap(~cut) *** instructor - \cf2 same\cf0  ***\
 qplot(x = price, data = diamonds) + facet_wrap(~cut, 
-\f7\fs24 \cf2 \cb6 \expnd0\expndtw0\kerning0
+\f8\fs24 \cf2 \cb6 \expnd0\expndtw0\kerning0
 scales = 'free_y'
 \f0\fs22 \cf0 \cb1 \kerning1\expnd0\expndtw0 )  *** \cf3 each y axis is now independent, more representative of the data for THAT ONE histogram\cf0  ***\
 \
@@ -1330,6 +1379,7 @@ library(xlsx)\
 armyData <- \cf2 read\cf0 .xlsx('indicatorArmy_total.xlsx', sheetIndex = 1)\
 ***\
 *** new smaller data.frame, rows from larger data.frame\
+*** new smaller data.frame, subset of larger data.frame, Data Frame ** \
 ***\
 usaVietnam <- armyData[ c(165,170), ] \
 \
@@ -1374,8 +1424,13 @@ qplot(data = pf, age, friend_count) *** \cf3 scatterplot, same result, \cf2 figu
 *** \cf3 manipulate, influence the x axis\cf0  ***\
 qplot(data = pf, x = age, y = friend_count) + scale_x_continuous(limits = c(65, 75), breaks = seq(65, 75, 1))\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 \expnd0\expndtw0\kerning0
+*** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f0\fs22 \kerning1\expnd0\expndtw0 \
 *** \cf3 ggplot syntax, The point geom is used to create scatterplots.
-\f4\fs26 \cf0 \expnd0\expndtw0\kerning0
+\f3\fs26 \cf0 \expnd0\expndtw0\kerning0
  
 \f0\fs22 \kerning1\expnd0\expndtw0  ***
 \f1\fs24 \expnd0\expndtw0\kerning0
@@ -1398,7 +1453,7 @@ ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point() + xlim(c(\cf2 1
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point() + xlim(13, 90) *** \cf2 worked c not needed, RStudio help AND instructor confirms, \cf3 c\cf2  not needed\cf0  ***\
 \
 *** \cf3 correct overplotting, make points 
-\f4\fs26 transparent (transparency), now takes 20 dots to make one completely dark, non transparent dot 
+\f3\fs26 transparent (transparency), now takes 20 dots to make one completely dark, non transparent dot 
 \f1\fs24 \cf0 ***\
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(alpha = 1 / 20) + xlim(13, 90)\
 \
@@ -1407,8 +1462,9 @@ ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(alpha = 1 / 20, a
 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 *** \cf2 geom_jitter - \cf3 adds a small amount of random variation, both positive and negative to each point, dot. Useful way of handling overplotting caused by discreteness in smaller datasets\cf0  ***\
+\f3\fs26 \cf0 *** \cf2 geom_jitter - \cf3 adds a small amount of random variation, both positive and negative to each point, dot. Useful way of handling overplotting caused by discreteness in smaller datasets\cf0  ***\
 *** \cf2 geom_jitter - \cf3 fixes in reality age is not an integer, someone can be 25 and 1/2 years old, jitter adds the noise or the slop to the dots, the data \cf2 class(pf$age) \cf3 IS integer, jitter visually fixes that.\cf0  ***\
+*** \cf2 geom_jitter alone\cf3  gives us the scatterplot,\cf2  geom_point NOT needed\cf0  *** \
 ggplot(data = pf, aes(x = age, y = friend_count)) + \cf2 geom_jitter\cf0 (alpha = 1 / 20, aes(color ='red')) + xlim(13, 90)\
 \
 *** \cf3 instructor example - Data Analysis with R - Alpha and Jitter 7 of 27, \cf2 h = 0, \cf3 minimum height of 0 (zero), prevents getting negative friend counts from the jitter effect. jitter can add both positive and negative noise to each dot\cf0 *** \
@@ -1421,15 +1477,20 @@ ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(aes(color ='red')
 ***\
 \pard\pardeftab720\partightenfactor0
 \cf3 Look at two variables a different way.\cf0 \
+\pard\pardeftab720\partightenfactor0
 \cf2 How does the average friend_count vary over age\cf0 ?\
 \
-Create table (Data Frame, data.frame) that gives us the mean and median \cf2 friend_count\cf0  for each \cf2 age\cf0 . \
-install.packages('dplyr')\
+Create table(Data Frame, data.frame) that gives us the mean and median \cf2 friend_count\cf0  for each \cf2 age\cf0 . \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 install.packages('dplyr')\
 library(dplyr)\
 \
 ***\
 *** group by, group_by, group_by() a column (attribute) - ***\cf3  \cf4 note multiple lines for each age\cf3  \cf0 ***\cf3  \
-\pard\pardeftab720\partightenfactor0
 \cf0 *** (group_by(), \cf3 number of rows remains the same\cf0 ) \cf3 \
 \cf0 *** next summarise ***  ***\cf3  
 \fs28 \cf4 note one line for each age
@@ -1522,6 +1583,10 @@ ggplot(\cf2 data = pf.fc_by_age\cf0 , aes(x = age, y = friend_count_mean)) + geo
 *** Data Analysis with R - Overlaying Summaries with Raw Data - 10 of 27 - February 2017\
 ***\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 original plot - plot of raw data\cf0  ***			*** \cf2 color inside and outside aes()\cf0  ***\
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(\cf2 aes(color ='red')\cf0 , alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt")\
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(\cf2 color ='red'\cf0 , alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt") *** \cf2 \ul \ulc2 instructor\ulnone  way to get color dots no aes()\cf0  ***\
@@ -1551,6 +1616,10 @@ ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(color ='red', alp
 *** \cf3 90% quantile summary line, 90% of users have friend counts BELOW this line\cf0  ***							*** \cf3 dashed line\cf0  ***\
 *** \cf2 geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.9), linetype = 2, color = 'blue')\cf0  ***\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 better example below\cf0  ***\
 ggplot(data = pf, aes(x = age, y = friend_count)) +\
   geom_point(color ='orange', alpha = 1/20, position = position_jitter(h = 0)) +\
@@ -1561,6 +1630,9 @@ ggplot(data = pf, aes(x = age, y = friend_count)) +\
   geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.5), color = 'blue') +\
   geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.9), linetype = 2, color = 'blue')\
 \
+
+\f1 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 ***\cf2  best example, multiple pots, lines over scatterplot \cf0 ***\
 ggplot(data = pf, aes(x = age, y = friend_count)) +\
   geom_point(color ='orange', alpha = 1/20, position = position_jitter(h = 0)) +\
@@ -1576,7 +1648,7 @@ ggplot(data = pf, aes(x = age, y = friend_count)) +\
 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 ***\
+\f3\fs26 \cf0 ***\
 *** Data Analysis with R -\cf2  Correlation\cf0  12 of 27 - February 2017\
 ***  Strength of \cf2 age \cf0 - \cf2 friend_count\cf0  relationship \
 *** Using the Pearson's product-moment correlation lower case \cf3 'r' - \cf0 to measure linear relationship between two variables *** \cf3 descriptive statistics example\cf0  *** ***\cf3  experimental research, inferential statistics needed for causation\cf0  ***\
@@ -1592,11 +1664,11 @@ ggplot(data = pf, aes(x = age, y = friend_count)) +\
 \f1\fs24 \cf0 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 *** Method 1 ***  \
+\f3\fs26 \cf0 *** Method 1 ***  \
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
-\f4\fs26 \
+\f3\fs26 \
 \pard\pardeftab720\partightenfactor0
 \cf0 cor.test(pf$age, pf$friend_count, method = c('pearson'))\
 \
@@ -1617,7 +1689,7 @@ sample estimates:\
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf0 *** \cf3 pf psuedo facebook users\cf0  *** 
-\f4\fs26 \
+\f3\fs26 \
 \pard\pardeftab720\partightenfactor0
 \cf2 with\cf0 (pf, cor.test(age, friend_count, method = 'pearson'))\
 \cf2 with\cf0 (subset(pf, age <= 70), cor.test(age, friend_count, method = 'pearson')) *** \cf3 instructor works, Pearson's product-moment correlation on a subset of Data Frame, data.frame data\cf0  ***\
@@ -1631,6 +1703,7 @@ alternative hypothesis: true correlation is not equal to 0\
  -0.03363072 -0.02118189\
 sample estimates:\
         cor \
+\pard\pardeftab720\partightenfactor0
 \cf3 -0.02740737 \cf0 ***\cf3  \cf2 no meaningful relationship between the variables\cf3  \cf0 ***\
 \
 \
@@ -1643,7 +1716,7 @@ sample estimates:\
 \cf0 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 ***\
+\f3\fs26 \cf0 ***\
 *** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Correlation Methods\cf0  14 of 27 - February 2017\
 ***
 \f1\fs24 \
@@ -1651,11 +1724,16 @@ sample estimates:\
 \cf0 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 ***\
+\f3\fs26 \cf0 ***\
 *** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Create Scatterplots \cf0 14 of 27 - February 2017\
 ***\
 exponent scientific notation review \cf3 5e3 - 5,000\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \cf3 \
+\pard\pardeftab720\partightenfactor0
 \cf0 *** \cf3 mine\cf0  ***\cf3 \
 \cf0 ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) +\
   geom_point() +\
@@ -1674,6 +1752,8 @@ ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) + geom_point(
 \
 ggplot(data = pf, aes(x = www_likes_received, y = likes_received)) +\
   geom_point() + xlim(0, quantile(pf$www_likes_received, 0.95)) + ylim(0, quantile(pf$likes_received, 0.95)) +\
+\
+*** \cf3 geom_smooth(method = 'lm', color = 'red'), \cf2 "add a linear trend line" \cf3 quote from instructor \cf0 ***\
   geom_\cf2 smooth\cf0 (method = 'lm', color = 'red') *** \cf2 this red line IS the correlation, adding a correlation line layer\cf0  ***\
 *** \cf2 add a smoother, set method to \cf3 'lm'\cf2  - linear model\cf0  ***\
 \
@@ -1779,13 +1859,17 @@ quantile(myTestDataFrame$b,seq(0, 1, by=0.1))\
 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 ***\
+\f3\fs26 \cf0 ***\
 *** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 More Caution with Correlation \cf0 18 of 27 - February 2017\
 ***\
 install.packages("alr3")\
 library(alr3)\
 data(Mitchell)\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 generate scatter plot, Michell Data, Month versus Temp\cf0  ***\
 ggplot(data = Mitchell, aes(x = Month, y = Temp)) + geom_point() *** Mike ***\
 \
@@ -1811,6 +1895,9 @@ Remember - \
 *** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 Making Sense Of Data \cf0 20 of 27 - February 2017\
 ***\
 \
+
+\f1 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 instructor - improving the x axis - seq() - \cf2 begin, end\cf3  driven by \cf2 range\cf3 , \cf2 str\cf3 , \cf2 interval\cf3  - 12 months in a year\cf0  ***\
 *** ggplot(data = Mitchell, aes(x = Month, y = Temp)) + geom_point() + scale_x_continuous(breaks = seq(\cf2 0\cf0 , \cf2 203\cf0 , \cf2 12\cf0 )) ***\
 																*** \cf2 begin, end, 12 months per year\cf0  ***\
@@ -1839,6 +1926,10 @@ range(Mitchell$Temp)\
 *** Data Analysis with R -\cf2  \cf0 Explore Two Variables - \cf2 A New Perspective  \cf0 21 of 27 - February 2017\
 ***\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 Overlapping each years Nebraska data o top of each other - modulus operator, cyclical data visualization\cf0  *** \
 *** \cf3 At first glance the Nebraska Months Temp relationship looked random.\cf0  ***\
 *** \cf3 The modulus operator showed the seasonal relationship between Nebraska Month and Temp, cyclical data visualization\cf0  ***\
@@ -1873,22 +1964,21 @@ head(pf[,c('age',"dob_month",'age_with_months')])\
 \fs24 \cf0 \kerning1\expnd0\expndtw0 \
 \pard\pardeftab720\partightenfactor0
 
-\f8 \cf0 \expnd0\expndtw0\kerning0
+\f4 \cf0 \expnd0\expndtw0\kerning0
 *** create the new \cf2 age_groups\cf0  data.frame***\
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 *** (group_by(), \cf3 number of rows remains the same\cf0 ) 
-\f8\fs24 \
+\f3\fs26 \cf0 *** (group_by(), \cf3 number of rows remains the same\cf0 ) 
+\f4\fs24 \
 *** group_by an existing column, attribute of the parent data.frame, Data Frame ***\
 ***\
 \
 
-\f4\fs26 *** \cf4 working example 1\cf0  ***\
+\f3\fs26 *** \cf4 working example 1\cf0  ***\
 *** (group_by(), \cf3 number of rows remains the same\cf0 ) 
-\f8\fs24 \
-\pard\pardeftab720\partightenfactor0
+\f4\fs24 \
 
-\f4\fs26 \cf2 age_groups\cf0  <- group_by(pf, \ul \ulc4 age\ulnone )\
+\f3\fs26 \cf2 age_groups\cf0  <- group_by(pf, \ul \ulc4 age\ulnone )\
 \
 *** \cf4 working example 2\cf0  ***\
 *** (group_by(), \cf3 number of rows remains the same\cf0 ) \
@@ -1896,7 +1986,7 @@ head(pf[,c('age',"dob_month",'age_with_months')])\
 \cf2 age_with_months\cf0  <- group_by(pf, age_with_months) \
 \pard\pardeftab720\partightenfactor0
 
-\f8\fs24 \cf0 \
+\f4\fs24 \cf0 \
 class(\cf2 age_groups\cf0 )\
 [1] "grouped_df" "tbl_df"     "tbl"        "\cf2 data.frame\cf0 "\
 \
@@ -1918,25 +2008,25 @@ userid  	\cf2 age\cf0 	dob_day	dob_year	dob_month\
 \
 ***\
 *** 
-\f4\fs26 \cf3 summarise\cf0  - 
-\f8\b\fs24 \cf2 ONE
+\f3\fs26 \cf3 summarise\cf0  - 
+\f4\b\fs24 \cf2 ONE
 \b0 \cf3  row for each 
-\f4\fs26 group_by(pf, \cf2 age\cf3 ) column, attribute\cf0  ***
-\f8\fs24 \
+\f3\fs26 group_by(pf, \cf2 age\cf3 ) column, attribute\cf0  ***
+\f4\fs24 \
 *** \cf3 create new attributes for each  
-\f4\fs26 \cf2 age
-\f8\fs24 \cf3  row 
-\f4\fs26 \cf0 ***\
+\f3\fs26 \cf2 age
+\f4\fs24 \cf3  row 
+\f3\fs26 \cf0 ***\
 
-\f8\fs24 *** get the \cf2 count for each \cf3 group_by(pf, \cf2 age\cf3 ) row\cf0   ***\
+\f4\fs24 *** get the \cf2 count for each \cf3 group_by(pf, \cf2 age\cf3 ) row\cf0   ***\
 ***\
 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 *** \cf4 working example 1\cf0  ***
-\f8\fs24 \
+\f3\fs26 \cf0 *** \cf4 working example 1\cf0  ***
+\f4\fs24 \
 
-\f4\fs26 summarise(\cf2 age_groups\cf0 , \cf2 friend_count_mean\cf0  = mean(friend_count), \cf2 friend_count_median \cf0 = median(friend_count), \cf2 n = n()\cf0 ) *** \cf2 n\cf0  - count ***\
+\f3\fs26 summarise(\cf2 age_groups\cf0 , \cf2 friend_count_mean\cf0  = mean(friend_count), \cf2 friend_count_median \cf0 = median(friend_count), \cf2 n = n()\cf0 ) *** \cf2 n\cf0  - count ***\
 *** \cf4 the new data.frame created\cf2  \cf0 ***\
 \
 # A tibble: 101 \'d7 4\
@@ -1957,8 +2047,10 @@ summarise(\cf2 age_with_months\cf0 , \cf2 friend_count_mean\cf0  = mean(friend_c
 ***\cf2 \
 \
 \cf0 *** \cf4 working example 1\cf0  ***\
-pf.fc_by_age <- \cf2 arrange\cf0 (summarise(age_groups, friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), n = n()),\cf2 age\cf0 )\
-\
+\pard\tx15515\pardeftab720\partightenfactor0
+\cf0 pf.fc_by_age <- \cf2 arrange\cf0 (summarise(age_groups, friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), n = n()),\cf2 age\cf0 )\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
 *** \cf4 working example 2\cf0  ***\
 pf.fc_by_age_months <- \cf2 arrange\cf0 (summarise(\cf2 age_with_months\cf0 , friend_count_mean = mean(friend_count), friend_count_median = median(friend_count), n = n())\cf2 ,age_with_months\cf0 )\
 \
@@ -2025,14 +2117,19 @@ grid.arrange(p1,p2)\
 \
 ***\
 *** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
-\f8\fs24 \cf3 Adjustments - price vs depth 5 of 16
-\f4\fs26 \cf0  - February 2017\
+\f4\fs24 \cf3 Adjustments - price vs depth 5 of 16
+\f3\fs26 \cf0  - February 2017\
 ***\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 code - given from the quiz\cf0  ***\
 ggplot(data = diamonds, aes(x = depth, y = price)) + geom_point()\
 \
 *** \cf3 instructions - given from the quiz\cf0  ***\
+\pard\pardeftab720\partightenfactor0
 \cf3 Change the code to make the\cf0  \cf2 transparency\cf0  \cf3 of the points to be\cf0  \cf2 1/100\cf0  \cf3 of what they are now,\cf0 \
 ggplot(data = diamonds, aes(x = depth, y = price)) + \cf2 geom_point(alpha = 1 / 100)\cf0 \
 \
@@ -2054,10 +2151,14 @@ ggplot(data = diamonds, aes(x = depth, y = price)) +
 \
 ***\
 *** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
-\f8\fs24 \cf3 price vs carat 8 of 16
-\f4\fs26 \cf0  - February 2017\
+\f4\fs24 \cf3 price vs carat 8 of 16
+\f3\fs26 \cf0  - February 2017\
 ***\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 given from the quiz\cf0  ***\
 # Create a scatterplot of price vs carat\
 # and omit the top 1% of price and carat\
@@ -2075,8 +2176,8 @@ ggplot(data = diamonds, aes(x = carat, y = price)) + geom_point() + xlim(0, quan
 \
 ***\
 *** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
-\f8\fs24 \cf3 price vs volume 9 of 16
-\f4\fs26 \cf0  - February 2017\
+\f4\fs24 \cf3 price vs volume 9 of 16
+\f3\fs26 \cf0  - February 2017\
 ***\
 \
 *** \cf3 From the Quiz\cf0  ***\
@@ -2106,6 +2207,9 @@ diamondsShort <- head(diamonds,10)\
 diamondsShort$volume  <- diamondsShort$x * diamondsShort$y * diamondsShort$z\
 diamonds$volume  <- diamonds$x * diamonds$y * diamonds$z\
 \
+
+\f1 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
 *** \cf3 draw the scatter plot, using the new column, attribute of the data.frame, Data Frame\cf0  ****\
 ggplot(data = diamondsShort, aes(x = price, y = volume)) + geom_point()\
 ggplot(data = diamonds, aes(x = price, y = volume)) + geom_point()\
@@ -2115,10 +2219,10 @@ detach("package:dplyr", unload=TRUE)\
 \
 ***\
 *** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - 
-\f8\fs24 \cf3 Correlations on 
-\f4\fs26 \cf2 Subsets
-\f8\fs24 \cf3  11 of 16
-\f4\fs26 \cf0  - February 2017\
+\f4\fs24 \cf3 Correlations on 
+\f3\fs26 \cf2 Subsets
+\f4\fs24 \cf3  11 of 16
+\f3\fs26 \cf0  - February 2017\
 ***\
 \
 summary(diamonds$x)\
@@ -2152,8 +2256,8 @@ sample estimates:\
 \
 ***\
 *** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - \cf3 Adjustments Price Versus Volume\cf0  - 
-\f8\fs24 \cf3 12 of 16
-\f4\fs26 \cf0  - February 2017\
+\f4\fs24 \cf3 12 of 16
+\f3\fs26 \cf0  - February 2017\
 ***\
 \
 # Subset the data to exclude diamonds with a volume\
@@ -2168,20 +2272,31 @@ sample estimates:\
 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 *** \cf3 geom_smooth example lm - linear module\cf0  ***\
+\fs26 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate, check, google if true with smooth\cf0  ***
+\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 *** \cf3 geom_smooth example lm - linear module\cf0  ***\
 *** \cf3 the point is the generation of the smooth, noise reduction red line through the middle of the scatterplot\cf0  ***\
 *** \cf3 geom_smooth - lm linear module \cf0 ***\
 *** \cf2 this red line IS the correlation, adding a correlation line layer geom_smooth()\cf0  - \cf3 lm linear module\cf0  ***\
 ggplot(data = greaterZeroLessThan800, aes(x = price, y = volume)) +\
   geom_point() +\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 geom_smooth(method = 'lm', color = 'red'), \cf2 "add a linear trend line" \cf3 quote from instructor \cf0 ***\
   geom_smooth(method = 'lm', color = 'red')\
 \
 \
 ***\
 *** Data Analysis with R -\cf2  \cf0 Problem Set Explore: Two Variables - Mean price by Clarity - 
-\f8\fs24 \cf3 13 of 16
-\f4\fs26 \cf0  - February 2017\
-*** \cf3 install.packages("dplyr")\cf0  ***\
+\f4\fs24 \cf3 13 of 16
+\f3\fs26 \cf0  - February 2017\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 install.packages("dplyr")\cf0  ***\
 ***\
 \
 # Use the function dplyr package\
@@ -2210,6 +2325,10 @@ ggplot(data = greaterZeroLessThan800, aes(x = price, y = volume)) +\
 	arrange()\
 \pard\pardeftab720\partightenfactor0
 \cf2 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f3 \cf2 \
 \pard\pardeftab720\partightenfactor0
 \cf0 install.packages("dplyr")\
 library(dplyr)\
@@ -2266,8 +2385,8 @@ diamondsByClarity <- summarise(group_by(diamonds, clarity), mean_price = mean(pr
 \pard\pardeftab720\partightenfactor0
 \cf0 ***\
 *** Data Analysis with R -\cf2  \cf0 Problem Set Explore: \cf3 Bar Charts of Mean Price\cf0  - 
-\f8\fs24 \cf3 14 of 16
-\f4\fs26 \cf0  - February 2017\
+\f4\fs24 \cf3 14 of 16
+\f3\fs26 \cf0  - February 2017\
 ***\
 \
 *** \cf3 bar plots, bar charts working example\cf0  ***\
@@ -2282,10 +2401,15 @@ p2 <- ggplot(data = diamonds_mp_by_clarity, aes(clarity, mean_price)) + \cf2 geo
 grid.arrange(p1, p2) *** \cf3 multiple plots\cf0  ***\
 \
 ***\
-*** Data Analysis with R - Explore Many Variables - \cf2 Third\cf3  Qualitative Variable\cf0  3 of 28 - February 2017 \
+*** Data Analysis with R - Explore Many Variables \cf2 Lesson 5\cf0  - \cf3 Third Qualitative Variable\cf0  3 of 28 - February 2017 \
 ***\
 *** \cf3 dplyr package used\cf0  ***\
-*** \cf3 mean IS the \cf2 third value\cf3 , added to the age - gender boxplot, box plot\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 mean IS the \cf2 third value\cf3 , added to the age - gender boxplot, box plot\cf0  ***\
 \
 *** \cf3 is.na - testing for missing values\cf0  ***\
 dim(subset(pf))\
@@ -2308,15 +2432,20 @@ ggplot(data = subset(pf, !is.na(gender)), aes(x = gender, y = age)) + geom_boxpl
 ggplot(data = subset(pf, !is.na(gender)), aes(x = gender, y = age)) + geom_boxplot() + stat_summary(fun.y = mean,geom = 'point', shape = 4, size = 2)\
 \
 *** \cf3 plotting\cf0  \cf3 three, 3 columns, attributes, \cf2 age, friend_count, gender\cf3  \cf0 ***\
+*** \cf2 color\cf0  \cf3 gave us the multiple graphs, multiple plots, one way to get multiple plots, multiple graphs\cf0  ***\
 ggplot( data = subset(pf, !is.na(gender)), aes(x = \cf2 age\cf0 , y = \cf2 friend_count\cf0 )) + geom_line(aes(\cf2 color = gender\cf0 ), stat = 'summary', fun.y = median)\
  \
 ***\
 *** Data Analysis with R - Explore Many Variables - \cf2 Third\cf3  Qualitative Variable, \cf2 now the quiz, the programming assignment\cf3  \cf0  3 of 28 - February 2017 \
 ***\
 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f3 \
 \pard\pardeftab720\partightenfactor0
 
-\f8\fs24 \cf0 *** \cf3 Get the summary data using the \cf2 dplyr\cf3  package.\cf0  ***\
+\f4\fs24 \cf0 *** \cf3 Get the summary data using the \cf2 dplyr\cf3  package.\cf0  ***\
 *** \cf3 Divide the data by age and gender, then compute mean and median friend_count for each sub group\cf0  ***\
 *** \cf3 use group_by(), summarise, arrange functions from the dplyr package\cf0  ***\
 \
@@ -2348,6 +2477,10 @@ ggplot( data = subset(pf, !is.na(gender)), aes(x = \cf2 age\cf0 , y = \cf2 frien
 # 3  14 female          329.1938                 245  834\
 # 4  14   male          157.1204                  88 1201\
 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs26 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f4\fs24 \
 ***\cf3  my correct answer 1\cf0  ***\
 \pard\pardeftab720\partightenfactor0
 \cf0 library(dplyr)\
@@ -2370,6 +2503,13 @@ pf.fc_by_age_gender <- arrange(pf.fc_by_age_gender, age)\
 \
 ***\cf3  instructor working final answer 3\cf0  ***\
 ***\cf3  \cf4 median friend_count\cf3  calculated here, then added to the new data.frame, Data Frame (\cf2 pf.fc_by_age_gender\cf3 )\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1\fs26 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f4\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf0 l\cf3 ibrary(dplyr) - required for %>%\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
 \cf4 pf.fc_by_age_gender\cf0  <- pf \cf2 %>%\cf0 \
   \cf2 filter\cf0 (!is.na(gender))\cf2 %>% \cf0 *** \cf2 filter instead of subset\cf0 *** *** \cf2 filter filter\cf0  ***\
   group_by(age, gender) \cf2 %>%\cf0 \
@@ -2379,34 +2519,35 @@ pf.fc_by_age_gender <- arrange(pf.fc_by_age_gender, age)\
 \
 \pard\pardeftab720\partightenfactor0
 
-\f4\fs26 \cf0 ***\
+\f3\fs26 \cf0 ***\
 *** Data Analysis with R - Explore Many Variables - \cf3 Plotting Conditional Summaries\cf0  4 of 28 - February 2017 \
 ***\
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f8\fs24 \cf0 ***\cf3  my first answer - worked in RStudio, \cf2 same as instructor answer\cf0  ***
-\f4\fs26 \
+\f4\fs24 \cf0 ***\cf3  my first answer - worked in RStudio, \cf2 same as instructor answer\cf0  ***
+\f3\fs26 \
 
-\f8\fs24 ***\cf3  these 2 two plots generate the SAME line graph\cf0  ***
-\f4\fs26 \
+\f4\fs24 ***\cf3  these 2 two plots generate the SAME line graph\cf0  ***
+\f3\fs26 \
 
-\f8\fs24 ***\cf3  here the \cf4 median\cf3  was PREVIOUSLY calculated \cf0  *** *** \cf3 see\cf0  \cf4 pf.fc_by_age_gender\cf0  <- \cf3 line above\cf0   ***
-\f4\fs26 \
+\f4\fs24 ***\cf3  here the \cf4 median\cf3  was PREVIOUSLY calculated \cf0  *** *** \cf3 see\cf0  \cf4 pf.fc_by_age_gender\cf0  <- \cf3 line above\cf0   ***\
 \pard\pardeftab720\partightenfactor0
-\cf0 ggplot( data = subset(pf.fc_by_age_gender, !is.na(gender)), aes(x = age, y = median_friend_count)) + geom_line(aes(color = gender))\
+
+\f3\fs26 \cf0 *** \cf2 color\cf0  \cf3 gave us the multiple graphs, multiple plots, one way to get multiple plots, multiple graphs\cf0  ***\
+ggplot( data = subset(pf.fc_by_age_gender, !is.na(gender)), aes(x = age, y = median_friend_count)) + geom_line(aes(color = gender))\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f8\fs24 \cf0 ***\cf3  this is the one we did first \cf0 ***
-\f4\fs26 \
+\f4\fs24 \cf0 ***\cf3  this is the one we did first \cf0 ***
+\f3\fs26 \
 
-\f8\fs24 ***\cf3  here y was first assigned the friend_count (
-\f4\fs26 \cf2 y = friend_count
-\f8\fs24 \cf3 ), \cf2 next the friend_count median was calculated, then applied to the y axis\cf3  -> 
-\f4\fs26 \cf2 stat = 'summary', fun.y = median 
-\f8\fs24 \cf3 <-  \cf0 ***\
+\f4\fs24 ***\cf3  here y was first assigned the friend_count (
+\f3\fs26 \cf2 y = friend_count
+\f4\fs24 \cf3 ), \cf2 next the friend_count median was calculated, then applied to the y axis\cf3  -> 
+\f3\fs26 \cf2 stat = 'summary', fun.y = median 
+\f4\fs24 \cf3 <-  \cf0 ***\
 ***\cf3  \cf2 example of applying a function to an axis\cf3  \cf0 ***
-\f4\fs26 \
+\f3\fs26 \
 \pard\pardeftab720\partightenfactor0
 \cf0 ggplot( data = subset(pf, !is.na(gender)),                                aes(x = \cf2 age\cf0 , y = \cf2 friend_count\cf0 )) + geom_line(aes(\cf2 color = gender\cf0 ), stat = 'summary', fun.y = median)\
 \
@@ -2425,12 +2566,12 @@ names(pf.fc_by_age_gender)\
 [1] "age"                 "gender"              "mean_friend_count"   "median_friend_count" "n"     \
 \
 *** \cf4 select\cf3 , get selected wanted columns, attributes from a data.frame, Data Frame \cf0 ***\
-When working with a sizable dataframe, often we desire to only assess \cf3 specific variables\cf0 .\
+When working with a sizable dataframe, often we desire to only assess \cf3 specific variables\cf0 ,\cf3  columns, attributes\cf0 \
 \
 *** \cf2 subset\cf3  a data.frame, Data Frame, retaining specific selected columns, attributes\cf0  ***\
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f1\fs24 \cf2 subset\cf0 (pf.fc_by_age_gender, select = c('\cf2 gender\cf0 ', '\cf3 age\cf0 ', '\cf4 median_friend_count\cf0 '))\
+\f1\fs24 \cf2 subset\cf0 (pf.fc_by_age_gender, \cf4 select\cf0  = c('\cf2 gender\cf0 ', '\cf3 age\cf0 ', '\cf4 median_friend_count\cf0 '))\
 # A tibble: 202 \'d7 3\
    \cf2 gender\cf0    \cf3 age\cf0  \cf4 median_friend_count\cf0 \
    <fctr> <int>               <dbl>\
@@ -2477,34 +2618,1522 @@ subset(pf.fc_by_age_gender, select = c('gender', 'age', 'median_friend_count')) 
 2     \cf2 14\cf0   \cf3 224.0  92.5\cf0 \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f4\fs26 \cf0 \
+\f3\fs26 \cf0 \
 \pard\pardeftab720\partightenfactor0
 \cf0 ***\
 *** Data Analysis with R - Explore Many Variables - \cf3 Reshaping Data\cf0  7 of 28 - February 2017 \
 ***\
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f8\fs24 \cf0 We could also create a similar data frame using the dplyr and tidyr packages:\
+\f1 \cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***
+\f3 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f4\fs24 \cf0 We could also create a similar data frame using the dplyr and tidyr packages:\
+library(tidyr) *** \cf3 required for spread()\cf0  ***\
+*** \cf3 see method 2 below\cf0  ***\
 pf.fc_by_age_gender.wide <- subset(pf.fc_by_age_gender[c('age', 'gender', 'median_friend_count')], !is.na(gender)) %>%\
 	spread(gender, median_friend_count) %>%\
 	mutate(ratio = male / female)\
 \
-\pard\pardeftab720\partightenfactor0
-\cf0 \
- \
+*** \cf3 two ways to get the same \cf2 spread\cf3  information\cf0  *** ***\
+*** \cf3 first way to get spread information\cf0               \cf2 key        row   value\cf0                             \cf2 key    -  value\cf0  ***\
+spread(subset(pf.fc_by_age_gender, select = c('gender', 'age', 'median_friend_count')), gender, median_friend_count)\
+*** \cf2 gender\cf3  key or column heading, \cf2 median_friend_count\cf0  - value(s) in the column, \cf2 age\cf0  - row ***\
 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 *** \cf3 this is what data.frame, Data Frame \cf2 pf.fc_by_age_gender.wide\cf3  looks like\cf0  ***
+\f4\fs24 \
 \pard\pardeftab720\sl280\partightenfactor0
-\cf0  \
+\cf0 *** \cf3 one \cf2 row\cf3  for each \cf2 age\cf3  \cf0 ***\
+# A tibble: 101 \'d7 3\
+     age female  male\
+*  <int>  <dbl> <dbl>\
+1     \cf2 13\cf0   148.0  55.0\
+2     \cf2 14\cf0   224.0  92.5\
+\
+\
+*** \cf3 second way to get spread information \cf0 ***\
+***                                       \cf2 row    column heading \cf0 ***\
+subset(pf.fc_by_age_gender[c('age', 'gender', 'median_friend_count')], !is.na(gender)) %>%\
+***                                       \cf2                         column value\cf0  ***\
+***      \cf2 column heading \cf0 ***\
+spread(gender, median_friend_count) %>%\
+***                 \cf2 column value \cf0 ***\
+\
+subset(pf.fc_by_age_gender[c('age', 'gender', 'median_friend_count')], !is.na(gender)) %>%\
+  spread(gender, median_friend_count) %>%\
+  mutate(\cf2 ratio\cf0  = male / female)\
+*** \cf2 added the ratio column, attribute\cf0  ***\
+\
+# A tibble: 101 \'d7 4\
+     age female  male     \cf2 ratio\cf0 \
+   <int>  <dbl> <dbl>     <dbl>\
+1     13  148.0  55.0 0.3716216\
+2     14  224.0  92.5 0.4129464\
+\
 \pard\pardeftab720\partightenfactor0
-\cf0  \
+
+\f3\fs26 \cf0 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Ratio Plot\cf0  8 of 28 - February 2017\
+***\
+\
+*** \cf3 geom_bar,bar geom, plot bar plotting age versus ratio, plotting ratio, ratios \cf0 *** \
+*** \cf3 adding a horizontal line, 
+\f4\fs24 \cf2 geom_hline, with y intercept, 
+\f3\fs26 \cf0  
+\f4\fs24 \cf2 geom_hline
+\f3\fs26 \cf3  \cf0 *** \
+\
+*** \cf3 my first answer,\cf0  
+\f4\fs24 \cf2 pf.fc_by_age_gender.wide, \cf3 see above
+\f3\fs26 \cf0  ***\
+ggplot( data = pf.fc_by_age_gender.wide, aes(x = age, y = female / male)) + geom_bar(stat = "identity") + geom_hline(yintercept = 1, color = 'red', linetype = 2 )\
 \
 \
+*** \cf3 instructor answer,\cf0  
+\f4\fs24 \cf2 pf.fc_by_age_gender.wide, \cf3 see above, instructor went with geom_line, not geom_bar
+\f3\fs26 \cf0  ***\
+*** \cf3 instructor answer,\cf0  \cf3 alpha - how transparent, or how bright, or how prevalent, \cf0  
+\f4\fs24 \cf2 the y intercept line is
+\f3\fs26 \cf0  ***
+\f4\fs24 \
+
+\f3\fs26 ggplot( data = pf.fc_by_age_gender.wide, aes(x = age, y = female / male)) + geom_line() + geom_hline(yintercept = 1, color = 'red', linetype = 2, alpha = 0.3)\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Third Quantitative Variable\cf0  9 of 28 - February 2017\
+***\
+categorical variable example \cf2 Gender - \cf3 color\cf2  and \cf3 shape\cf2  tend to be the \cf3 aesthetics\cf2  representing changes over a categorical variable    \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf2 tenure
+\f3\fs26 \cf0  - number days since registering with Facebook, \cf2 numerical variable example, not categorical\cf0  \
+4 four variables - friend_count, age, gender, tenure - use two 2 dimensional display like a scatter plot\
+2014 reference year\
+\
+*** add the 
+\f4\fs24 \cf2 year_joined
+\f3\fs26 \cf0  column, attribute to the existing \cf3 pf\cf0  data.frame, Data Frame ***\
+*** existing \cf3 pf$tenure \cf0 column, attribute unit of measurement  is \cf3 days, divide by 365 to get years, reference year is 2014\cf0  ***\
+*** example 200 days / 365 = .8833, joined Facebook 0.8833 years ago ***\
+*** 2014 - 0.8833 = 2013.11 the 
+\i \cf3 year
+\i0 \cf0  joined Facebook ***\
+*** use 
+\f4\fs24 \cf2 floor() \cf0 to round down to \cf2 just the year 2013
+\f3\fs26 \cf0  (
+\f4\fs24 \cf2 ceiling()
+\f3\fs26 \cf0  is used to \cf3 round up\cf0  ), rounding, round up round down, rounding *** \
+pf$year_joined <- floor((2014 - (pf$tenure / 365))) *** 
+\f4\fs24 \cf2 correct answer
+\f3\fs26 \cf0  ***
+\f4\fs24  \
+\
+\
+*** \cf2 summary(), table(), count()\cf0  \cf3 examples\cf0  ***\
+summary(pf$year_joined)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's \
+   2005    2012    2012    2012    2013    2014       2   \
+\
+*** \cf3 table()\cf0  - table() a data.frame, Data Frame column or attribute, \cf2 pf\cf0  - data.frame, Data Frame, \cf2 year_joined\cf0  column or attribute ***\
+*** \cf3 table()\cf0  - It simply creates tabular results of categorical variables., see, lookup boolean TRUE, FALSE uses as well ***\
+*** \cf3 table()\cf0  - \cf3 here we see the the metrics, or the number of entries, total entries for each pf$year_joined category\cf0  **\
+*** \cf3 table()\cf0  - \cf3 counts, with column headings\cf0  ***\
+\cf2 table\cf0 (pf$year_joined)\
+ 2005  2006  2007  2008  2009  2010  2011  2012  2013  2014 \
+    \cf2 9\cf0     \cf2 15\cf0    581  1507  4557  5448  9860 33366 43588    70 \
+\
+*** \cf2 count()\cf0  \cf3 similar data to \cf2 table()\cf0  ***\
+\cf2 count\cf0 (pf, year_joined)\
+# A tibble: 11 \'d7 2\
+   year_joined     n\
+         <dbl> <int>\
+1         2005     \cf2 9\cf0 \
+2         2006    \cf2 15\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Cut a Variable\cf0  10 of 28 - February 2017\
+***\
+\
+*** \cf3 using cut, cut() to place values in a bucket, place values in a range, group values up into identified ranges or buckets\cf0  ***\
+*** \cf3 created a new column or attribute, in the data.frame, Data Frame \cf0 ***\
+*** \cf3 correct answer\cf0  ***\
+pf$year_joined.bucket <- cut(pf$year_joined,  breaks = c(2004, 2009, 2011, 2012, 2014))\
+\
+*** \cf3 using table, table() to check the cut, cut() result or answer \cf0 ***\
+*** \cf3 here we see the brackets, and the count per bracket \cf0 ***\
+table(pf$year_joined.bucket)\
+(2004,2009] (2009,2011] (2011,2012] (2012,2014] \
+       6669       15308       33366       43658 \
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Plotting It All Together \cf0 11 of 28 - 11 February 2017\
+***\
+\
+*** \cf3 table() not applicable, NA ifany usage\cf0  ***\
+table(pf$year_joined.bucket, useNA = 'ifany')\
+\
+(2004,2009] (2009,2011] (2011,2012] (2012,2014]        <NA> \
+       6669       15308       33366       43658           2 \
+\
+*** \cf3 got the 4 lines for the 4 buckets\cf0  ***\
+*** \cf2 color\cf0  \cf3 gave us the multiple graphs, multiple plots, one way to get multiple plots, multiple graphs\cf0  ***\
+                                  *** \cf3 remove the not applicable NA\cf0  ***\
+ggplot(data = subset(pf, !is.na(\cf2 year_joined.bucket\cf0 )), aes(x = age, y = friend_count)) +\
+  geom_line(aes(color = \cf2 year_joined.bucket\cf0 ), stat = 'summary', fun.y = median)\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Plot the Grand Mean \cf0 12 of 28 - 11 February 2017\
+***\
+*** plot the \cf2 mean for the y axis, friend_count\cf0 , and \cf2 grand mean\cf0 , add layer, add geom_line ***\
+*** use color to get multiple plots, multiple graphs - \cf3 color = year_joined.bucket\cf0  ***\
+\
+ggplot(data = subset(pf, !is.na(year_joined.bucket)), aes(x = age, \cf2 y = friend_count\cf0 )) +\
+  geom_line(aes(\cf3 color = year_joined.bucket\cf0 ), stat = 'summary', \cf2 fun.y = mean\cf0 ) +\
+  geom_line(stat = 'summary', \cf2 fun.y = mean\cf0 , linetype = 2, color = 'blue') *** \cf2 grand mean of the friend_count column or attribute, note \cf3 y = friend_count\cf2   \cf0 ***\
+*** \cf2 color\cf0  \cf3 gave us the multiple graphs, multiple plots, one way to get multiple plots, multiple graphs\cf0  ***\
+\
+*** \cf2 I, i, eye\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 I(x) - 
+\f3 Change the class of an object to indicate that it should be treated \'91as is\'92., adding the I gave a crisper color\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Friending Rate \cf0 13 of 28 - 11 February 2017\
+***\
+\
+*** \cf3 my initial correct answer\cf0  ***\
+*** \cf3 divide friend_count / tenure, \cf2 limit to tenure greater than 0\cf3  \cf0 ***\
+***summary( (subset(pf, pf$tenure \cf2 > 0\cf0 )$friend_count) / (subset(pf, pf$tenure \cf2 > 0\cf0 )$tenure) )\
+\
+*** \cf3 Instructor answer showing the value, power of with, with(, with()\cf0  ***\
+*** \cf3 Using with, with(, with() and subset together, limit parts of the data.frame, Data Frame worked on, used\cf0  ***\
+*** \cf3 Best practices - using with, with(, with() and subset together\cf0  ***\
+with(subset(pf, pf$tenure > 1  ), summary(friend_count / tenure))\
+
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Friendships Initiated \cf0 14 of 28 - 12 February 2017\
+***
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf2 \
+\cf0 # Create a line graph of mean of friendships_initiated per day (of tenure)\
+# vs. tenure colored by year_joined.bucket.\
+\
+# You need to make use of the variables tenure,\
+# friendships_initiated, and year_joined.bucket.\
+\
+# You also need to subset the data to only consider user with at least\
+# one day of tenure.\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 \
+ggplot(data = subset(pf, !is.na(year_joined.bucket)), aes(x = age, \cf2 y = friend_count\cf0 )) +\
+  geom_line(aes(\cf3 color = year_joined.bucket\cf0 ), stat = 'summary', \cf2 fun.y = mean\cf0 ) +\
   \
-\pard\pardeftab720\sl280\partightenfactor0
+*** \cf3 applying a function to an axis\cf0  \cf2 fun.y = mean \cf0 ***\
+*** \cf3 my first answer\cf0  ***\
+ggplot(data = subset(pf, !is.na(year_joined.bucket) & tenure > 0), aes(x = friendships_initiated / tenure, y = tenure)) +\
+  geom_line(aes(color = year_joined.bucket), stat = 'summary', fun.y = mean)\
+\
+*** \cf3 my second answer, with instructor input, note instructor initiated fix - \cf2 x axis, y axis assignments, instructor reversed mine\cf0  ***\
+*** \cf2 color = year_joined.bucket\cf0 , \cf3 gave us multiple plots\cf0  ***\
+ggplot(data = subset(pf, !is.na(year_joined.bucket) & tenure > 0), aes(x = tenure, y = (friendships_initiated / tenure))) +\
+  geom_line(aes(color = year_joined.bucket), stat = 'summary', fun.y = mean)\
+\
+*** \cf3 complicated head example, \cf2 head()\cf3  and \cf2 subset()\cf3  used together\cf0  ***\
+head(subset(pf, !is.na(year_joined.bucket) & tenure > 0), n = 5000)\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Bias Variance Tradeoff Revisited \cf0 15 of 28 - 12 February 2017\
+***\
+\
+***\cf3  one method to\cf0  \cf3 remove noise, concern lose detail, make smoother lines\cf0   ***\
+*** \cf3 change from the previous example, solution \cf0 ***\
+\pard\pardeftab720\partightenfactor0
+\cf2 aes(x = tenure\cf0 ,\
+\
+***\cf3  one method to\cf0  \cf3 remove noise, make smoother lines, concern lose detail, bigger bin, x axis\cf0   ***\
+\cf2 aes(x = 7 * round(tenure / 7)\cf0 \
+\
+ggplot(\cf2 aes(x = 7 * round(tenure / 7)\cf0 , y = friendships_initiated / tenure),\
+       data = subset(pf, tenure > 0)) +\
+  geom_line(aes(color = year_joined.bucket),\
+            stat = "summary",\
+            fun.y = mean)
+\f1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 ***\cf3  another method to\cf0  \cf3 remove noise, make smoother lines, concern lose detail, use geom_smooth\cf0   ***
+\f4\fs24 \
+*** \cf3 replace 
+\f3\fs26 \cf2 geom_line()
+\f4\fs24 \cf3  with 
+\f3\fs26 \cf2 geom_smooth()
+\f4\fs24 \cf3 , remove 
+\f3\fs26 \cf2 geom_line()
+\f4\fs24 \cf3  from the instructor answer\cf0  *** *** \cf2 geom_line was replaced with geom_smooth\cf0  ***\
+*** \cf3 use geom_smooth AND color = column or attribute to genertae multiple smoother lines \cf0 ***\
+ggplot(data = subset(pf, !is.na(year_joined.bucket) & tenure > 0), aes(x = tenure, y = (friendships_initiated / tenure))) +\
+  geom_smooth(aes(color = year_joined.bucket)) *** \cf3 color gives us the multiple lines\cf0  ***\
+\
+
+\f3\fs26 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Histograms Revisited \cf0 18 of 28 - 12 February 2017\
+***\
+\
+*** working example - \cf3 how to read in a .csv file\cf0  ***\
+*** \cf3 yogurt household data \cf0 ***\
+yo <- read.csv('yogurt.csv')\
+\
+*** \cf3 str(), structure of a csv file\cf0  ***\
+str(yo)\
+'data.frame':	2380 obs. of  9 variables:\
+ $ obs        : int  1 2 3 4 5 6 7 8 9 10 ...\
+ $ \cf2 id\cf0          : \cf2 int\cf0   2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 ...\
+ $ time       : int  9678 9697 9825 9999 10015 10029 10036 10042 10083 10091 ...\
+ $ strawberry : int  0 0 0 0 1 1 0 0 0 0 ...\
+ $ blueberry  : int  0 0 0 0 0 0 0 0 0 0 ...\
+ $ pina.colada: int  0 0 0 0 1 2 0 0 0 0 ...\
+ $ plain      : int  0 0 0 0 0 0 0 0 0 0 ...\
+ $ mixed.berry: int  1 1 1 1 1 1 1 1 1 1 ...\
+ $ price      : num  59 59 65 65 49 ...\
+\
+str(yo$id)\
+ \cf2 int\cf0  [1:2380] 2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 ...\
+\
+class(yo$\cf2 id\cf0 )\
+[1] "\cf2 integer\cf0 "\
+\
+\cf3 , factor tutorial\cf0 \
+*** \cf3 convert from one class to another, convert from integer to Factor, factor tutorial\cf0  ***\
+yo$id <- \cf3 factor\cf0 (yo$id)\
+\
+class(yo$\cf2 id\cf0 )\
+[1] "\cf2 factor\cf0 "\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \ul \ulc0 ***\cf3 \ulc3  Factor examples\ulnone , factor tutorial \cf0 ***\
+pf$gender               : \cf3 Factor\cf0  w/ \cf2 2\cf0  levels "female","male": 2 1 2 1 2 2 2 1 2 2 ...\
+yo$ id         : Factor w/ \cf2 332\cf0  levels "2100081","2100370",..: 1 1 1 1 1 1 1 1 1 1 ...\
+\
+*** \cf3 See all Factor levels, factor tutorial\cf0  ***\
+levels(pf$gender)\
+[1] "female" "male"  \
+\
+*** \cf3 See all Factor levels, and counts, factor tutorial\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf3 summary\cf0 (pf$gender)\
+female   male   NA's \
+ 40254  58574    175 \
+\
+*** \cf3 Basic yogurt \cf2 histogram\cf3  price, \cf2 only one column or attribute given, that is the x axis, y axis is count\cf0  ***\
+\
+*** \cf3 my answers\cf0  ***\
+ggplot(data = yo, aes(x = price)) + geom_histogram()\
+ggplot(data = yo, aes(x = price)) + geom_histogram(binwidth = 10)\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Number of Purchases \cf0 19 of 28 - 13 February 2017\
+***\
+\
+*** \cf2 tutorial\cf0  -\cf2  \cf3 iterative investigation of the values associated with a column or attribute in a data.frame, Data Frame\cf0  ***\
+*** \cf2 3rd Qu.\cf0  - (\cf3 75 percentile) same as the maximum - \cf2 Max., \cf3 indicative of discreetness, not normal distribution\cf0  ***\
+*** \cf3 75 percentile same as maximum \cf0 **\
+summary(yo$price)\
+   Min. 1st Qu.  Median    Mean \cf2 3rd Qu.\cf0     \cf2 Max. \cf0 \
+  20.00   50.00   65.04   59.25   \cf2 68.96\cf0    \cf2 68.96\cf0  \
+\
+*** \cf2 tutorial\cf0  -\cf2  \cf3 iterative investigation of the values associated with a column or attribute in a data.frame, Data Frame\cf0  ***\
+*** \cf3 get a list of the unique values associated with a column or attribute\cf0  ***\
+unique(yo$price)\
+\
+*** \cf2 tutorial\cf0  -\cf3  iterative investigation of the values associated with a column or attribute in a data.frame, Data Frame\cf0  ***\
+***\cf3  how many unique values are there in the data.frame, Data Frame - \cf2 20\cf0  *** \
+length(unique(yo$price))\
+[1] \cf2 20\
+\
+\cf0 *** \cf2 tutorial\cf0  - \cf3 iterative investigation of the values associated with a column or attribute in a data.frame, Data Frame\cf0  ***\
+*** \cf3 get the count, (how many) for each of the twenty unique prices, price points\cf0  ***\
+\cf2 table\cf3 (sort(yo$price)) \cf0 ***\cf2  valuable \cf0 ***\
+\
+***\cf3  working examples - one way, one method, to \cf2 add (create new)\cf3  a \cf2 column or attribute\cf3  to a \cf2 data.frame, Data Frame\cf3 , \cf2 adding or summing or sum,\cf3  other data.frame, Data Frame \cf2 columns or attributes\cf0  *** \
+*** \cf2 using existing columns or attributes, adding or sum, create new column or attribute in a data.frame, Data Frame   \cf0 ***\
+*** \cf3 from udacity quiz browser, brut force addition\cf0  ***\
+yo$all.purchases <- (yo$strawberry + yo$blueberry + yo$pina.colada + yo$plain + yo$mixed.berry)\
+\
+***\cf3  working examples - one way, one method, to \cf2 add (create new)\cf3  a \cf2 column or attribute\cf3  to a \cf2 data.frame, Data Frame\cf3 , \cf2 adding or summing or sum,\cf3  other data.frame, Data Frame \cf2 columns or attributes - \cf3 transform() function\cf0  *** \
+*** \cf3 from udacity quiz browser, transform function, close see the next line\cf0  \cf2 TOO VERBOSE\cf0 ***\
+yo <- transform(yo, all.purchases = (yo$strawberry + yo$blueberry + yo$pina.colada + yo$plain + yo$mixed.berry))\
+\
+*** \cf2 BEST PRACTICES\cf0  - \cf3 from udacity quiz browser, transform function, close see the next line\cf0  ***\
+*** \cf2 BEST PRACTICES - \cf0 add a new \cf2 column or attribute\cf0  to a \cf2 data.frame, Data Frame, using existing columns or attributes, \cf3 sum or addition used\cf0  *** \
+yo <- transform(yo, \cf2 all.purchases\cf0  = (strawberry + blueberry + pina.colada + plain + mixed.berry))\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Prices Over Time \cf0 20 of 28 - 14 February 2017\
+***\
+\
+*** \cf3 make a histogram of the new column or attribute\cf0  *** \
+*** \cf3 histogram - only the x axis given, y axis is the count\cf0  *** \
+ggplot(data = yo, aes(x = \cf2 all.purchases\cf0 )) + geom_histogram()\
+*** i\cf3 nstructor\cf0  ***\
+ggplot(data = yo, aes(x = all.purchases)) + geom_histogram(binwidth = 1, fill = I('#099DD9'))\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
+*** \cf3 scatterplot, scatter plot of \cf2 yogurt price over time \cf0 ***\
+***\cf3  my first answer geom_point - scatterplot\cf0   ***\
+ggplot(data = yo, aes(x = time, y = price)) + geom_point()\
+\
+*** \cf3 instructor answer, \cf2 geom_jitter alone GIVES US THE SCATTERPLOT\cf3 , geom_point() NOT NEEDED\cf0   ***\
+*** \cf3 instructor answer, \cf2 geom_jitter makes points "a little transparant", \cf3 quote from instructor video\cf0 ***\
+*** \cf3 instructor answer, 
+\f1\fs24 \cf2 shape and fill
+\f3\fs26 \cf3  work together \cf0 ***\
+ggplot(data = yo, aes(x = time, y = price)) + \cf2 geom_jitter\cf0 (alpha = 1 / 4, shape = 21, fill = I('#F79420')) \
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Looking at Samples of Households \cf0 22 of 28 - 14 February 2017\
+***
+\f4\fs24 \cf2  PLOTTING MORE THAN 2 TWO columns or attributes 
+\f3\fs26 \cf0 ***\
+***\
+\
+*** \cf3 begin to understand the \cf2 yogurt id column\cf3  or attribute\cf0   *** \
+*** 
+\f4\fs24 \cf2 id
+\f3\fs26 \cf3  maps to, or is a 
+\f4\fs24 \cf2 household
+\f3\fs26 \cf3  \cf0 *** \
+head(yo$id) *** \cf2 note duplicates\cf0  ***\
+[1] 2100081 2100081 2100081 2100081
+\f1\fs24 \cf2  
+\f3\fs26 2100081 2100081\cf0 \
+332 Levels: 2100081 2100370 2100396 2100669 2100768 2100818 2100909 2101394 2101758 2101782 2101790 2101980 ... 2170639\
+\
+*** \cf3 use 
+\f1\fs24 \cf2 table, table()
+\f3\fs26 \cf3  to get a 
+\f1\fs24 \cf2 count
+\f3\fs26 \cf3  of 
+\f1\fs24 \cf2 Factor
+\f3\fs26 \cf3  column or attribute in a data.frame, Data Frame, compare to 
+\f1\fs24 \cf2 count(yo,id)
+\f3\fs26 \cf0 *** \
+\pard\pardeftab720\partightenfactor0
+\cf2 table\cf0 (yo$id)\
+2100081 2100370 2100396 ...   \
+     
+\f1\fs24 \cf2 34      13 
+\f3\fs26 \cf0       3 ...\
+\
+*** \cf3 Factor, count, working example\cf0  - 
+\f1\fs24 \cf2 count
+\f3\fs26 \cf3  a 
+\f1\fs24 \cf2 Factor
+\f3\fs26 \cf3  column or attribute, compare to 
+\f1\fs24 \cf2 table
+\f3\fs26 \cf3 (yo$id)\cf0  ***\
+\cf2 count\cf0 (yo,id)\
+# A tibble: 332 \'d7 2\
+        id     n\
+    <fctr> <int>\
+1  2100081    
+\f1\fs24 \cf2 34 
+\f3\fs26 \cf0 *** \cf2 note duplicates\cf0  ***\
+2  2100370    
+\f1\fs24 \cf2 13 
+\f3\fs26 \cf0 *** \cf2 note duplicates\cf0  ***\
+\
+*** 
+\f1\fs24 \cf2 str
+\f3\fs26 \cf0 (yo$id) ***\
+
+\f1\fs24 \cf2 str
+\f3\fs26 \cf0 (yo$id)\
+ 
+\f1\fs24 \cf2 Factor
+\f3\fs26 \cf0  w/ 332 
+\f1\fs24 \cf2 \ul \ulc2 levels
+\f3\fs26 \cf0 \ulnone  "2100081","2100370",..: 1 1 1 1 1 1 1 1 1 1 ...\
+\
+*** 
+\f1\fs24 \cf2 levels, levels()
+\f3\fs26 \cf0  - get 
+\f1\fs24 \cf2 all
+\f3\fs26 \cf0  the 
+\f4\fs24 \cf2 UNIQUE
+\f3\fs26 \cf0  values of a Factor column or attribute    ***\
+l
+\f1\fs24 \cf2 evels
+\f3\fs26 \cf0 (yo$id)\
+  [1] "2100081" "2100370" "2100396"\
+\
+*** \cf3 sample, sample() example, grab 16 of them, Factor column or attribute, 
+\f4\fs24 \cf2 use as data below
+\f3\fs26 \cf3  \cf0 *** \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs24 \cf2 sample.ids
+\f3\fs26 \cf0  <- sample(levels(yo$id), 16) \
+\
+class(sample.ids)\
+[1] "
+\f1\fs24 \cf2 character
+\f3\fs26 \cf0 "\
+\
+*** \cf3 here we have the 16 Factor column or attribute, \cf2 16 unique sample ids, \cf3 generates random ids, different each time run\cf0  ***\
+*** *** \
+
+\f1\fs24 \cf2 sample.ids
+\f3\fs26 \cf0 \
+ [1] "2132290" "2133496" "2151472" "2117226" "2122788" "2120964" "2106724" "2115527" "2158436" "2139162" "2141507" "2157420"\
+[13] "2161554" "2151829" "2118927" "2109033"\
+\
+***\cf3  subset or data has \cf2 duplicates\cf3  for each 
+\f4\fs24 \cf2 UNIQUE
+\f3\fs26 \cf3  id in sample.ids\cf0  *** \
+***\cf3  multiple rows for each unique id, or household \cf0 *** \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \kerning1\expnd0\expndtw0  subset(yo, id %in% sample.ids)\
+      obs      id  time strawberry blueberry pina.colada plain mixed.berry price all.purchases\
+186   210 
+\fs26 \cf2 \expnd0\expndtw0\kerning0
+2104067
+\fs24 \cf0 \kerning1\expnd0\expndtw0   9672          0         0           0     2           0 58.96             2\
+187   211 
+\fs26 \cf2 \expnd0\expndtw0\kerning0
+2104067
+\fs24 \cf0 \kerning1\expnd0\expndtw0   9957          0         0           0     1           0 65.04             1\
+299   332 \cf3 2106724\cf0   9946          0         0           0     0           1 65.04             1\
+300   333 \cf3 2106724\cf0  10338          0         0           0     0           1 50.00             1\
+301   334 \cf3 2106724\cf0  10358          0         0           0     0           1 68.96             1 \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf0 \expnd0\expndtw0\kerning0
+\
+ *** \cf3 generated multiple plots, generated 16 plots, graphs, geom_line() plots, one for each unique id in sample.ids\cf0  *** \cf2 \
+\cf0 facet_wrap( ~ id)\cf2 \
 \cf0 \
- \
+*** \cf3 pch plotting character documentation, help - http://www.endmemo.com/program/R/pchsymbols.php\cf0  ***\
+*** \cf3 pch plotting character - 
+\f3\fs26 \cf2 customize the character, the dot, pch = 1 - "dot" is a circle
+\b \cf0   
+\f9 \uc0\u8413 
+\f4\b0\fs24 \cf3  \cf0 ***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f4\fs24 \
+*** 
+\f3\fs26 \cf3 Looking at Samples of Households \cf0 22 of 28 \cf3 instructor example\cf0  
+\f4\fs24 *** \
+*** \cf3 grab \cf2 16 random\cf3  sample column or attribute, in this case the column is i\cf2 d\cf3 , data.frame, Data Frame is \cf2 yo\cf3 (yogurt)\cf0  ***\
+*** checkout \cf2 set.seed(4230)\cf0 , in an attempt to get the \cf2 SAME 16 \cf0 random \cf2 id\cf0 , id(s) ***\
+sample.ids <- sample(levels(yo$id),16 )\
+ggplot(data = subset(yo, id %in% sample.ids), aes(x = time, y = price) ) +\
+  facet_wrap( ~ id) +\
+  geom_line() +\
+  geom_point(aes(size = all.purchases), pch = 1)\
+\
+\
+*** \cf3 line by line documentation, breakdown\cf0  ***\
+\
+*** \cf2 yo$id \cf3 is a\cf2  Factor \cf3 column or attribute, \cf2 duplicate values\cf3  throughout the data.frame, Data Frame, \cf2 2121095 2121095 2121095, \cf3 similar to gender \cf0 *** \
+*** \cf2 levels(yo$id) - \cf3 get just the unique yo$id \cf2 Factor\cf3  values, \cf2 unique Factor values\cf3  
+\f3 \cf0 \kerning1\expnd0\expndtw0 "2100081" "2100370"  
+\f4 \cf3 \expnd0\expndtw0\kerning0
+if this were gender - male, female\cf2  \cf3  \cf0 *** \
+*** \cf2 sample(levels(yo$id),16 ) \cf0 -\cf2  \cf3 get, sample() 16 of the unique yo$id \cf2 Factor\cf3  values, \cf2 unique Factor values\cf3  
+\f3 \cf0 \kerning1\expnd0\expndtw0 "2100081" "2100370"  
+\f4 \cf3 \expnd0\expndtw0\kerning0
+if this were gender - male, female\cf2  \cf3  \cf0 *** \
+*** \cf3 grab \cf2 16 random\cf3  sample column or attribute, in this case the column is i\cf2 d\cf3 , data.frame, Data Frame is \cf2 yo\cf3 (yogurt)\cf0  ***\
+*** checkout \cf2 set.seed(4230)\cf0 , in an attempt to get the \cf2 SAME 16 \cf0 random \cf2 id\cf0 , id(s) ***\
+*** \cf2 sample(levels(yo$id),16 ) \cf0 -\cf2  \cf3 used to create the data for the scatterplot below\cf0  ***\
+sample.ids <- sample(levels(yo$id),16 )\
+\
+ggplot(data = subset(yo, id %in% sample.ids), aes(x = time, y = price) ) +\
+  facet_wrap( ~ id) + *** \cf2 multiple\cf3  plots, scatterplots, 16, one for each randomly selected yo$id, (\cf2 How to get multiple plots, graphs.\cf3 ) \cf0  ***\
+  geom_line() + *** \cf3 drives home add layer, adds the lines to the 16 plots, 16 graphs\cf0  ***\
+\
+
+\f1\fs26 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f4\fs24 \
+  geom_point(aes(size = all.purchases), pch = 1)  \
+*** \cf2 size of dots\cf3 , open circle (\cf2 pch = 1\cf3 ) \cf2 proportional to total purchases\cf3 , sum of individual yogurt flavor purchases \cf0 ***\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 *** \cf3 yo <- transform(yo, all.purchases = (strawberry 
+\f4\b\fs24 \cf2 +
+\f3\b0\fs26 \cf3  blueberry 
+\f4\b\fs24 \cf2 +
+\f3\b0\fs26 \cf3  pina.colada + plain 
+\f4\b\fs24 \cf2 +
+\f3\b0\fs26 \cf3  mixed.berry))\cf0  ***
+\f4\fs24 \
+*** \cf3 adds the scatterplot layer, drives home the add a layer point\cf0  ***\
+*** \cf2 adds the third column or attribute\cf0  to the plot (\cf2 yo$all.purchases\cf0 ), plotting more than 2 two columns or attributes, 
+\f3\fs26 \cf2 pch = 1 - "dot" is a circle
+\b \cf0   
+\f9 \uc0\u8413 
+\f4\b0\fs24   ***\
+*** \cf3 circles proportional to quantity of yogurt purchased, the more yogurt purchased, the larger the open circle\cf0  ***\
+*** \cf3 summary the three columns or attributes plotted or graphed 1.) time, 2.)price, 3.)all.purchases \cf0 ***\
+\
+
+\f3\fs26 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 The Limits of Cross Sectional Data \cf0 23 of 28 - 14 February 2017\
+***\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 ***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Many Variables \cf0 24 of 28 - 14 February 2017\
+***\
+\
+***\
+*** Data Analysis with R - Explore Many Variables - \cf3 Scatterplot Matrices \cf0 25 of 28 - 14 February 2017\
+***\
+\
+install.packages("GGally")\
+library(GGally)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** 
+\f1 \cf2 ggpairs()
+\f3 \cf0  - \cf3 get hints for the best plot based on the type of data\cf0  *** \
+\pard\pardeftab720\partightenfactor0
+\cf3 ggpairs\cf0  - \cf2 might be able to use this to determine the best plot, get advice regarding the best plot\cf0  \
+\
+Create a number of scatterplots automatically - scatterplot matrix\
+*** 
+\f4\fs24 \cf2 plot selection guidance example
+\f3\fs26 \cf0  ***\
+Scatterplots are not the best for Categorical Variables (examples, gender, hair color, blood type)\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf0 histograms, boxplots, box plots well suited for Categorical Variables 
+\f3\fs26 (examples, gender, hair color, blood type)
+\f4\fs24  \
+Produce scatterplot matrix for psuedo Facebook data set\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf2 \
+\cf0 *** review how to access part of a data.frame, Data Frame, by index or bracket notation ***\
+\
+head(pf) (other columns manually erased)\
+   userid age\
+1 \cf2 \ul 2094382  14\cf0 \ulnone \
+2 \cf2 \ul 1192601  14\cf0 \ulnone  \
+\
+*** \cf3 get part of a data.frame, Data Frame, get all rows, \cf2 get ONLY THE FIRST TWO COLUMNS, NOT ZERO BASED INDEXING\cf0  ***\
+pf[, c(1:2)]\
+*** \cf2 all rows, first two columns, \cf3 not zero based indexing\cf0 *** \
+pf[\cf2 ,\cf0                            c(1:2)]\
+\
+head(pf[,c(1:2)], 2)\
+   userid age\
+1 \cf2 \ul 2094382  14\cf0 \ulnone \
+2 \cf2 \ul 1192601  14\
+\
+\cf0 \ulnone *** \cf2 access part of a data.frame, Data Frame\cf0  - \cf3 get the second through the 15th column of all rows, index or bracket notation not zero based indexing\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf3 head(pf[, c(2:15)], 2)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 names(pf)\cf3   \cf0 -\cf3  all names of all columns\
+\cf2 names(pf[, c(2:15)])\cf3  \cf0 -\cf3  just the names of the selected columns (\cf0 we know the index, bracket data.frame, Data Frame selection notation works\cf3 )\
+\
+\cf0 *** review, get the \cf2 row count\cf0  of a data.frame, Data Frame or part of a data.frame, Data Frame ***\
+\pard\pardeftab720\partightenfactor0
+\cf3 nrow(pf[, c(2:15)])\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 line by line breakdown\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf3 pf[, c(2:15)] [ sample.int(nrow(pf[, c(2:15)]),3),] \cf0 *** all columns, 
+\i \cf2 see the comma near the end
+\i0 \cf0  ***\cf3 \
 \pard\pardeftab720\partightenfactor0
 \cf0 \
+*** \cf2 get the second through 15th column of all rows\cf3 , of the data.frame, Data Frame, not zero based indexing \cf0 ***\cf3 \
+pf[, c(2:15)]\
+\
+\cf0 *** simply generate 3 random integers based on the total number of rows in the psuedo Facebook data.frame, Data Frame subset ***\
+\pard\pardeftab720\partightenfactor0
+\cf3 sample.int(nrow(pf[, c(2:15)]), 3)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** a cool way to capture, select, get three 3 random rows from a data.frame, Data Frame, likely work for columns too ***\
+*** a row and column index, the row is \cf2 \ul now rows\cf0 \ulnone  - PLURAL, - the 3 rows from \cf2 - sample.int(nrow(pf[, c(2:15)]), 3) - \cf0 above, \cf3 the columns are ALL columns\cf0 , 
+\i \cf2 see the comma near the end
+\i0 \cf0   (above)***\
+*** \cf3 important, a cool way, method, to access, sample, get \cf2 multiple rows\cf3 , for index or bracket notation, likely work for accessing, sampling or getting \cf2 multiple columns\cf0  ***\
+*** \cf3 important, a cool way, select, get, capture \cf2 3 rows, multiple rows\cf3  of a data.frame, Data Frame  \cf0  ***\
+*** remember this is simply row column bracket index notation (not zero based indexing)  *** \
+*** 
+\b \cf2 []
+\b0 \cf0 *** \
+\pard\pardeftab720\partightenfactor0
+\cf3 [ sample.int(nrow(pf
+\b \cf2 [
+\b0 \cf3 , c(2:15)]),3),
+\b \cf2 ]
+\b0 \cf3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf2 limit the columns, attributes, vectors ggpairs() works on\cf0  ***\cf3 \
+\cf0 *** now using it, first keep it simple use 2:3, age and dob_day ***\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 ggpairs(  pf[, c(2:3)] [ sample.int(nrow(pf[, c(2:15)]),1),]   )\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** plots made, select columns 2 through 8,   *** \
+\cf2 ggpairs\cf3 (  pf[, c(2,8)] \cf2 [\cf3  sample.int(nrow(pf\cf2 [\cf3 , c(2:15)\cf2 ]\cf3 ),10),\cf2 ]\cf3 , axisLabels = 'show'   )\
+\cf2 ggpairs\cf3 (  pf[, c(2,8)] [ sample.int(nrow(pf[, c(2:15)]),10),], axisLabels = 'internal'   )\
+\
+\cf0 ***\
+*** Data Analysis with R - Explore Many Variables \cf2 Lesson 5\cf0  - \cf3 Even More Variables\cf0  26 of 28 - 15 February 2017 \
+***\
+Genomic Data\
+Gene expression in tumors\
+6830 genes\
+nci - National Cancer Institute\
+nci <- read.table('nci.tsv')\
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** How to change column names of a data.frame, Data Frame ***\
+\pard\pardeftab720\partightenfactor0
+\cf3 colnames(nci) <- \cf2 c\cf3 (1:64) \cf0 *** \cf3 instructor, video\cf0  ***\cf3 \
+colnames(nci) <- (1:64)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\
+*** Data Analysis with R - Explore Many Variables \cf2 Lesson 5\cf0  - \cf3 Heat Maps\cf0  26 of 28 - 15 February 2017 \
+***\
+\cf2 nci\cf0  <- read.table('nci.tsv')\
+\
+class(\cf2 nci\cf0 )\
+[1] "data.frame"\
+\
+class(as.matrix(nci[1:3,]))\
+[1] "matrix"\
+\
+dim(nci)\
+[1] 6830   64\
+\
+*** \cf3 get the first 200 rows of the nci data.frame, Data Frame\cf0   ***\
+nci[1:200,]\cf3 \
+\cf0 \
+*** \cf3 convert to matrix\cf0  ***\
+\cf2 as.matrix\cf0 (nci[1:3,])\
+class(\cf2 as.matrix\cf0 (nci[1:3,]))\
+[1] "\cf2 matrix\cf0 "\
+\
+*** reorganizes the data - column Var2 is the column heading column, column heading value is the corresponding value column  ***\
+*** reorganizes the data - column headings are now rows ***\
+head(\cf2 melt\cf0 (as.matrix(nci[1:2,])))\
+  Var1 Var2     value\
+1    1   V1  \cf2 0.300000\cf0 \
+2    2   V1  \cf2 1.180000\cf0 \
+3    1   V2  0.679961\
+4    2   V2  1.289961\
+5    1   V3  0.940000\
+6    2   V3 -0.040000\
+\cf2 \
+\cf0 *** before melt, rows are the instances or observations ***\cf2 \
+\cf0 head(as.matrix(nci[1:2,]))\
+    V1       V2    V3    V4     V5    V6    V7    V8   V9  V10  V11   V12   V13  V14   V15   V16   V17   V18   V19   V20   V21  V22   V23   V24   V25  V26\
+1 \cf2 0.30\cf0  0.679961  0.94  0.28  0.485  0.31 -0.83 -0.19 0.46 0.76 0.27 -0.45 -0.03 0.71 -0.36 -0.21 -0.50 -1.06  0.15 -0.29 -0.20 0.43 -0.49 -0.53 -0.01 0.64\
+2 \cf2 1.18\cf0  1.289961 -0.04 -0.31 -0.465 -0.03  0.00 -0.87 0.00 1.49 0.63 -0.06 -1.12 0.00 -1.42 -1.95 -0.52 -2.19 -0.45  0.00  0.74 0.50  0.33 -0.05 -0.37 0.55\
+    V27  V28  V29  V30  V31  V32   V33  V34  V35  V36        V37   V38   V39   V40   V41         V42   V43   V44         V45   V46   V47        V48   V49\
+1 -0.48 0.14 0.64 0.07 0.13 0.32 0.515 0.08 0.41 -0.2 -0.3699805 -0.37 -0.43 -0.38 -0.55 -0.32003900 -0.62 -0.49  0.07001953 -0.12 -0.29 -0.8100195  0.20\
+2  0.97 0.72 0.15 0.29 2.24 0.28 1.045 0.12 0.00  0.0 -1.3899800  0.18 -0.59 -0.55  0.00  0.08996101  0.08  0.42 -0.82998050  0.00  0.03  0.0000000 -0.23\
+        V50       V51  V52        V53   V54   V55   V56   V57         V58  V59   V60   V61   V62   V63   V64\
+1 0.3799805 0.3100195 0.03 -0.4299805  0.16  0.01 -0.62 -0.38  0.04998047 0.65 -0.03 -0.27  0.21 -0.05  0.35\
+2 0.4499805 0.4800195 0.22 -0.3899805 -0.34 -1.28 -0.13  0.00 -0.72001950 0.64 -0.48  0.63 -0.62  0.14 -0.27\
+\
+*** after melt *** \
+*** reorganizes the data - column \cf2 Var2\cf0  is the column heading column, column heading \cf2 value\cf0  is the corresponding value column  ***\
+*** reorganizes the data - column headings are now rows ***\
+\pard\pardeftab720\partightenfactor0
+\cf3 head\cf0 (\cf2 melt\cf0 (as.matrix(nci[1:2,])))\
+  \cf4 Var1 Var2     value 
+\fs28 \cf0 <--------------->
+\fs26 \cf4  \cf2 melt\cf4  default unfriendly column names\cf0 \
+1    1   V1  0.300000 \cf2 row 1\cf0 \
+2    2   V1  1.180000 \cf2 row 2\cf0 \
+3    1   V2  0.679961 \cf2 row 1\cf0 \
+4    2   V2  1.289961 \cf2 row 2\cf0 \
+5    1   V3  0.940000\
+6    2   V3 -0.040000\
+\
+*** \cf3 clear example, cool way, method \cf2 change column names\cf0  ***\
+> head(nci.long.samp,2)\
+  \cf2 Var1 Var2 value\cf0 \
+1    1   V1  0.30\
+2    2   V1  1.18\
+\
+> names(nci.long.samp) <- c('gene', 'case', 'value') *** \cf3 clear example, cool way, method \cf2 change column names\cf0  ***\
+\
+> head(nci.long.samp,2)\
+  \cf2 gene case value\cf0 \
+1    1   V1  0.30\
+2    2   V1  1.18\
+\
+*** \cf3 step by step breakdown\cf0  ***\
+*** \cf3 Create the nci sample data.frame, Data Frame \cf0 ***\
+> class(nci.long.samp)\
+[1] "data.frame"\
+\
+\pard\pardeftab720\partightenfactor0
+\cf4 melt(as.matrix(nci[1:2,]))\cf0 \
+\
+*** after column headings are the rows *** \
+> head(\cf2 melt(as.matrix(nci[1:2,]))\cf0 )\
+  Var1 Var2     value 
+\fs28 <--------------->
+\fs26 \cf4  \cf2 melt\cf4  default unfriendly column names\cf0 \
+1    1   V1  0.300000\
+2    2   V1  1.180000\
+\
+*** before melt, rows are the occurrences or observations ***\
+head(as.matrix(nci[1:2,]))\
+    V1        \
+1 \cf2 0.30\cf0   \
+2 \cf2 1.18\cf0   \
+\
+*** \cf3 Create the nci sample data.frame, Data Frame \cf0 ***\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf2 nci.long.samp <- melt(as.matrix( nci[1:200,] ))\cf0 \
+\
+> \cf2 head\cf0 (nci.long.samp)\
+  Var1 Var2  value 
+\fs28 <--------------->
+\fs26 \cf4  \cf2 melt\cf4  default unfriendly column names\cf0 \
+1    1   V1  0.300\
+2    2   V1  1.180\
+\
+*** \cf2 fix\cf0  unfriendly column names ***\
+names(nci.long.samp) <- c(\cf2 'gene', 'case', 'value'\cf0 )\
+\cf2 head\cf0 (nci.long.samp)\
+ \cf2  gene case  value\cf0 \
+1    1   V1  0.300\
+2    2   V1  1.180\
+\
+**** \cf3 now plot, at this point \cf2 geom_tile()\cf3  gave us the \cf2 Heat Map\cf0  *** \
+\
+nci.long.samp <- melt(as.matrix( nci[1:200,] ))\
+names(nci.long.samp) <- c('gene', 'case', 'value')\
+ggplot(data = nci.long.samp, aes(x = case, y = gene, fill = value)) +\
+  geom_tile() +\
+  scale_fill_gradientn(colours = colorRampPalette(c('blue', 'red'))(100))\
+\
+ *** line by line breakdown *** \
+\
+*** do the reordering documented above *** \
+*** go from column headings are data headings and rows are occurrences  *** \
+*** go to rows are now grouped by data value, see example above   *** \
+nci.long.samp <- melt(as.matrix( nci[1:200,] ))\
+\
+*** \cf3 fix default unfriendly column names\cf0  ***\
+*** \cf3 cool way, method to fix\cf0  \cf2 default unfriendly column names\cf0  ***\
+names(nci.long.samp) <- c('gene', 'case', 'value')\
+\
+*** \cf3 generate the Heat Map plot, geom_tile() gave us the Heat Map \cf0 ***\
+ggplot(data = nci.long.samp, aes(x = case, y = gene, fill = value)) +\
+  geom_tile() +\
+  scale_fill_gradientn(colours = colorRampPalette(c('blue', 'red'))(100))\
+\
+\
+\
+***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Price Histograms with Facet and Color\cf0  - 1 of 11 - 15 February 2017 \
+***
+\f4\fs24 \
+\
+*** ggplot, histogram, 
+\f3\fs26 \ul \ulc0 histogram bar color or fill is an column or attribute - cut, not hard coded  'red'
+\f4\fs24 \ulnone , 
+\f3\fs26 \ul facet - multiple histograms based on color column or attribute 
+\f4\fs24 \ulnone  ***\
+\
+*** my answer ***\
+ggplot(data = diamonds, aes(x = price, fill=cut)) + geom_histogram() + facet_wrap(~color)\
+\
+*** \cf3 instructor, video answer\cf0  ***\
+ggplot(data = diamonds, aes(x = price, fill=cut)) + geom_histogram() + facet_wrap(~color) + \cf3 scale_fill_brewer(type = 'qual')\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 ***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Price vs. Table Colored by Cut\cf0  - 2 of 11 - 15 February 2017\
+***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
+*** \cf3 my answer\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf0 ggplot(data = diamonds, aes(x = table, y = price)) + geom_point(aes(color = cut)) + coord_cartesian(xlim = c(50, 68)) +\
+  scale_x_continuous(breaks = seq(50, 68, 2))\
+\
+\
+*** \cf3 instructor answer\cf0  ***\
+ggplot(data = diamonds, aes(x = table, y = price)) + geom_point(aes(color = cut)) + scale_color_brewer(type = 'qual')\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0  \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 ***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Typical Table Value\cf0  - 3 of 11 - 15 February 2017 \
+***\
+\pard\pardeftab720\partightenfactor0
+
+\f4\fs24 \cf2 *** none ***\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 ***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Price vs. Volume and Diamond Clarity\cf0  4 of 11- 15 February 2017 \
+***\
+# Create a scatterplot of diamond price vs.\
+# volume (x * y * z) and color the points by  *** \cf2 diamonds$volume\cf0   <- \cf3 diamonds$x * diamonds$y * diamonds$z\cf0  ***\
+# the clarity of diamonds. Use scale on the y-axis\
+# to take the \cf2 log10 of price.\cf0  You should also *** \cf2 x = log10(diamonds$price) \cf0 ***  \
+# \cf2 omit the top 1% of diamond volumes from the plot.\cf0  ***\cf2 xlim(2.4, quantile(log10(diamonds$price), 0.99))
+\f1\fs24 \cf0  ***
+\f3\fs26 \
+\
+# Note: Volume is a very rough approximation of\
+# a diamond's actual volume.\
+\
+# The plot should look something like this.\
+# http://i.imgur.com/excUpea.jpg\
+\
+# Note: In the link, a color palette of type\
+# 'div' was used to color the scatterplot using\
+# scale_color_brewer(type = 'div')\
+\
+*** \cf3 diamonds data.frame, Data Frame\cf0  ****\
+> \cf2 names\cf0 (diamonds)\
+ [1] "carat"   "cut"     "color"   "clarity" "depth"   "table"   "price"   "x"       "y"       "z"\
+\
+*** \cf3 add new column or attribute to data.frame, Data Frame\cf0  ****\
+> \cf2 diamonds$volume\cf0   <- diamonds$x * diamonds$y * diamonds$z\
+\
+> \cf2 names\cf0 (diamonds)\
+ [1] "carat"   "cut"     "color"   "clarity" "depth"   "table"   "price"   "x"       "y"       "z"       "\cf2 volume\cf0 " \
+\
+*** \cf3 remove the changed, edited data.frame, Data Frame \cf0  ****\
+> \cf2 rm\cf0 (diamonds)\
+\
+*** \cf3 volume column or attribute gone, back to the original diamonds\cf0  ***\
+> \cf2 names\cf0 (diamonds)\
+ [1] "carat"   "cut"     "color"   "clarity" "depth"   "table"   "price"   "x"       "y"       "z"      \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f3 \
+*** \cf3 diamonds scatterplot, price versus volume \cf0 ***
+\f4\fs24 \
+ggplot(data = diamonds, aes(x = price, y = volume)) + geom_point()\
+\
+*** add clarity based color ***\
+ggplot(data = diamonds, aes(x = price, y = volume, color = clarity)) + geom_point()\
+\
+ggplot(data = diamonds, aes(x = log10(price), y = volume, color = clarity)) + geom_point()\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 ggplot(data = diamonds, aes(x = log10(diamonds$price), y = volume, color = clarity)) + geom_point() + xlim(2.4, quantile(log10(diamonds$price), 0.99))\
+\
+*** \cf3 line by line breakdown\cf0  ) ***\
+*** \cf3 This was the hard part - \cf2 xlim(2.4, quantile(log10(diamonds$price), 0.99))\cf0  ***\
+*** \cf3 limit the x values here, xlim(), limit the x data, expect it will work for ylim() too - \cf2 xlim(2.4, quantile(log10(diamonds$price), 0.99))\cf0  ***\
+*** \cf3 this is where we identify, specify a subset of the data, either x data, xlim(), or y data ylim() - \cf2 xlim(2.4, quantile(log10(diamonds$price), 0.99))\cf0  ***\
+*** \cf3 limit the plotting to a subset of the data, omit some data from the plot, range or percentage- \cf2 xlim(2.4, quantile(log10(diamonds$price), 0.99))\cf0  ***\
+\
+*** 
+\f3\fs26 \cf2 color = clarity
+\f1\fs24 \cf0  - add a \cf2 \ul \ulc2 third\cf0 \ulnone  column or attribute to the plot, price, volume, \cf2 clarity\cf0  ***\
+ggplot(data = diamonds, aes(x = log10(diamonds$price), y = volume, color = clarity)) + geom_point() + xlim(2.4, quantile(log10(diamonds$price), 0.99))\
+\
+*** \cf2 geom_point()\cf0  - gets us the scatterplot ***
+\f4 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 ggplot(data = diamonds, aes(x = log10(diamonds$price), y = volume, color = clarity)) + geom_point() + xlim(2.4, quantile(log10(diamonds$price), 0.99))\
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 *** \cf2 very close to the instructor solution appearance, the code is mine not the instructors\cf0  ***
+\f4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ggplot(data = diamonds, aes(x = volume, y = log10(diamonds$price), color = clarity)) + geom_point() + xlim(0,300)\
+\
+***\cf3  echo, debug, see what xlim(), ylim() is actually doing, simply generates two numbers boundaries, upper and lower\cf0  ***\
+***\cf3  use xlim(), ylim(), to trim data values, crop data values, specify data values plotted \cf0 ***\
+xlim(2.4, quantile(log10(diamonds$price), 0.99))\
+<ScaleContinuousPosition>\
+ Range:  \
+ Limits:  2.4 -- 4.24\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs26 \cf0 ***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Proportion of Friendships Initiated\cf0  5 of 11- 17 February 2017 \
+***
+\f4\fs24 \
+# For example, we might wonder how much of a person's network on\
+# a service like Facebook the user actively initiated. Two users\
+# with the same degree (or number of friends) might be very\
+# different if one initiated most of those connections on the\
+# service, while the other initiated very few. So it could be\
+# useful to consider this proportion of existing friendships that\
+# the user initiated. This might be a good predictor of how active\
+# a user is compared with their peers, or other traits, such as\
+# personality (i.e., is this person an extrovert?).\
+\
+# Your task is to create a new variable called 'prop_initiated'\
+# in the Pseudo-Facebook data set. The variable should contain\
+# the proportion of friendships that the user initiated.\
+
+\f3\fs26 \
+  *** \cf3 read in the the tab separated values disk file\cf0  ***\
+> pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
+\
+> summary(pf$friend_count)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+    \cf2 0.0\cf0     31.0    82.0   196.4   206.0  4923.0 \
+\
+  *** \cf3 drop the zeroes in the divisor \cf0  ***\
+> pf <- pf[pf$friend_count \cf2 !=0\cf0  ,]\
+\
+> summary(pf$friend_count)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+    \cf2 1.0\cf0     33.0    85.0   200.3   209.0  4923.0 \
+\
+pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
+pf$prop_initiated <- pf$friendships_initiated / pf$friend_count\
+\
+***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 prop_initiated vs. tenure \cf0 6 of 11- 19 February 2017 \
+***\
+# Create a line graph of the median proportion of\
+# friendships initiated ('prop_initiated') vs.\
+# tenure and color the line segment by\
+# year_joined.bucket.\
+\
+# Recall, we created year_joined.bucket in Lesson 5\
+# by first creating year_joined from the variable tenure.\
+# Then, we used the cut function on year_joined to create\
+# four bins or cohorts of users.\
+\
+# (2004, 2009]\
+# (2009, 2011]\
+# (2011, 2012]\
+# (2012, 2014]\
+\
+# The plot should look something like this.\
+# http://i.imgur.com/vNjPtDh.jpg\
+# OR this\
+# http://i.imgur.com/IBN1ufQ.jpg\
+ \
+*** \cf3 read in the psuedo udacity Facebook data\cf0  ***\
+pf <- read.csv('pseudo_facebook.tsv', sep = '\\t')\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 create the new prop_initiated column, attribute, vector in the pf data.frame, Data Frame\cf0  ***\
+pf$prop_initiated <- pf$friendships_initiated/ pf$friend_count\
+\
+*** \cf3 create the new year_joined column, attribute, vector in the pf data.frame, Data Frame\cf0  ***\
+*** \cf3 floor() round down, ceiling() round up, rounding \cf0 ***\
+pf$year_joined <- \cf2 floor\cf0 ((2014 - (pf$tenure / 365)))\
+\
+*** \cf3 create the new year_joined.bucket column, attribute, vector in the pf data.frame, Data Frame\cf0  ***\
+pf$year_joined.bucket <- cut(pf$year_joined,  breaks = c(2004, 2009, 2011, 2012, 2014))\
+\
+*** \cf3 create the required line plot  \cf0 ***\
+*** \cf2 median is achieved here \ul - fun.y = median -\ulnone , \ul fun.y = median\ulnone  apply the median function to the y axis = prop_initiated \cf0 ***\
+*** \cf2 median is NOT achieved here -\ul  y = prop_initiated\ulnone  -\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0  ggplot(data = pf, aes(x = tenure, y = prop_initiated)) + geom_line(stat = 'summary', \cf2 fun.y = median\cf0 , aes(color = year_joined.bucket))\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \
+***\
+*** ggplot \cf2 fun.y\cf0  \cf3 working examples (Supporting 
+\f3 prop_initiated vs. tenure, lesson 6 of 11
+\f1 )\cf0   - 18 February 2017\
+***\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 refresh, reload \cf2 mtcars\cf3  data.frame\cf0  \cf3 Studio Environment right click mtcars \cf2 Reload\cf0  ***\
+*** \cf3 note - diamonds is part of the ggplot2 package, library(ggplot2) \cf0  ***\
+*** \cf3 numerical analysis, will be compared to graphical analysis \cf0 ***\
+*** \cf3 first get the data, raw numbers - the mpg for 4 cylinder cars, numerical analysis, will be compared to graphical analysis later \cf0 ***\
+subset(mtcars, mtcars$cyl == 4)$mpg\
+ [1] 22.8 24.4 22.8 32.4 30.4 33.9 21.5 27.3 26.0 30.4 21.4\
+\
+*** \cf3 Get the Median and the Mean \cf0 ***\
+summary(subset(mtcars, mtcars$cyl == 4)$mpg)\
+   Min. 1st Qu.  Median    \cf2 Mean\cf0  3rd Qu.    Max. \
+  21.40   22.80   26.00   \cf2 26.66\cf0    30.40   33.90 \
+\
+*** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***\
+*** \cf3 Graphical Analysis\cf0  ***\
+*** \cf3 Simple scatterplot of the 11 4 cylinder cars\cf0  ***\
+library(\cf2 ggplot2\cf0 )\
+ggplot(subset(mtcars, mtcars$cyl == 4), aes(cyl, mpg)) + geom_point()\
+ \
+*** \cf3 Add a layer, add the 11 car, 4 cylinder, mpg Mean to the scatterplot \cf2 fun.y\cf3  \cf0 ***\
+*** \cf2 aes(x = cyl, y = mpg)\cf3  - remains the \cf2 SAME\cf3 , the mean is taken here (layer added) - \cf0 geom_point(stat = 'summary', \cf2 fun.y = mean\cf0 , color = 'red')\cf3  \cf0 ***\
+ggplot(subset(mtcars, mtcars$cyl == 4), aes(x = cyl, y = mpg)) + geom_point() + geom_point(stat = 'summary', \cf2 fun.y = mean\cf0 , color = 'red')\
+*** \cf3 consistent with the above numerical analysis \cf2 Mean - 26.66\cf3  a red dot, the \cf2 Mean\cf3 , was added to the scatterplot between \cf2 25 and 27.5\cf3  on the y axis mpg scale\cf0  ***\
+\
+*** \cf3 red Mean dot \cf2 ONLY, \cf3 plotting of the mpg for the 11 4 cylinder cars removed\cf2  \cf0 ***\
+ggplot(subset(mtcars, mtcars$cyl == 4), aes(x = cyl, y = mpg)) + geom_point(stat = 'summary', fun.y = mean, color = 'red')\
+\
+*** \cf3 tying it all together, clean up the y axis\cf0  - \cf2 scale_y_continuous\cf0  ***\
+*** \cf3 limits = c(21, 34) note the 21 is \cf2 LOWER\cf3  than the numerical analysis (\cf2 Min. - 21.4\cf3 ) above \cf0 ***\
+*** \cf3 limits = c(21, 34) note the 34 is \cf2 HIGHER\cf3  than the numerical analysis (\cf2 Max. - 33.9\cf3 ) above \cf0 ***\
+*** \cf3 spanning the numerical \cf2 Min. and Max.\cf3  prevents data loss, with the associated change in the Mean, different numbers yields different Mean\cf0  *** \
+\
+*** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***\
+\cf3 Correct \cf2 limits = c(21, 34)\cf3 , Prevents data loss, with associated Mean change -\cf0  \
+\cf2 Warning messages:\
+1: Removed 1 rows containing non-finite values (stat_summary). \
+2: Removed 1 rows containing missing values (geom_point). \cf0 \
+\
+ggplot(subset(mtcars, mtcars$cyl == 4), aes(x = cyl, y = mpg)) +\
+	geom_point() + geom_point(stat = 'summary', fun.y = mean, color = 'red') +\
+	scale_y_continuous(limits = c(21, 34), breaks = seq(21, 34, .5))\
+\
+*** \cf3 tying it all together, clean up the y axis\cf0  - \cf2 coord_cartesian \cf0  ***\
+*** \cf2 coord_cartesian, \cf3 no loss of data, compare to \cf2 scale_y_continuous\cf0 (limits = c(\cf2 21, 34\cf0 ) possible data loss (...\cf2 Removed 1 rows ...\cf0 )\cf2  \cf0 ***\
+ggplot(subset(mtcars, mtcars$cyl == 4), aes(x = cyl, y = mpg)) +\
+	geom_point() +\
+	geom_point(stat = 'summary', fun.y = mean, color = 'red') +\
+	\cf2 coord_cartesian\cf0 (ylim = c(21, 34)) + scale_y_continuous(breaks = seq(21, 34, .5))\
+\
+*** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***\
+*** \cf3 add another layer, add the Median mpg for the 11 4 cylinder cars\cf0  ***\
+*** \cf3 numerical mtcars summary data analysis \cf2 Median(26) Mean (26.66)\cf3  - plotted - \ul scatterplot\ulnone  \cf0 ***\
+ggplot(subset(mtcars, mtcars$cyl == 4), aes(x = cyl, y = mpg)) +\
+  geom_point() +\
+  geom_point(stat = 'summary', fun.y = mean, color = 'red') +\
+  geom_point(stat = 'summary', fun.y = median, color = 'blue') +\
+  coord_cartesian(ylim = c(24, 31)) + scale_y_continuous(breaks = seq(24, 31, .2))\
+\
+***\
+*** refresh, reload mtcars - 18 February 2017\
+***\
+*** \cf3 Studio Environment right click mtcars \cf2 Reload\cf0  ***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 ***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Smoothing pro_initiated vs. tenure \cf0 7 of 11- 19 February 2017 \
+***
+\f1 \
+# Smooth the last plot you created of\
+# of prop_initiated vs tenure colored by\
+# year_joined.bucket. You can bin together ranges\
+# of tenure or add a smoother to the plot.\
+\
+
+\f3 ggplot(data = pf, aes(x = 
+\f1 cut(pf$tenure,100)
+\f3 , y = prop_initiated)) + geom_line(stat = 'summary', \cf2 fun.y = median\cf0 , aes(color = year_joined.bucket))\
+\
+*** \cf3 You can bin together ranges # of tenure\cf0  ***\
+*** attempt to \cf2 smooth out jagged line, reduce noise\cf0 , concern lose detail ***\
+*** pf$tenure divided by N, rounded then multiplied by N *** *** \cf3 similar to changing binwidth \cf0 ***\
+ggplot(data = pf, aes((30 * round( tenure / 30)), y = prop_initiated)) + geom_line(stat = 'summary', fun.y = median, aes(color = year_joined.bucket))\
+\
+*** add a smoother to the plot ***\
+ggplot(data = pf, aes(x = tenure, y = prop_initiated)) + geom_line(stat = 'summary', \cf2 fun.y = median\cf0 , aes(color = year_joined.bucket)) + geom_smooth()\
+\
+***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Greatest prop_initiated Group \cf0 8 of 11- 19 February 2017 \
+***\
+\
+*** Question 1 - \cf3 Which group initiated the greatest proportion of Facebook friends \cf0 ***\
+*** \cf2 People who joined after 2012\cf3 , see geom_line() plot\cf0  ***\
+\
+*** \cf3 group with largest proportion of friends initiated pf$\cf2 prop_initiated\cf3  \cf0 ***\
+*** \cf2 People who joined after 2012\cf3 , see geom_line() plot\cf0  ***\
+\
+***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Largest Group Mean prop_initiated \cf0 9 of 11- 19 February 2017 \
+***\
+*** Question 2 (mean?) - \cf3 mean\cf0  - \cf2 prop_initiated\cf3  \cf0 ***\
+\
+*** \cf3 gave the correct answer\cf0  ***\
+summary(subset(pf, \cf2 year_joined > 2012\cf0 ))\
+\
+*** \cf3 zero in on prop_initiated, made cut and paste easier\cf0  ***\
+ summary(subset(pf$prop_initiated, \cf2 pf$year_joined > 2012\cf0 ))\
+   Min. 1st Qu.  Median   \cf3  \cf2 Mean\cf0  3rd Qu.    Max.    NA's \
+ 0.0000  0.5115  0.7018  \cf2 0.6654\cf0   0.8490  1.0000    1468 \
+\
+***\
+*** Data Analysis with R - Problem Set: Explore Many Variables - \cf3 Price / Carat Binned, Faceted & Colored \cf0 10 of 11- 20 February 2017 \
+***\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \
+# Create a scatter plot of the price/carat ratio\
+# of diamonds. The variable x should be\
+# assigned to cut. The points should be colored\
+# by diamond color, and the plot should be\
+# faceted by clarity.\
+ \
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 scatter scatterplot, geom_point, think \cf2 geom_jitter()\cf3  also!!, documentation says \cf2 geom_jitter()\cf3  generally more appropriate\cf0  ***\
+*** \cf2 scale_color_brewer(type = 'div')\cf12  - \cf3 not in the course, popped up in the solution\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 ggplot(data = diamonds, aes(x = cut, y = price / carat, color = color)) + \cf2 geom_jitter()\cf0  + facet_wrap(~clarity) + scale_color_brewer(type = 'div')\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  Scatterplot Review\cf0  3 of 25 - 20 February 2017 \
+***\
+*** \cf3 diamonds ships with ggplot2 \cf0  *** \
+# Let's consider the price of a diamond and it's carat weight.\
+# Create a scatterplot of price (y) vs carat weight (x).\
+\
+# Limit the x-axis and y-axis to omit the top 1% of values.\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 Hint: Use the \cf2 quantile()\cf0  function \cf2 inside\cf0  of xlim and ylim to omit the top 1% of values for each variable,\cf2  omit, drop the top 1 percent, one percent\cf0 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf3 first use mtcars \cf2 bar charts\cf3  for a review\cf0  ***\
+*** \cf2 fill\cf3  is the \cf2 interior\cf3  of the bar in the bar chart, \cf2 color\cf3  is the \cf2 perimeter\cf3  of the bar in the bar chart, \cf2 think fill the interior\cf0  ***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 ggplot(mtcars, aes(factor(cyl))) + geom_bar(fill = "blue", color = "red")\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0  *** \cf3 my answer\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + xlim(0, quantile(diamonds$carat, 0.99)) + ylim(0, quantile(diamonds$price, 0.99))\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0  *** \cf3 instuctor answer, \cf2 how to fill with color\cf3 , how to \cf2 color perimeter\cf3 , how to \cf2 shape\cf0  ***
+\f1 \
+ ggplot(data = diamonds, aes(x = carat, y = price)) +\
+  geom_jitter() +\
+  xlim(0, quantile(diamonds$carat, 0.99)) +\
+  ylim(0, quantile(diamonds$price, 0.99)) +\
+  geom_point(fill = I('#F79420'), color = I('black'), shape = 21)\
+\
+
+\f3 *** \cf3 geom_smooth(method = 'lm', color = 'red'), \cf2 "add a linear trend line" \cf3 quote from instructor \cf0 ***
+\f1 \
+  geom_smooth(method = 'lm')\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf2 dplyr\cf3  is the latest version of \cf2 plyr \cf3 that is specifically for working with \cf2 data frames\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 install.packages('\cf2 memisc\cf3 ') - summarize the regression\cf0  ***\
+*** \cf3 install.packages('\cf2 car\cf3 ') - recode variables \cf0  ***\
+*** \cf3 install.packages('\cf2 car\cf3 ') - reshape wrangle data \cf0 ***\
+*** \cf3 install.packages('\cf2 plyr\cf3 ') - interesting summaries, and transformations \cf0 ***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  ggpairs Function \cf0 7 of 25 - 20 February 2017 \
+***
+\f1 \
+\
+
+\f3 *** \cf2 sample\cf0  -\cf3  get 5 rows, all columns, attributes, vectors\cf0  ***\
+*** \cf2 sample\cf0  -\cf3  get 5 rows, 1:5 \cf0  ***\
+*** \cf2 sample\cf0  -\cf3  \cf0 diamonds[ sample(1:5, 
+\f1 \cf2 5
+\f3 \cf0 ), ] that 
+\f1 \cf2 5
+\f3 \cf0  is the tricky 
+\f1 \cf2 5
+\f3 \cf0 , \cf3 limits rows if needed, regardless of what the 
+\f1 \cf2 1:5 returns
+\f3 \cf0  ***\
+diamonds[ sample(1:5, 5), ]\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 *** \cf3 axisLabels = 'internal' argument to your ggpairs function call to have the variable names on the diagonal of the matrix rather than on the outside\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 library(GGally)\
+diamond_samp <- diamonds[sample(1:2, 2),]\
+ggpairs(diamond_samp, lower = list(continous = wrap('points', shape = I('.'))),\
+                      upper = list(combo = wrap('box', outlier.shape = I('.'))), axisLabels = 'internal')\
+\
+*** \cf3 from the video - this is what ggpairs() does, hints here reading the best practices plot based on the type of data\cf0  *** \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 grouped histograms for qualitative - qualitative pairs (y variable is the grouping factor)\
+scatterplots for quantitive - quantitive pairs\
+grouped histograms for qualitative - qualitative pairs (x variable is the grouping factor)\
+boxplots for qualitative - quantitative pairs \
+correlation (Corr) for quantitative quantitative pairs \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  The Demands of Diamonds \cf0 8 of 25 -  20 February 2017 \
+***\
+# Create two histograms of the price variable\
+# and place them side by side on one output image.\
+\
+# We\'92ve put some code below to get you started.\
+\
+# The first plot should be a histogram of price\
+# and the second plot should transform\
+# the price variable using log10.\
+\
+# Set appropriate bin widths for each plot.\
+# ggtitle() will add a title to each histogram.\
+ \
+*** \cf2 note how the instructor handled the log10, \cf3 compared to my answer\cf0  ***\
+*** \cf2 instructor method x axis units 1000, 10000 ... note instructor method, and x axis units\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 my answer\cf0  ***\
+library(gridExtra) \
+plot1 <- ggplot(data = diamonds, aes(x = price)) + geom_histogram() + ggtitle('Price')\
+plot2 <- ggplot(data = diamonds, aes(x = \cf2 log10(price)\cf0 )) + geom_histogram() + ggtitle('Price (log10)')\
+grid.arrange(plot1, plot2)\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 instructor answer\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 library(gridExtra) \
+plot1 <- ggplot(data = diamonds, aes(x = price)) + geom_histogram(binwidth = 100, fill = I('#099DD9')) + ggtitle('Price')\
+plot2 <- ggplot(data = diamonds, aes(\cf3 x = price\cf0 )) + geom_histogram(binwidth = 0.01, fill = I('#F79420')) + \cf2 scale_x_log10()\cf0  + ggtitle('Price (log10)')\
+grid.arrange(plot1, plot2)\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  Scatterplot Transformation \cf0 10 of 25 -  February 2017 \
+***\
+*** \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf12 *** \cf3 Begin - side notes, \cf2 summary()\cf3  discrepancy\cf12  ***\cf3  \
+\
+\cf2 max
+\f3 \cf0 (diamonds$price)\
+[1] 
+\f1 \cf2 18823\cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 \
+>summary(diamonds$price)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+    326     950    2401    3933    5324   
+\f1 \cf2 \ul \ulc2 18820
+\f3 \cf0 \ulnone  - 
+\f1 \cf2 too low 
+\f3 \cf0 \
+> summary(diamonds$price, 
+\f1 \cf2 digits = 5
+\f3 \cf0 )\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+  326.0   950.0  2401.0  3932.8  5324.2 
+\f1 \cf2 18823.0
+\f3 \cf0  \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 *** \cf3 Determines the\cf2  LOCATION\cf3 , i.e., index of the (first) minimum or maximum of a numeric (or logical) vector.\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 > which.max(diamonds$price)\
+[1] 27750\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 *** \cf3 End - side notes, \cf2 summary()\cf3  discrepancy\cf0  ***\cf3  
+\f3 \cf0 \
+\
+\
+*** \cf3 note geom_jitter() alone generates the scatterplot, geom_point not needed()\cf0  ***\
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + ggtitle('Price (log10) by Carat')\
+\
+*** \cf2 log10_trans()\cf3  requires \cf2 library(scales)\cf0  ***\
+library(scales)\
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + scale_y_continuous(trans = log10_trans())  ***\cf3  worked\cf0  ***\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \
+*** \cf3 worked, my code\cf0  ***\
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + scale_y_continuous(trans = log10_trans()) + ggtitle('Price (log10) by Carat')\
+\
+***\cf3  Begin - side notes, what does \cf2 \ul \ulc2 scale_y_continuous()\cf3 \ulnone  do?\cf0  ***\
+*** 
+\f3 \cf2 scale_y_continuous()\cf12  - 
+\f1 \cf3 example\cf0  ***\
+*** \cf3 data loss if limits are greater than \cf2 summary() Min., \cf3 less than\cf2  summary() Min.\cf12  ***\cf0  \
+\pard\pardeftab720\partightenfactor0
+\cf3 \
+\cf2 max
+\f3 \cf0 (diamonds$price)\
+[1] 
+\f1 \cf2 18823\cf3 \
+\cf0 \
+> summary(diamonds$price)\
+   Min. 1st Qu.  Median    Mean 3rd Qu.    \cf2 Max.\cf0  \
+    326     950    2401    3933    5324   \cf2 18820 - bad too low\cf0  \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 > summary(diamonds$price, 
+\f1 \cf2 digits = 5
+\f3 \cf0 ) - 
+\f1 \cf2 fix
+\f3 \cf0 \
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \
+  326.0   950.0  2401.0  3932.8  5324.2 
+\f1 \cf2 \ul \ulc2 18823.0
+\f3 \cf0 \ulnone  \
+\
+*** \cf2 scale_y_continuous()\cf0  - \cf3 no data (row) loss\cf0  ***                                                                                     
+\f1 \cf2 ***
+\f3 \cf0 \
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + scale_y_continuous(limits = c(0, \cf2 \ul \ulc2 18823\cf0 \ulnone ))\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \
+*** \cf3 y scale, y axis units will change based on\cf0  \cf2 scale_y_continuous(limits = c(0, 5000))\cf12  ***\
+\
+***\cf3  \cf2 scale_y_continuous()\cf3  with - limits, and breaks working example\cf0  \cf12 ***\
+ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + scale_y_continuous(limits = c(0, 18823), breaks = seq(0, 18823, 1000))\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+p1 <- ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + scale_y_log10() + ggtitle('Price (log10) by Carat')                           *** \cf2 same scatterplot, my code \cf0 ***\
+p2 <- ggplot(data = diamonds, aes(x = carat, y = price)) + geom_jitter() + scale_y_continuous(trans = log10_trans()) + ggtitle('Price (log10) by Carat') *** \cf2 same scatterplot (instructor) \cf0 ***\
+ \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\cf3  End - side notes, what does \cf2 \ul \ulc2 scale_y_continuous()\cf3 \ulnone  do?\cf0  ***\
+\
+\
+\cf2 transform = function(x) x^(1/3\cf12  - \cf3 Math\cf0 \
+limits = c(9, 100)\
+Limits: 2.08 -- 4.64\
+2.08 * 2.08 * 2.08 = 8.99 ~ 9\
+4.64 * 4.64 * 4.64 = 99.89 ~ 100\
+\
+limits = c(0.2, 3)\
+Limits: 0.585 -- 1.44\
+0.585 * 0.585 * 0.585 =  0.2
+\f0\fs22 \kerning1\expnd0\expndtw0 \
+1.44 * 1.44 * 1.44 = 2.98\
+\
+limits = c(50, 100)\
+3.68 * 3.68 * 3.68 = 49.8\
+
+\f1\fs26 \expnd0\expndtw0\kerning0
+4.64 * 4.64 * 4.64 = 99.89 ~ 100\
+\
+***\
+*** \cf2 cuberoot_trans\cf3  - begin\cf0 \
+***\
+ \
+\cf3 cuberoot\cf0  - merely user defined name \
+\cf2 inverse\cf0  needed to \cf2 DISPLAY\cf0  the plot correctly \
+\
+rm(cuberoot_trans)\
+cuberoot_trans = function() \{trans_new('\cf3 cuberoot\cf0 ',transform = function(x) x^(1/3),\
+                                       \cf2 inverse\cf0  = function(x) x^3\
+) \}\
+p1 <- ggplot(data = diamonds, aes(x = carat, y = price)) + geom_point() +\
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(.2, 3), breaks = c(0.2, 0.5, 1, 2, 3)) + *** \cf3 More complex uses cuberoot_trans function\cf0  ***\
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000), breaks = c(350, 1000, 5000, 10000, 15000)) + ggtitle('Price (log10) by Cube-Root of Carata')\
+\
+p2 <- ggplot(data = diamonds, aes(x = carat, y = price)) + geom_point() +\
+  scale_x_continuous(limits = c(.2, 3), breaks = c(0.2, 0.5, 1, 2, 3)) + *** \cf3 less complex \cf0 ***\
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000), breaks = c(350, 1000, 5000, 10000, 15000)) + ggtitle('Price (log10) by Cube-Root of Caratb')\
+\
+grid.arrange(p1, p2) *** \cf3 plots \cf2 look very similar\cf3  - not 100% sure\cf0  ***\
+\
+***\
+*** \cf2 cuberoot_trans\cf3  - end \cf0 \
+***\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  Scatterplot Transformation \cf0 10 of 25 -  February 2017  \cf2 END\cf0 \
+***
+\f1 \
+\
+
+\f3 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  RStudio functions examples \cf0 22 February 2017 \
+***\
+*** \cf3 RStudio function definition\cf0  ***
+\f1 \
+myMeanAverageFunction <- function(x)  \{\
+  sum(x)/length(x)\
+\}\
+
+\f3 *** \cf3 invoke RStudio function\cf0  ***
+\f1 \
+myMeanAverageFunction(y)\
+\
+
+\f3 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  Overplotting Revisited \cf0 11 of 25 -  23 February 2017\
+***\
+\
+Overplotting - multiple points take on the same vale, this is often due to rounding 
+\f1 \
+\
+\
+ 
+\f3 \
+ 
+\f1 \
+\
+\
 \
 \
 \
