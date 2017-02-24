@@ -1467,8 +1467,8 @@ ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(alpha = 1 / 20, a
 *** \cf2 geom_jitter alone\cf3  gives us the scatterplot,\cf2  geom_point NOT needed\cf0  *** \
 ggplot(data = pf, aes(x = age, y = friend_count)) + \cf2 geom_jitter\cf0 (alpha = 1 / 20, aes(color ='red')) + xlim(13, 90)\
 \
-*** \cf3 instructor example - Data Analysis with R - Alpha and Jitter 7 of 27, \cf2 h = 0, \cf3 minimum height of 0 (zero), prevents getting negative friend counts from the jitter effect. jitter can add both positive and negative noise to each dot\cf0 *** \
-*** \cf3 instructor example - Data Analysis with R - Alpha and Jitter 7 of 27, Used alpha and jitter to over plotting \cf0 *** \
+*** \cf3 instructor example - Data Analysis with R - Alpha and Jitter 7 of 27, \cf2 h = 0, \cf3 minimum height of 0 (zero), prevents getting negative friend counts from the jitter effect. jitter can add both positive and negative noise to each dot \cf0 *** \
+*** \cf3 instructor example - Data Analysis with R - Alpha and Jitter 7 of 27, Used alpha and jitter to mitigate, correct overplotting \cf0 *** \
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(aes(color ='red'), alpha = 1/20, position = position_jitter(\cf2 h = 0\cf0 )) + xlim(13, 90) + coord_trans(x = "sqrt")\
 \
 ***\
@@ -1585,8 +1585,8 @@ ggplot(\cf2 data = pf.fc_by_age\cf0 , aes(x = age, y = friend_count_mean)) + geo
 \
 \pard\pardeftab720\partightenfactor0
 
-\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
-\f3 \
+\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  *** *** 
+\f3 \cf3 position_jitter correct, mitigate overplotting\cf0  ***\
 *** \cf3 original plot - plot of raw data\cf0  ***			*** \cf2 color inside and outside aes()\cf0  ***\
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(\cf2 aes(color ='red')\cf0 , alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt")\
 ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(\cf2 color ='red'\cf0 , alpha = 1/20, position = position_jitter(h = 0)) + xlim(13, 90) + coord_trans(x = "sqrt") *** \cf2 \ul \ulc2 instructor\ulnone  way to get color dots no aes()\cf0  ***\
@@ -1618,7 +1618,10 @@ ggplot(data = pf, aes(x = age, y = friend_count)) + geom_point(color ='red', alp
 \
 \pard\pardeftab720\partightenfactor0
 
-\f1 \cf0 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
+\f1 \cf0 *** 
+\f3 \cf3 position_jitter correct, mitigate overplotting\cf0  ***\
+
+\f1 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
 \f3 \
 *** \cf3 better example below\cf0  ***\
 ggplot(data = pf, aes(x = age, y = friend_count)) +\
@@ -1630,6 +1633,9 @@ ggplot(data = pf, aes(x = age, y = friend_count)) +\
   geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.5), color = 'blue') +\
   geom_line(stat = 'summary', fun.y = quantile, fun.args = list(probs = 0.9), linetype = 2, color = 'blue')\
 \
+
+\f1 *** 
+\f3 \cf3 position_jitter correct, mitigate overplotting\cf0  ***\
 
 \f1 *** \cf3 geom_point() - \cf2 geom_jitter()\cf3  usually more appropriate\cf0  ***
 \f3 \
@@ -3221,7 +3227,7 @@ library(GGally)\
 \pard\pardeftab720\partightenfactor0
 \cf0 *** 
 \f1 \cf2 ggpairs()
-\f3 \cf0  - \cf3 get hints for the best plot based on the type of data\cf0  *** \
+\f3 \cf0  - \cf3 get hints for the best plot based on the type of data, creates lots many plots\cf0  *** \
 \pard\pardeftab720\partightenfactor0
 \cf3 ggpairs\cf0  - \cf2 might be able to use this to determine the best plot, get advice regarding the best plot\cf0  \
 \
@@ -4080,6 +4086,10 @@ limits = c(50, 100)\
 \cf3 cuberoot\cf0  - merely user defined name \
 \cf2 inverse\cf0  needed to \cf2 DISPLAY\cf0  the plot correctly \
 \
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 *** \cf3 work with the required function first\cf0  ***
+\f1 \
 rm(cuberoot_trans)\
 cuberoot_trans = function() \{trans_new('\cf3 cuberoot\cf0 ',transform = function(x) x^(1/3),\
                                        \cf2 inverse\cf0  = function(x) x^3\
@@ -4094,13 +4104,19 @@ p2 <- ggplot(data = diamonds, aes(x = carat, y = price)) + geom_point() +\
 \
 grid.arrange(p1, p2) *** \cf3 plots \cf2 look very similar\cf3  - not 100% sure\cf0  ***\
 \
+*** \cf3 paste of instructor working code - NO editing, from the instructor \cf0 ***\
+ggplot(aes(carat, price), data = diamonds) +\
+  geom_point() +\
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3), breaks = c(0.2, 0.5, 1, 2, 3)) +\
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000), breaks = c(350, 1000, 5000, 10000, 15000)) +\
+  ggtitle('Price (log10) by Cube-Root of Carat')\
+\
 ***\
 *** \cf2 cuberoot_trans\cf3  - end \cf0 \
 ***\
 \
-\pard\pardeftab720\partightenfactor0
 
-\f3 \cf0 ***\
+\f3 ***\
 *** Data Analysis with R - Diamond and Price Predictions -\cf3  Scatterplot Transformation \cf0 10 of 25 -  February 2017  \cf2 END\cf0 \
 ***
 \f1 \
@@ -4124,14 +4140,154 @@ myMeanAverageFunction(y)\
 *** Data Analysis with R - Diamond and Price Predictions -\cf3  Overplotting Revisited \cf0 11 of 25 -  23 February 2017\
 ***\
 \
-Overplotting - multiple points take on the same vale, this is often due to rounding 
-\f1 \
+Overplotting - multiple points take on the same vale, this is often due to rounding \
 \
+> head(diamonds, \cf2 2\cf0 )\
+# A tibble: 2 \'d7 10\
+  \cf2 carat\cf0      cut color clarity depth table price     x     y     z\
+  <dbl>   <ord> <ord>   <ord> <dbl> <dbl> <int> <dbl> <dbl> <dbl>\
+1  \cf2 0.23\cf0    Ideal     E     SI2  61.5    55   326  3.95  3.98  2.43\
+2  \cf2 0.21\cf0  Premium     E     SI1  59.8    61   326  3.89  3.84  2.31\
 \
- 
+> head(diamonds$\cf3 carat\cf0 , \cf2 2\cf0 )\
+[1] \cf2 0.23 0.21\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 \
+*** table - get a count of how many of each ***\
+head(table(diamonds$carat))\
+ 0.2 
+\f3 \cf2 0.21
+\f1 \cf0  0.22 
+\f3 \cf2 0.23
+\f1 \cf0  0.24 0.25 - \cf3 carat column, attribute, vector\cf0  \
+  12    9    5  293  254  212 - \cf3 count how many\cf0   \
+\
+*** \cf2 sort count\cf12  - \cf3 how many diamonds are of that carat \cf0 *** \
+head(sort(table(diamonds$carat), decreasing = T))\
+ 0.3 0.31 1.01  0.7 0.32    1 - \cf3 carat column, attribute, vector\cf0 \
+2604 2249 2242 1981 1840 1558 - \cf3 count how many\cf0  
 \f3 \
- 
-\f1 \
+ \
+
+\f1 *** \cf2 sort count\cf0  - \cf3 how many diamonds are of that price \cf0 *** 
+\f3 \
+head(sort(table(diamonds$price), decreasing = T))\
+605 802 625 828 776 698 
+\f1  - \cf3 price column, attribute, vector
+\f3 \cf0 \
+132 127 126 125 124 121 
+\f1  - \cf3 count how many
+\f3 \cf0  \
+\
+*** \cf3 we sorted decreasing, so we get, see the \cf2 high\cf3  counts\cf0  ***\
+***\cf2  2604\cf3 , \cf2 2249\cf3  ... for carat, \cf2 132\cf3 , \cf2 127\cf3  for price, these high counts are an indication, red flag for overplotting \cf0 ***\
+\
+****\cf3  mitigating or solutions for overplotting - make points smaller by \cf2 jittering\cf3  the points, add transparency using the ggplot \cf2 alpha\cf3  parameter \cf0 ***\
+\
+*** \cf3 overplotting correction mitigation\cf0  ***\
+***\cf2  h = 0, \cf3 minimum height of 0 (zero), prevents getting negative friend counts from the jitter effect. jitter can add both positive and negative noise to each dot \cf0 ***\
+\
+*** \cf3 work with the required function first\cf0  ***\
+rm(cuberoot_trans)\
+cuberoot_trans = function() \{trans_new('cuberoot',transform = function(x) x^(1/3),\
+                                       inverse = function(x) x^3\
+) \}\
+\
+ggplot(aes(carat, price), data = diamonds) +\
+  # geom_point(alpha = 0.5, size = 0.75, position = position_jitter(\cf2 h = 0\cf0 )) +  ***\cf3  my code\cf0 ***\
+  geom_point(alpha = 0.5, size = 0.75, position = 'jitter') + ***\cf3  instructor \cf0 ***\
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3), breaks = c(0.2, 0.5, 1, 2, 3)) +\
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000), breaks = c(350, 1000, 5000, 10000, 15000)) +\
+  ggtitle('Price (log10) by Cube-Root of Carat')\
+\
+***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  Price vs. Carat and Clarity \cf0 12 of 25 -  23 February 2017\
+***\
+\
+\pard\pardeftab720\partightenfactor0
+\cf12 ***\cf3  \cf2 more than two, 2 columns, attributes, vectors\cf12   ***\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+***\cf3  handy color, colour, tool\cf0  *** \
+library(RColorBrewer)\
+display.brewer.all() \
+\
+*** \cf2 color = clarity \cf3 - add color to third 3rd column, attribute, vector, clarity is an "\cf2 ordered factor"\cf3  type, or class, \cf2 adds the 3rd third column, attribute, vector\cf3  \cf0 ***\
+ggplot(aes(x = carat, y = price, \cf2 color = clarity\cf0 ), data = diamonds) +\
+\
+*** \cf2 type = 'div'\cf3  - really breaks out the colors recommended, without it looks ok just blue, not a rainbow of colors \cf0 *** \
+scale_color_brewer(type = 'div'\
+*** \cf3 all three worked, div appears to give the best visual, best looking\cf0  *** \
+*** \cf3 There are 3 types (\cf2 type = ()\cf3 ) of palettes, sequential \cf2 (seq)\cf3 , diverging \cf2 (div)\cf3 , and qualitative \cf2 (qual)\cf0  ***\
+scale_color_brewer(type = '\cf2 div\cf0 ',  scale_color_brewer(type = '\cf2 seq\cf0 ',  scale_color_brewer(type = '\cf2 qual\cf0 ' \
+\
+*** \cf2 reverse = T\cf12  - \cf3 on the right of the scatterplot there is a legend for the \cf2 color vector\cf3  (clarity, cut, color), this legend is in order, top to bottom, better to worse, \cf2 reverse = T\cf0  \cf3 influences the order, use \cf2 reverse = T\cf3 , \cf2 reverse = F\cf3  to reflect the real world \cf12 ***\
+\cf0 *** \cf2 reverse = T, reverse = TRUE, reverse = F, reverse = FALSE\cf0  \cf3 influences top to bottom of color vector legend, to the right of the scatterplot\cf0 ***\
+*** \cf3 use \cf2 reverse = T, reverse = TRUE, reverse = F, reverse = FALSE\cf3  
+\b \ul make legend match the top to bottom scatterplot color distribution
+\b0 \ulnone  \cf0 ***\
+*** for color \cf2 reverse = T\cf0 , \cf3 not needed, for clarity, cut \cf2 reverse = T\cf3  needed \cf0  ***\
+*** \cf2 reverse = T\cf3 , influences the top to bottom, bottom to top of the legend to the right of the scatter plot., \cf2 reverse = FALSE (TRUE)\cf3  works too\cf0  ***\
+*** \cf2 reverse = T\cf3 , in general terms you want the \cf2 "best" \cf3 (cut, clarity, color) on top, use \cf2 reverse = (T or F) \cf12 to accomplish this\cf3  \cf0  ***\
+scale_color_brewer(type = 'div', guide = guide_legend(title = 'Clarity', \cf2 reverse = T\cf0 , override.aes = list(alpha = 1, size = 2)))\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 levels\cf0 (diamonds$\cf2 cut\cf0 ) *** helps understand the legend to the right of the scatterplot \cf2 reverse =\cf0  stuff***\
+[1] "Fair"      "Good"      "Very Good" "Premium"   "Ideal"    \
+\
+*** \cf3 my code\cf0  ***\
+ggplot(aes(x = carat, y = price, color = clarity), data = diamonds) +\
+  geom_point(alpha = 0.5, size = 1, \cf2 position = 'jitter'\cf0 ) +\
+  scale_color_brewer(\cf2 type = 'div'\cf0 , guide = guide_legend(title = 'Clarity', reverse = T, override.aes = list(alpha = 1, size = 2))) +\
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3), breaks = c(0.2, 0.5, 1, 2, 3)) +\
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000), breaks = c(350, 1000, 5000, 10000, 15000)) + ggtitle('Price (log10) by Cube-Root of Carat and Clarity')\
+\
+***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  Price vs. Carat and Cut \cf0 20 of 25 -  23 February 2017\
+***\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf2 \
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 *** \cf2 type = 'div'\cf3  - really breaks out the colors recommended, without it looks ok just blue, not a rainbow of colors \cf0 *** \
+scale_color_brewer(type = 'div'\
+*** \cf3 all three worked, div appears to give the best visual, best looking\cf0  *** \
+*** \cf3 There are 3 types (\cf2 type = ()\cf3 ) of palettes, sequential \cf2 (seq)\cf3 , diverging \cf2 (div)\cf3 , and qualitative \cf2 (qual)\cf0  ***\
+scale_color_brewer(type = '\cf2 div\cf0 ',  scale_color_brewer(type = '\cf2 seq\cf0 ',  scale_color_brewer(type = '\cf2 qual\cf0 ' 
+\f1 \cf2 \
+\
+
+\f3 \cf0 *** \cf2 position = 'jitter'\cf12  - \cf3 one way, method to get jitter, used by \cf2 instructor\cf12  \cf0 ***\
+*** \cf2 geom_jitter - \cf3 (alpha = 1 / 20, aes(color ='red')) - one way, method to get jitter\cf0  ***\
+ggplot(aes(x = carat, y = price, color = \cf2 cut\cf0 ), data = diamonds) +\
+  geom_point(alpha = 0.5, size = 1, \cf2 position = 'jitter'\cf0 ) +\
+  scale_color_brewer(\cf2 type = 'div'\cf0 , guide = guide_legend(title = 'Cut', reverse = T, override.aes = list(alpha = 1, size = 2))) +\
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3), breaks = c(0.2, 0.5, 1, 2, 3)) +\
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000), breaks = c(350, 1000, 5000, 10000, 15000)) + ggtitle('Price (log10) by Cube-Root of Carat and Cut')\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 ***\
+*** Data Analysis with R - Diamond and Price Predictions -\cf3  Building the Linear Module \cf0 15 of 25 -  23 February 2017\
+***\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 install.packages("memisc")\
+library(memisc)\
+\
+m1 <- lm(I(log(price)) ~ I(carat^(1/3)), data=diamonds)\
+m2 <- update(m1, ~ . + carat)\
+\
+mtable(m1)\
+mtable(m2)\
+\
+\
+\
+\
 \
 \
 \
